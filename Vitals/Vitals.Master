@@ -35,7 +35,6 @@
                             <a href="">Main Menu</a>
                             <ul class="sub-menu">
                                 <li><a href="Deaths.aspx">Deaths</a></li>
-                                <li><a href="">Birth</a></li>
                                 <li><a href="Marriages.aspx">Marriages</a></li>
                             </ul>
                         </li>

@@ -9,7 +9,9 @@ namespace Vitals.Models
         public class VCFile
         {
             public int VC_CntlLast_I_RegNo { get; set; }
+            public int VC_Year_Inside { get; set; }
             public int VC_CntlLast_O_RegNo { get; set; }
+            public int VC_Year_Outside { get; set; }
             public int VC_CntlLast_S_RegNo { get; set; }
             public int VC_CntlLast_M_RegNo { get; set; }
             public int VC_CntlLast_B_RegNo { get; set; }
@@ -17,7 +19,8 @@ namespace Vitals.Models
             public int VC_Cntl_DeptNo { get; set; }
             public int VC_Cntl_AccNo { get; set; }
             public decimal VC_CntlBur_PermitPrice { get; set; }
-            public decimal VC_CntlMarriage_CertPrice { get; set; }
+            public decimal VC_Residant_Marriage_Licence { get; set; }
+            public decimal VC_Non_Residant_Marriage_Licence { get; set; }
             public string VC_Town { get; set; }
             public string VC_Region { get; set; }
             public string VC_ProvShort { get; set; }
