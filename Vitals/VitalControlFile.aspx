@@ -5,15 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div align="center" style="width: 100%; height: 70%; padding: 15px 20px; margin-top: 50px;">
-                    <div class="form-head form-group" style="background-color: #777; color: white; padding: 18px; width: 100%; border: none; text-align: center; outline: none; font-size: 15px;">
+        <div class="row" style="padding-top: 8%;">
+            <div class="col-md-12" style="border-style: groove; border-bottom: none;">
+                <div align="center" style="width: 100%; height: 70%; padding: 15px 20px;">
+                    <div class="form-head form-group" style="background-color: #777; color: white; padding: 10px; width: 100%; border: none; text-align: center; outline: none; font-size: 15px;">
                         <h3>Vital Control File</h3>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" style="border-style: groove; border-top: none;">
                 <div style="margin-top: -20px; width: 100%; border: thin; border-color: black; padding: 15px 20px; color: #005595; font-family: Arial; font-size: 16px;">
                     <asp:Label ID="lblMsg" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label><br />
                     <div class="form-group row">
@@ -24,38 +24,52 @@
 
                             </div>
                         </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <asp:Label ID="Label6" runat="server" Text="Year(Inside):"></asp:Label>
+                                <asp:TextBox ID="Year_Inside" class="form-control" runat="server"></asp:TextBox>
+
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <asp:Label ID="Label2" runat="server" Text="Last Number for Death Outside Town:"></asp:Label>
                                 <asp:TextBox ID="LastDeathOutside" class="form-control" runat="server" placeholder="0"></asp:TextBox>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="form-group">
-                                <asp:Label ID="Label3" runat="server" Text="Last Number for Still Births."></asp:Label>
-                                <asp:TextBox ID="Lastbirths" class="form-control" runat="server" placeholder="0"></asp:TextBox>
+                                <asp:Label ID="Label16" runat="server" Text="Year(Outside):"></asp:Label>
+                                <asp:TextBox ID="Year_Outside" class="form-control" runat="server"></asp:TextBox>
+
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-4">
                             <div class="form-group">
+                                <asp:Label ID="Label3" runat="server" Text="Last Number for Still Births."></asp:Label>
+                                <asp:TextBox ID="Stillbirths" class="form-control" runat="server" placeholder="0"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
                                 <asp:Label ID="Label4" runat="server" Text="Last Number for Marriage:"></asp:Label>
                                 <asp:TextBox ID="LastMarriage" class="form-control" runat="server" placeholder="0"></asp:TextBox>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <%-- <div class="col-md-4">
                             <div class="form-group">
                                 <asp:Label ID="Label5" runat="server" Text="Last Number for Birth Registration:"></asp:Label>
                                 <asp:TextBox ID="LastBirthRegistration" class="form-control" runat="server" placeholder="0"></asp:TextBox>
                             </div>
-                        </div>
-                        <div class="col-md-4">
+                        </div>--%>
+                        <%--<div class="col-md-4">
                             <div class="form-group">
                                 <asp:Label ID="Label6" runat="server" Text="Last Number for Incomplete Reg."></asp:Label>
                                 <asp:TextBox ID="LastIncompleteReg" class="form-control" runat="server" placeholder="0"></asp:TextBox>
                             </div>
-                        </div>
+                        </div>--%>
                     </div>
                     <div class="form-group row">
                         <div class="col-md-6">
@@ -91,7 +105,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <asp:Label ID="Label10" runat="server" Text="Marriage Certificate Price:"></asp:Label>
+                                <asp:Label ID="Label10" runat="server" Text="Marriage Licence (Resident):"></asp:Label>
                                 <%-- <asp:TextBox ID="MarriageCertificatePrice" class="form-control" runat="server" 
                                     placeholder="Marriage Certificate Price" ></asp:TextBox>--%>
                                 <div class="input-group mb-3">
@@ -99,7 +113,7 @@
                                         <span class="input-group-text">$</span>
                                     </div>
                                     <%--<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">--%>
-                                    <asp:TextBox ID="MarriageCertificatePrice" class="form-control" runat="server"
+                                    <asp:TextBox ID="MarriageLicence1" class="form-control" runat="server"
                                         placeholder="0.00"></asp:TextBox>
                                     <%--<div class="input-group-append">
                                         <span class="input-group-text">.00</span>
@@ -109,12 +123,30 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <asp:Label ID="Label11" runat="server" Text="Name of Town/City:"></asp:Label>
-                                <asp:TextBox ID="NameofTown" class="form-control" runat="server" placeholder="Name of Town/City"></asp:TextBox>
+                                <asp:Label ID="Label5" runat="server" Text="Marriage Licence (Non Resident):"></asp:Label>
+                                <%-- <asp:TextBox ID="MarriageCertificatePrice" class="form-control" runat="server" 
+                                    placeholder="Marriage Certificate Price" ></asp:TextBox>--%>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">$</span>
+                                    </div>
+                                    <%--<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">--%>
+                                    <asp:TextBox ID="MarriageLicence2" class="form-control" runat="server"
+                                        placeholder="0.00"></asp:TextBox>
+                                    <%--<div class="input-group-append">
+                                        <span class="input-group-text">.00</span>
+                                    </div>--%>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <asp:Label ID="Label11" runat="server" Text="Name of Town/City:"></asp:Label>
+                                <asp:TextBox ID="NameofTown" class="form-control" runat="server" placeholder="Name of Town/City"></asp:TextBox>
+                            </div>
+                        </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <asp:Label ID="Label12" runat="server" Text="Name of Region/County:"></asp:Label>
@@ -127,15 +159,15 @@
                                 <asp:TextBox ID="RegisterNumber" class="form-control" runat="server" placeholder="Register Number"></asp:TextBox>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="form-group row">
                         <div class="col-md-4">
                             <div class="form-group">
                                 <asp:Label ID="Label14" runat="server" Text="Application Title:"></asp:Label>
                                 <asp:TextBox ID="ApplicationTitle" class="form-control" runat="server" placeholder="Application Title"></asp:TextBox>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="form-group row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <asp:Label ID="Label15" runat="server" Text="Look up Province/State:"></asp:Label>
@@ -143,14 +175,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-md-6">
-                            <div class="form-group" style="text-align: right">
-                                <asp:Button runat="server" ID="submit" Text="Save" CssClass="btn btn-primary"
-                                    OnClick="submit_Click" />
+                </div>
+                <div class="col-md-12" >
+                    <div class="form-group" align="center">
 
-                            </div>
-                        </div>
+                        <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-small btn-primary" OnClick="submit_Click">
+                            <i class="fa fa-save"></i>&nbsp;Save</asp:LinkButton>
                     </div>
                 </div>
             </div>

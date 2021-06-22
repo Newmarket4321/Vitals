@@ -1,0 +1,976 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="Marriages">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>5fc6b247-7e58-446b-8237-e1029aa53283</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Marriagesreports">
+      <Query>
+        <DataSourceName>Marriages</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="M_Reg_Year">
+          <DataField>M_Reg_Year</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_No">
+          <DataField>M_Reg_No</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Letter">
+          <DataField>M_Reg_Letter</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Cert_No">
+          <DataField>M_Reg_Cert_No</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_First_Name_F">
+          <DataField>M_Reg_First_Name_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Address_Same">
+          <DataField>M_Reg_Address_Same</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Last_Name_F">
+          <DataField>M_Reg_Last_Name_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Middle_name_F">
+          <DataField>M_Reg_Middle_name_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_House_No_F">
+          <DataField>M_Reg_House_No_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_St_Name_F">
+          <DataField>M_Reg_St_Name_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Unit_F">
+          <DataField>M_Reg_Unit_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_City_F">
+          <DataField>M_Reg_City_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Prov_F">
+          <DataField>M_Reg_Prov_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Country_F">
+          <DataField>M_Reg_Country_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_PC_F">
+          <DataField>M_Reg_PC_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_First_Name_M">
+          <DataField>M_Reg_First_Name_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Last_Name_M">
+          <DataField>M_Reg_Last_Name_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Middle_name_M">
+          <DataField>M_Reg_Middle_name_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_House_No_M">
+          <DataField>M_Reg_House_No_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_St_Name_M">
+          <DataField>M_Reg_St_Name_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Unit_M">
+          <DataField>M_Reg_Unit_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_City_M">
+          <DataField>M_Reg_City_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Prov_M">
+          <DataField>M_Reg_Prov_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Country_M">
+          <DataField>M_Reg_Country_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_PC_M">
+          <DataField>M_Reg_PC_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Issued">
+          <DataField>M_Reg_Issued</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Place_Of_Marriage">
+          <DataField>M_Reg_Place_Of_Marriage</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Date_Of_Marriage">
+          <DataField>M_Reg_Date_Of_Marriage</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="M_Marriage_Status_F">
+          <DataField>M_Marriage_Status_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Court_File_No_F">
+          <DataField>M_Reg_Court_File_No_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Mun_Granted_F">
+          <DataField>M_Reg_Mun_Granted_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_DOB_F">
+          <DataField>M_Reg_DOB_F</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Religion_F">
+          <DataField>M_Reg_Religion_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Age_F">
+          <DataField>M_Reg_Age_F</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Place_Of_Birth_F">
+          <DataField>M_Reg_Place_Of_Birth_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_First_Name_F">
+          <DataField>M_Reg_POP_First_Name_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_Prov_F">
+          <DataField>M_Reg_POP_Prov_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_Last_Name_F">
+          <DataField>M_Reg_POP_Last_Name_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_First_Name_F">
+          <DataField>M_Reg_MOM_First_Name_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_Last_Name_F">
+          <DataField>M_Reg_MOM_Last_Name_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Marriage_Status_M">
+          <DataField>M_Marriage_Status_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_Prov_F">
+          <DataField>M_Reg_MOM_Prov_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Court_File_No_M">
+          <DataField>M_Reg_Court_File_No_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Mun_Granted_M">
+          <DataField>M_Reg_Mun_Granted_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_DOB_M">
+          <DataField>M_Reg_DOB_M</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Religion_M">
+          <DataField>M_Reg_Religion_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Age_M">
+          <DataField>M_Reg_Age_M</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Place_Of_Birth_M">
+          <DataField>M_Reg_Place_Of_Birth_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_First_Name_M">
+          <DataField>M_Reg_POP_First_Name_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_Last_Name_M">
+          <DataField>M_Reg_POP_Last_Name_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_First_Name_M">
+          <DataField>M_Reg_MOM_First_Name_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_Prov_M">
+          <DataField>M_Reg_POP_Prov_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_Last_Name_M">
+          <DataField>M_Reg_MOM_Last_Name_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_Prov_M">
+          <DataField>M_Reg_MOM_Prov_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_TelePhone_No_F">
+          <DataField>M_Reg_TelePhone_No_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Telephone_No_M">
+          <DataField>M_Reg_Telephone_No_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Applicant">
+          <DataField>M_Reg_Applicant</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_First_Name_Sur_F">
+          <DataField>M_Reg_POP_First_Name_Sur_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_Last_Name_Sur_F">
+          <DataField>M_Reg_POP_Last_Name_Sur_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_Prov_Sur_F">
+          <DataField>M_Reg_POP_Prov_Sur_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_Last_Name_Sur_F">
+          <DataField>M_Reg_MOM_Last_Name_Sur_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_First_Name_Sur_F">
+          <DataField>M_Reg_MOM_First_Name_Sur_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_Prov_Sur_F">
+          <DataField>M_Reg_MOM_Prov_Sur_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_First_Name_Sur_M">
+          <DataField>M_Reg_POP_First_Name_Sur_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_Last_Name_Sur_M">
+          <DataField>M_Reg_POP_Last_Name_Sur_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_POP_Prov_Sur_M">
+          <DataField>M_Reg_POP_Prov_Sur_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_First_Name_Sur_M">
+          <DataField>M_Reg_MOM_First_Name_Sur_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_Last_Name_Sur_M">
+          <DataField>M_Reg_MOM_Last_Name_Sur_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_MOM_Prov_Sur_M">
+          <DataField>M_Reg_MOM_Prov_Sur_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Country_Granted_F">
+          <DataField>M_Reg_Country_Granted_F</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="M_Reg_Country_Granted_M">
+          <DataField>M_Reg_Country_Granted_M</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Marriages</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\kpatel\source\UI_Vital\Vitals\Vitals\Reports\Marriages.xsd</rd:SchemaPath>
+        <rd:TableName>ReportMarriage</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ReportMarriageTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix2">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>2.78629cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>5.67594cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>7.64633cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>3.82927cm</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.24177cm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>1.16092cm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="M_Reg_No">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=RowNumber("Marriagesreports")</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!M_Reg_No.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>M_Reg_No</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053cm</PaddingLeft>
+                            <PaddingRight>0.053cm</PaddingRight>
+                            <PaddingTop>0.053cm</PaddingTop>
+                            <PaddingBottom>0.053cm</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!M_Reg_Last_Name_M.Value+", "+Fields!M_Reg_First_Name_M.Value +
+IIf(Fields!M_Reg_Middle_name_M.Value = "", "", Fields!M_Reg_Middle_name_M.Value)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!M_Reg_Last_Name_F.Value+", "+Fields!M_Reg_First_Name_F.Value +
+IIf(Fields!M_Reg_Middle_name_F.Value = "", "", Fields!M_Reg_Middle_name_F.Value)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053cm</PaddingLeft>
+                            <PaddingRight>0.053cm</PaddingRight>
+                            <PaddingTop>0.053cm</PaddingTop>
+                            <PaddingBottom>0.053cm</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox7">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!M_Reg_House_No_M.Value +" "+
+Fields!M_Reg_St_Name_M.Value + 
+IIF(Fields!M_Reg_Unit_M.Value = "" ,"" ,", "+Fields!M_Reg_Unit_M.Value)+", "+
+Fields!M_Reg_City_M.Value +", "+
+Fields!M_Reg_Prov_M.Value+" "+
+Fields!M_Reg_PC_M.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(Fields!M_Reg_Address_Same.Value = "Y","Same",
+Fields!M_Reg_House_No_F.Value +" "+
+Fields!M_Reg_St_Name_F.Value + 
+IIF(Fields!M_Reg_Unit_F.Value = "" ,"" ,", "+Fields!M_Reg_Unit_F.Value)+", "+
+Fields!M_Reg_City_F.Value +", "+
+Fields!M_Reg_Prov_F.Value+" "+
+Fields!M_Reg_PC_F.Value)</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox7</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053cm</PaddingLeft>
+                            <PaddingRight>0.053cm</PaddingRight>
+                            <PaddingTop>0.053cm</PaddingTop>
+                            <PaddingBottom>0.053cm</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="M_Reg_Issued">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!M_Reg_Issued.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>M_Reg_Issued</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053cm</PaddingLeft>
+                            <PaddingRight>0.053cm</PaddingRight>
+                            <PaddingTop>0.053cm</PaddingTop>
+                            <PaddingBottom>0.053cm</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="M_Reg_Cert_No">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!M_Reg_Cert_No.Value</Value>
+                                  <Style>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>M_Reg_Cert_No</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053cm</PaddingLeft>
+                            <PaddingRight>0.053cm</PaddingRight>
+                            <PaddingTop>0.053cm</PaddingTop>
+                            <PaddingBottom>0.053cm</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
+            <DataSetName>Marriagesreports</DataSetName>
+            <Top>0.14111cm</Top>
+            <Left>0.05414cm</Left>
+            <Height>1.16092cm</Height>
+            <Width>22.1796cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+        </ReportItems>
+        <Height>1.724in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Width>1pt</Width>
+          </BottomBorder>
+        </Style>
+      </Body>
+      <Width>8.78093in</Width>
+      <Page>
+        <PageHeader>
+          <Height>2.46cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value> Marriages </Value>
+                      <Style>
+                        <FontSize>14pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Parameters!M_Reg_Year.Value</Value>
+                      <Style>
+                        <FontSize>14pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.381cm</Top>
+              <Left>9.34721cm</Left>
+              <Height>0.6cm</Height>
+              <Width>3.93131cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <BottomBorder>
+                  <Color>Black</Color>
+                  <Style>Solid</Style>
+                  <Width>1pt</Width>
+                </BottomBorder>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox3">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>REC. NUMBER</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>REG. NUMBER</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox3</rd:DefaultName>
+              <Top>1.30589cm</Top>
+              <Left>0.00001cm</Left>
+              <Height>0.92633cm</Height>
+              <Width>2.78629cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>0.053cm</PaddingLeft>
+                <PaddingRight>0.053cm</PaddingRight>
+                <PaddingTop>0.053cm</PaddingTop>
+                <PaddingBottom>0.053cm</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>NAME</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox4</rd:DefaultName>
+              <Top>1.30589cm</Top>
+              <Left>2.7863cm</Left>
+              <Height>0.92633cm</Height>
+              <Width>5.67594cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>0.053cm</PaddingLeft>
+                <PaddingRight>0.053cm</PaddingRight>
+                <PaddingTop>0.053cm</PaddingTop>
+                <PaddingBottom>0.053cm</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox6">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>ADDRESS</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox6</rd:DefaultName>
+              <Top>1.30589cm</Top>
+              <Left>8.46224cm</Left>
+              <Height>0.92633cm</Height>
+              <Width>7.64633cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>0.053cm</PaddingLeft>
+                <PaddingRight>0.053cm</PaddingRight>
+                <PaddingTop>0.053cm</PaddingTop>
+                <PaddingBottom>0.053cm</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox8">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>         DATE ISSUED</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox8</rd:DefaultName>
+              <Top>1.30589cm</Top>
+              <Left>16.10857cm</Left>
+              <Height>0.92633cm</Height>
+              <Width>3.82927cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>0.053cm</PaddingLeft>
+                <PaddingRight>0.053cm</PaddingRight>
+                <PaddingTop>0.053cm</PaddingTop>
+                <PaddingBottom>0.053cm</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox9">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>     LICENCE</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>     NUMBER</Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox9</rd:DefaultName>
+              <Top>1.30589cm</Top>
+              <Left>19.93784cm</Left>
+              <Height>0.92633cm</Height>
+              <Width>2.2959cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>0.053cm</PaddingLeft>
+                <PaddingRight>0.053cm</PaddingRight>
+                <PaddingTop>0.053cm</PaddingTop>
+                <PaddingBottom>0.053cm</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Line Name="Line1">
+              <Top>2.26751cm</Top>
+              <Left>0.00001cm</Left>
+              <Height>0cm</Height>
+              <Width>22.30354cm</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+            </Line>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>1.51749cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Line Name="Line2">
+              <Top>0.17639cm</Top>
+              <Height>0cm</Height>
+              <Width>22.30355cm</Width>
+              <Style>
+                <Border>
+                  <Style>Solid</Style>
+                </Border>
+              </Style>
+            </Line>
+            <Textbox Name="Textbox2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>                          Marriage Registration </Value>
+                      <Style />
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Parameters!M_Reg_Year.Value</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox2</rd:DefaultName>
+              <Top>0.28222cm</Top>
+              <Left>15.34162cm</Left>
+              <Height>0.6cm</Height>
+              <Width>6.96194cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="PageNumber">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>                           Page </Value>
+                      <Style />
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Globals!PageNumber</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>PageNumber</rd:DefaultName>
+              <Top>0.88222cm</Top>
+              <Left>18.25631cm</Left>
+              <Height>0.45183cm</Height>
+              <Width>3.97744cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <PageHeight>19.296cm</PageHeight>
+        <PageWidth>26.296cm</PageWidth>
+        <LeftMargin>2cm</LeftMargin>
+        <RightMargin>0.053cm</RightMargin>
+        <TopMargin>2cm</TopMargin>
+        <BottomMargin>0.053cm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="M_Reg_Year">
+      <DataType>Integer</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>M_Reg_Year</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>8052c2be-ab98-431b-8317-afa368fea51f</rd:ReportID>
+</Report>

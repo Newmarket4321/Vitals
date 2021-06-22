@@ -1,0 +1,1813 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix4">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>18.7717cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>20.35484cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle3">
+                      <ReportItems>
+                        <Textbox Name="Textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Notice of Registration of Death or Stillbirth to the Division Registrar of</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <Left>0.117cm</Left>
+                          <Height>0.476cm</Height>
+                          <Width>12.249cm</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="D_Municipality">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!D_Municipality.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>D_Municipality</rd:DefaultName>
+                          <Top>0.847cm</Top>
+                          <Left>0.143cm</Left>
+                          <Height>0.688cm</Height>
+                          <Width>17.487cm</Width>
+                          <ZIndex>1</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox17">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>The following are the particulars of a death or stillbirth that occurred in your division but that has been registered by this office:</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox17</rd:DefaultName>
+                          <Top>1.693cm</Top>
+                          <Left>0.117cm</Left>
+                          <Height>0.899cm</Height>
+                          <Width>17.54cm</Width>
+                          <ZIndex>2</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox18">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>1. Name of Deceased</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox18</rd:DefaultName>
+                          <Top>2.646cm</Top>
+                          <Left>0.117cm</Left>
+                          <Height>0.45cm</Height>
+                          <Width>4.444cm</Width>
+                          <ZIndex>3</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox19">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIf(Fields!D_Reg_type.Value="O",Fields!D_Reg_Last_Name.Value &amp;", "&amp;
+Fields!D_Reg_First_Name.Value &amp; " " &amp; Fields!D_Reg_Middle_name.Value,"")</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Top>3.016cm</Top>
+                          <Left>4.059cm</Left>
+                          <Height>0.688cm</Height>
+                          <Width>9.95cm</Width>
+                          <ZIndex>4</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox20">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>or Name of Stillborn child</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox20</rd:DefaultName>
+                          <Top>3.757cm</Top>
+                          <Left>6.599cm</Left>
+                          <Height>0.476cm</Height>
+                          <Width>4.392cm</Width>
+                          <ZIndex>5</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line1">
+                          <Top>4.921cm</Top>
+                          <Left>0.09cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.567cm</Width>
+                          <ZIndex>6</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox21">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIf(Fields!D_Reg_type.Value="S",Fields!D_Reg_Last_Name.Value &amp;", "&amp;
+Fields!D_Reg_First_Name.Value &amp; " " &amp; Fields!D_Reg_Middle_name.Value,"")</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox21</rd:DefaultName>
+                          <Top>4.259cm</Top>
+                          <Left>4.053cm</Left>
+                          <Height>0.582cm</Height>
+                          <Width>9.95cm</Width>
+                          <ZIndex>7</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox23">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>2. Date of Death</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox23</rd:DefaultName>
+                          <Top>5.026cm</Top>
+                          <Left>0.143cm</Left>
+                          <Height>0.49cm</Height>
+                          <Width>3.201cm</Width>
+                          <ZIndex>8</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox24">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>or</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <Top>5.026cm</Top>
+                          <Left>8.768cm</Left>
+                          <Height>0.529cm</Height>
+                          <Width>0.556cm</Width>
+                          <ZIndex>9</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox25">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Date of Still Birth</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox25</rd:DefaultName>
+                          <Top>5.026cm</Top>
+                          <Left>13.344cm</Left>
+                          <Height>0.49cm</Height>
+                          <Width>4.392cm</Width>
+                          <ZIndex>10</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="D_Reg_Died">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!D_Reg_Died.Value</Value>
+                                  <Style>
+                                    <FontSize>12pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>D_Reg_Died</rd:DefaultName>
+                          <Top>5.529cm</Top>
+                          <Left>5.778cm</Left>
+                          <Height>0.741cm</Height>
+                          <Width>6.333cm</Width>
+                          <ZIndex>11</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line2">
+                          <Top>6.27cm</Top>
+                          <Left>0.117cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.513cm</Width>
+                          <ZIndex>12</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox27">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>3. Sex</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox27</rd:DefaultName>
+                          <Top>6.402cm</Top>
+                          <Left>0.09cm</Left>
+                          <Height>0.608cm</Height>
+                          <Width>1.878cm</Width>
+                          <ZIndex>13</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="D_Reg_Sex">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!D_Reg_Sex.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>D_Reg_Sex</rd:DefaultName>
+                          <Top>6.905cm</Top>
+                          <Left>7.577cm</Left>
+                          <Height>0.529cm</Height>
+                          <Width>3cm</Width>
+                          <ZIndex>14</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox30">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>4. Place of Death</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox30</rd:DefaultName>
+                          <Top>7.593cm</Top>
+                          <Left>0.065cm</Left>
+                          <Height>0.58167cm</Height>
+                          <Width>4.10867cm</Width>
+                          <ZIndex>15</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line3">
+                          <Top>7.53983cm</Top>
+                          <Left>0.144cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.513cm</Width>
+                          <ZIndex>16</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox26">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>or</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <Top>7.54cm</Top>
+                          <Left>8.768cm</Left>
+                          <Height>0.529cm</Height>
+                          <Width>0.556cm</Width>
+                          <ZIndex>17</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox32">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>place of stillborn</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox32</rd:DefaultName>
+                          <Top>7.593cm</Top>
+                          <Left>13.344cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>4.286cm</Width>
+                          <ZIndex>18</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="D_Reg_Place_Of_Death">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!D_Reg_Place_Of_Death.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>D_Reg_Place_Of_Death</rd:DefaultName>
+                          <Top>8.333cm</Top>
+                          <Left>0.091cm</Left>
+                          <Height>0.608cm</Height>
+                          <Width>17.63cm</Width>
+                          <ZIndex>19</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line5">
+                          <Top>8.942cm</Top>
+                          <Left>0.118cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.603cm</Width>
+                          <ZIndex>20</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox34">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>5. Address of Deceased</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox34</rd:DefaultName>
+                          <Top>8.97628cm</Top>
+                          <Left>0.065cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>4.10867cm</Width>
+                          <ZIndex>21</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox35">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Permanent address of mother or stillborn</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox35</rd:DefaultName>
+                          <Top>9.01156cm</Top>
+                          <Left>10.169cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>7.461cm</Width>
+                          <ZIndex>22</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox28">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>or</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <Top>8.968cm</Top>
+                          <Left>8.768cm</Left>
+                          <Height>0.529cm</Height>
+                          <Width>0.556cm</Width>
+                          <ZIndex>23</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox37">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!D_Reg_House_No.Value +" " +
+Fields!D_Reg_St_Name.Value +
+IIF(Fields!D_Reg_Unit.Value = "" ,"" ,", "+ Fields!D_Reg_Unit.Value) +", "+
+Fields!D_Reg_City.Value +", "+
+Fields!D_Reg_Prov.Value + " "+
+Fields!D_Reg_PC.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox37</rd:DefaultName>
+                          <Top>9.587cm</Top>
+                          <Left>0.202cm</Left>
+                          <Height>0.714cm</Height>
+                          <Width>17.365cm</Width>
+                          <ZIndex>24</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line6">
+                          <Top>10.476cm</Top>
+                          <Left>0.118cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.603cm</Width>
+                          <ZIndex>25</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox38">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>6. Cause of Death</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox38</rd:DefaultName>
+                          <Top>10.51128cm</Top>
+                          <Left>0.09cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>4.08367cm</Width>
+                          <ZIndex>26</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox39">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>or cause of stillbirth</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox39</rd:DefaultName>
+                          <Top>10.51128cm</Top>
+                          <Left>13.344cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>4.313cm</Width>
+                          <ZIndex>27</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox29">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>or</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox24</rd:DefaultName>
+                          <Top>10.54656cm</Top>
+                          <Left>8.768cm</Left>
+                          <Height>0.529cm</Height>
+                          <Width>0.556cm</Width>
+                          <ZIndex>28</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox42">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Not required to report</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox42</rd:DefaultName>
+                          <Top>11.196cm</Top>
+                          <Left>3.017cm</Left>
+                          <Height>0.601cm</Height>
+                          <Width>11.998cm</Width>
+                          <ZIndex>29</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line7">
+                          <Top>11.958cm</Top>
+                          <Left>0.117cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.567cm</Width>
+                          <ZIndex>30</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox43">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>7. Name and address of Informant</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox43</rd:DefaultName>
+                          <Top>11.958cm</Top>
+                          <Left>0.065cm</Left>
+                          <Height>0.52917cm</Height>
+                          <Width>5.675cm</Width>
+                          <ZIndex>31</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox44">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Not required to report</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox42</rd:DefaultName>
+                          <Top>12.593cm</Top>
+                          <Left>3.017cm</Left>
+                          <Height>0.601cm</Height>
+                          <Width>11.998cm</Width>
+                          <ZIndex>32</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line8">
+                          <Top>13.466cm</Top>
+                          <Left>0.143cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.578cm</Width>
+                          <ZIndex>33</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox45">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>8. Name and address of doctor</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox45</rd:DefaultName>
+                          <Top>13.571cm</Top>
+                          <Left>0.065cm</Left>
+                          <Height>0.5365cm</Height>
+                          <Width>5.08233cm</Width>
+                          <ZIndex>34</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox46">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>="Dr. " + Fields!D_Reg_First_Name1.Value +" "+ Fields!D_Reg_Last_Name1.Value +", "+
+Fields!D_Reg_House_No1.Value +" "+Fields!D_Reg_St_Name1.Value +
+IIf(Fields!D_Reg_Unit1.Value ="","Unit ",Fields!D_Reg_Unit1.Value) +" "+
+Fields!D_Reg_City1.Value +", "+
+Fields!D_Reg_Prov1.Value +" "+Fields!D_Reg_PC1.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox46</rd:DefaultName>
+                          <Top>14.101cm</Top>
+                          <Left>0.038cm</Left>
+                          <Height>0.82cm</Height>
+                          <Width>17.603cm</Width>
+                          <ZIndex>35</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line9">
+                          <Top>15.09739cm</Top>
+                          <Left>0.143cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.593cm</Width>
+                          <ZIndex>36</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox47">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>9. Name and address of funeral director</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox47</rd:DefaultName>
+                          <Top>15.16794cm</Top>
+                          <Left>0.065cm</Left>
+                          <Height>0.51533cm</Height>
+                          <Width>6.58517cm</Width>
+                          <ZIndex>37</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox48">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!F_Reg_Funeral_Home.Value + ", " + Fields!F_Reg_House_No.Value
++ " " + Fields!F_Reg_St_Name.Value + 
+IIf(Fields!F_Reg_Unit.Value = "", "Unit ", Fields!F_Reg_Unit.Value)+ ", " + 
+Fields!F_Reg_City.Value+ ", " + Fields!F_Reg_Prov.Value +" "+Fields!F_Reg_PC.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox46</rd:DefaultName>
+                          <Top>15.688cm</Top>
+                          <Left>0.118cm</Left>
+                          <Height>0.794cm</Height>
+                          <Width>17.539cm</Width>
+                          <ZIndex>38</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line10">
+                          <Top>16.508cm</Top>
+                          <Left>0.118cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.618cm</Width>
+                          <ZIndex>39</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox49">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>10. Date of Registration</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox49</rd:DefaultName>
+                          <Top>16.54328cm</Top>
+                          <Left>0.027cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>4.14667cm</Width>
+                          <ZIndex>40</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="D_Reg_Date">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!D_Reg_Date.Value</Value>
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>D_Reg_Date</rd:DefaultName>
+                          <Top>17.17856cm</Top>
+                          <Left>0.144cm</Left>
+                          <Height>0.714cm</Height>
+                          <Width>17.513cm</Width>
+                          <ZIndex>41</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line11">
+                          <Top>18.016cm</Top>
+                          <Left>0.143cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.593cm</Width>
+                          <ZIndex>42</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Textbox Name="Textbox51">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Signature of Division Registrar
+
+
+</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Deputy Division Registrar</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox51</rd:DefaultName>
+                          <Top>18.175cm</Top>
+                          <Left>0.143cm</Left>
+                          <Height>2.169cm</Height>
+                          <Width>6.894cm</Width>
+                          <ZIndex>43</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox52">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Registration Division</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!R_N.Value</Value>
+                                  <Style />
+                                </TextRun>
+                                <TextRun>
+                                  <Value xml:space="preserve">
+</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox52</rd:DefaultName>
+                          <Top>18.175cm</Top>
+                          <Left>7.037cm</Left>
+                          <Height>2.169cm</Height>
+                          <Width>6.39372cm</Width>
+                          <ZIndex>44</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Textbox Name="Textbox53">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value> Date</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value />
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=format(CDate(today), "MMM dd, yyyy")</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox53</rd:DefaultName>
+                          <Top>18.175cm</Top>
+                          <Left>13.43072cm</Left>
+                          <Height>2.169cm</Height>
+                          <Width>4.26828cm</Width>
+                          <ZIndex>45</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>0.053pt</PaddingLeft>
+                            <PaddingRight>0.053pt</PaddingRight>
+                            <PaddingTop>0.053pt</PaddingTop>
+                            <PaddingBottom>0.053pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                        <Line Name="Line12">
+                          <Top>1.58717cm</Top>
+                          <Left>0.027cm</Left>
+                          <Height>0cm</Height>
+                          <Width>17.54cm</Width>
+                          <ZIndex>46</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                        <Line Name="Line14">
+                          <Top>3.73928cm</Top>
+                          <Height>0cm</Height>
+                          <Width>17.567cm</Width>
+                          <ZIndex>47</ZIndex>
+                          <Style>
+                            <Border>
+                              <Style>Solid</Style>
+                            </Border>
+                          </Style>
+                        </Line>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Form17</DataSetName>
+        <Top>0.17639cm</Top>
+        <Left>0.026cm</Left>
+        <Height>20.35484cm</Height>
+        <Width>18.7717cm</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>20.6935cm</Height>
+    <Style />
+  </Body>
+  <Width>18.7977cm</Width>
+  <Page>
+    <PageHeader>
+      <Height>1.2477cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Office of the Registrar General</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.053cm</Top>
+          <Left>0.026cm</Left>
+          <Height>0.556cm</Height>
+          <Width>17.125cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0.053pt</PaddingLeft>
+            <PaddingRight>0.053pt</PaddingRight>
+            <PaddingTop>0.053pt</PaddingTop>
+            <PaddingBottom>0.053pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Form 17
+Vital Statistics Act</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.026cm</Top>
+          <Left>13.677cm</Left>
+          <Height>1.032cm</Height>
+          <Width>3.81cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0.053pt</PaddingLeft>
+            <PaddingRight>0.053pt</PaddingRight>
+            <PaddingTop>0.053pt</PaddingTop>
+            <PaddingBottom>0.053pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>4.418cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Personal Information contained on this form is collected under the authority of the Vital Statistics Act, R. S. O. c.524 and will be used to register and record the birth, still-birth, death, marriage, addition or change of name, correction or ammendment, provide certified copies, extracts, certificates, search notices, photocopies; and for statistical, research, medical, law enforcement, adoption and adopt disclosure purposes.
+
+Questions about this collection should be directed to:
+Deputy Registrar General
+Registrar General Branch
+189 Red River Road, P.O. Box 4600
+Thunder Bay, Ontario
+P7B 6L8</Value>
+                  <Style>
+                    <FontSize>8pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox3</rd:DefaultName>
+          <Top>0.159cm</Top>
+          <Left>0.106cm</Left>
+          <Height>4.127cm</Height>
+          <Width>17.646cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>0.053pt</PaddingLeft>
+            <PaddingRight>0.053pt</PaddingRight>
+            <PaddingTop>0.053pt</PaddingTop>
+            <PaddingBottom>0.053pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
+    <PageHeight>32cm</PageHeight>
+    <PageWidth>23cm</PageWidth>
+    <LeftMargin>2cm</LeftMargin>
+    <RightMargin>2cm</RightMargin>
+    <TopMargin>2cm</TopMargin>
+    <BottomMargin>2cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="Report_From17">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>53b9c4e9-6447-4355-9c9e-9c28fdd148b0</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Form17">
+      <Query>
+        <DataSourceName>Report_From17</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="D_Reg_Year">
+          <DataField>D_Reg_Year</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_type">
+          <DataField>D_Reg_type</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_No">
+          <DataField>D_Reg_No</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Billable">
+          <DataField>D_Reg_Billable</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_First_Name">
+          <DataField>D_Reg_First_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Last_Name">
+          <DataField>D_Reg_Last_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Middle_name">
+          <DataField>D_Reg_Middle_name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_House_No_D">
+          <DataField>D_Reg_House_No_D</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_St_Name_D">
+          <DataField>D_Reg_St_Name_D</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Unit_D">
+          <DataField>D_Reg_Unit_D</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_City_D">
+          <DataField>D_Reg_City_D</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Prov_D">
+          <DataField>D_Reg_Prov_D</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Country_D">
+          <DataField>D_Reg_Country_D</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_PC_D">
+          <DataField>D_Reg_PC_D</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Municipality">
+          <DataField>D_Municipality</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Sex">
+          <DataField>D_Reg_Sex</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Died">
+          <DataField>D_Reg_Died</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Date">
+          <DataField>D_Reg_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Place_Of_Death">
+          <DataField>D_Reg_Place_Of_Death</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_House_No">
+          <DataField>D_Reg_House_No</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_St_Name">
+          <DataField>D_Reg_St_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Unit">
+          <DataField>D_Reg_Unit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_City">
+          <DataField>D_Reg_City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Prov">
+          <DataField>D_Reg_Prov</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Country">
+          <DataField>D_Reg_Country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_PC">
+          <DataField>D_Reg_PC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Dr_Code">
+          <DataField>D_Reg_Dr_Code</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Funeral_Code">
+          <DataField>D_Reg_Funeral_Code</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="D_Printed">
+          <DataField>D_Printed</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_Customer_Cnt">
+          <DataField>F_Reg_Customer_Cnt</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_Short_Name">
+          <DataField>F_Reg_Short_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_Funeral_Home">
+          <DataField>F_Reg_Funeral_Home</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_House_No">
+          <DataField>F_Reg_House_No</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_St_Name">
+          <DataField>F_Reg_St_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_Unit">
+          <DataField>F_Reg_Unit</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_City">
+          <DataField>F_Reg_City</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_Prov">
+          <DataField>F_Reg_Prov</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_Country">
+          <DataField>F_Reg_Country</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_PC">
+          <DataField>F_Reg_PC</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="F_Reg_Customer_No">
+          <DataField>F_Reg_Customer_No</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DR_NO">
+          <DataField>DR_NO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_DR_No">
+          <DataField>D_Reg_DR_No</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="D_Short_Name">
+          <DataField>D_Short_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Last_Name1">
+          <DataField>D_Reg_Last_Name1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_First_Name1">
+          <DataField>D_Reg_First_Name1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_House_No1">
+          <DataField>D_Reg_House_No1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_St_Name1">
+          <DataField>D_Reg_St_Name1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Unit1">
+          <DataField>D_Reg_Unit1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_City1">
+          <DataField>D_Reg_City1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Prov1">
+          <DataField>D_Reg_Prov1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Country1">
+          <DataField>D_Reg_Country1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_PC1">
+          <DataField>D_Reg_PC1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="D_Reg_Attendant">
+          <DataField>D_Reg_Attendant</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="R_N">
+          <DataField>R_N</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Report_From17</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\kpatel\source\UI_Vital\Vitals\Vitals\Report_From17.xsd</rd:SchemaPath>
+        <rd:TableName>ReportForm17</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ReportForm17TableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>f646ec45-0a39-4a49-ac8a-fd899faaf88d</rd:ReportID>
+</Report>

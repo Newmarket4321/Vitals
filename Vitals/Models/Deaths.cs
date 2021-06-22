@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Text;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Vitals.Models
 {
@@ -13,6 +16,8 @@ namespace Vitals.Models
             public string  D_Regtype { get; set; }
             public  int  D_RegNo { get; set; }
             public string D_RegBillable { get; set; }
+
+            [Required(ErrorMessage = "Name is required")]
             public string D_RegFirsName { get; set; }
             public string D_RegLastName { get; set; }
             public string D_RegMiddlename { get; set; }

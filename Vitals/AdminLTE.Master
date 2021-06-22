@@ -1,0 +1,243 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminLTE.master.cs" Inherits="Vitals.AdminLTE" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <!-- jsGrid -->
+    <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid.min.css">
+    <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <link href="AdminLTE/css/adminlte.min.css" rel="stylesheet" />
+    <link href="Style/jquery-ui.css" rel="stylesheet" />
+
+    <link href="plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+    <div class="wrapper">
+        <form id="form1" runat="server">
+            <div>
+                <!-- Navbar -->
+                <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                    <!-- Left navbar links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                        </li>
+                    </ul>
+                    <!-- Right navbar links -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </a></li>
+                    </ul>
+                </nav>
+                <!-- /.navbar -->
+
+                <!-- Main Sidebar Container -->
+                <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                    <!-- Brand Logo -->
+                    <a href="#" class="brand-link">
+                        <img src="Images/logo.png" alt="AdminLTE Logo" class="brand-image  elevation-3" style="opacity: .8;">
+                        <span class="brand-text font-weight-light">Vital Statistic</span>
+                    </a>
+                    <!-- Sidebar -->
+                    <div class="sidebar">
+                        <!-- SidebarSearch Form -->
+                        <div class="form-inline">
+                            <div class="input-group" data-widget="sidebar-search">
+                                <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-sidebar">
+                                        <i class="fas fa-search fa-fw"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar Menu -->
+                        <nav class="mt-2">
+                            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                                <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <p>Main Menu <i class="right fas fa-angle-left"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a id="Deaths" href="Vitals_Death_Form.aspx" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Deaths</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="Vitals_Marragies_Form.aspx" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Marriages</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <p>File Maintenance<i class="right fas fa-angle-left"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="Vitals_ControlFile.aspx" class="nav-link ">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Control File</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="Vitals_Doctor_form.aspx" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Doctors</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="Vitals_Funeral_Home_Form.aspx" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Funeral Home</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Relink Tables</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <p>Report Menu<i class="right fas fa-angle-left"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="InsideDeathReport.aspx" class="nav-link ">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Inside Deaths</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="OutsideDeathReport.aspx" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Outside Deaths</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link" runat="server" onserverclick="Unnamed_ServerClick">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Form 17</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="Invoice_Report.aspx" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Invoice</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <p>Marriage Report Menu<i class="right fas fa-angle-left"></i></p>
+                                    </a>
+                                    <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                            <a href="MarriagesReport.aspx" class="nav-link ">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Marriages</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="MarriagesApplicationVerification_Report.aspx" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Application Information</p>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="MarriageLicence_Report.aspx" class="nav-link">
+                                                <i class="far fa-circle nav-icon"></i>
+                                                <p>Marriage Licence</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- /.sidebar-menu -->
+                    </div>
+                    <!-- /.sidebar -->
+                </aside>
+
+                <!-- Content Wrapper. Contains page content -->
+                <div class="content-wrapper">
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- /.content-wrapper -->
+
+                <!-- Control Sidebar -->
+                <aside class="control-sidebar control-sidebar-dark">
+                    <!-- Control sidebar content goes here -->
+                </aside>
+                <!-- /.control-sidebar -->
+            </div>
+        </form>
+    </div>
+    <!-- jQuery -->
+    <%-- <script src="plugins/jquery/jquery.min.js"></script>--%>
+
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- jsGrid -->
+    <script src="../../plugins/jsgrid/demos/db.js"></script>
+    <script src="../../plugins/jsgrid/jsgrid.min.js"></script>
+    <!-- Select2 -->
+    <script src="../../plugins/select2/js/select2.full.min.js"></script>
+    <!-- bs-custom-file-input -->
+    <script src="plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="AdminLTE/js/adminlte.min.js"></script>
+    <!-- jquery-validation -->
+    <script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+
+    <script src="plugins/toastr/toastr.min.js"></script>
+    <%--   <script src="Content/bootstrap-notify-3.1.3/bootstrap-notify-3.1.3/dist/bootstrap-notify.min.js"></script>--%>
+
+
+    <script>
+        $(function () {
+            bsCustomFileInput.init();
+            //Initialize Select2 Elements
+            $('.select2').select2()
+
+            //Initialize Select2 Elements
+            $('.select2bs4').select2({
+                theme: 'bootstrap4'
+            })
+
+        });
+
+    </script>
+</body>
+</html>

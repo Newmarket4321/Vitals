@@ -22,7 +22,8 @@ namespace Vitals.Models
         public string D_RegProv { get; set; }
         public string D_RegCountry { get; set; }
         public string D_RegPC { get; set; }
-            public string Search_String { get; set; }
+        public string Search_String { get; set; }
+        public string D_RegAttendant { get; set; }
         }
     }
 }
