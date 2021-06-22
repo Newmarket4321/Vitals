@@ -29,7 +29,7 @@ namespace Vitals
                 ReportViewer1.Visible = true;
                 ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\Invoice.rdlc");
                 // Assign report parameters.
-                Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[2];
+                Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[3];
 
                 if (StartDate.Text.ToString() != "")
                     parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("StartDate", StartDate.Text.ToString());
@@ -37,6 +37,9 @@ namespace Vitals
 
                 if (EndDate.Text.ToString() != "")
                     parms[1] = new Microsoft.Reporting.WebForms.ReportParameter("EndDate", EndDate.Text.ToString());
+
+                if (SigninName.Text.ToString() != "")
+                    parms[2] = new Microsoft.Reporting.WebForms.ReportParameter("SigninName", SigninName.Text.ToString());
 
                 ReportViewer1.LocalReport.SetParameters(parms);
 

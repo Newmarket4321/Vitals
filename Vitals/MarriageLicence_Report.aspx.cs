@@ -40,8 +40,8 @@ namespace Vitals
                 if (MrgNumber.Text.ToString() != "")
                     parms[1] = new Microsoft.Reporting.WebForms.ReportParameter("MRegNumber", MrgNumber.Text.ToString());
 
-                if (Mrg_Place.Text.ToString() != "")
-                    parms[2] = new Microsoft.Reporting.WebForms.ReportParameter("MRegPlace", Mrg_Place.Text.ToString());
+                if (SigninName.Text.ToString() != "")
+                    parms[2] = new Microsoft.Reporting.WebForms.ReportParameter("SigninName", SigninName.Text.ToString());
                 ReportViewer1.LocalReport.SetParameters(parms);
 
                 ReportDataSource rds = new ReportDataSource("MarriageLicence", dt);
@@ -63,7 +63,6 @@ namespace Vitals
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@M_Reg_Year", Mrgyear.Text);
                 cmd.Parameters.AddWithValue("@M_Reg_No", MrgNumber.Text);
-                cmd.Parameters.AddWithValue("@M_Reg_Place_Of_Marriage", Mrg_Place.Text); 
                  SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(ResultsTable);
             }

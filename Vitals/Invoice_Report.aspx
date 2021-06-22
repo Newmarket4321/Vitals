@@ -16,23 +16,28 @@
                     <div style="border: thin; border-color: black; color: #005595; font-family: Arial; font-size: 16px;">
                         <div class="card card-info">
                             <div class="card-header">
-                                <h3 class="card-title">Control File</h3>
+                                <h3 class="card-title">Invoice</h3>
                             </div>
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:Label ID="Label1" runat="server" Text="Please enter Registraion year of Marriage"></asp:Label>
+                                            <asp:Label ID="Label1" runat="server" Text="Please Enter Start Date MM-DD-YYYY"></asp:Label>
                                             <asp:TextBox ID="StartDate" class="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <asp:Label ID="Label2" runat="server" Text="Please enter Registraion Number"></asp:Label>
+                                            <asp:Label ID="Label2" runat="server" Text="Please Enter End Date MM-DD-YYYY"></asp:Label>
                                             <asp:TextBox ID="EndDate" class="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
-                                    
+                                     <div class="col-md-4">
+                                        <div class="form-group">
+                                            <asp:Label ID="Label3" runat="server" Text="Please Enter Signin Name"></asp:Label>
+                                            <asp:TextBox ID="SigninName" class="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                    </div>
                                     <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-info" OnClick="SubmitBtn_Click">
                                                 <i class="fa fa-save"></i>&nbsp;Generate Report
                                     </asp:LinkButton>
@@ -51,8 +56,8 @@
                                 <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
                                     SelectMethod="GetData" TypeName="Vitals.InvoiceReportTableAdapters.ReportInvoiceTableAdapter">
                                     <SelectParameters>
-                                        <asp:Parameter Name="StartDate" Type="Int32" />
-                                        <asp:Parameter Name="EndDate" Type="Int32" />
+                                        <asp:Parameter Name="StartDate" Type="DateTime" />
+                                        <asp:Parameter Name="EndDate" Type="DateTime" />
                                     </SelectParameters>
                                 </asp:ObjectDataSource>
                             </div>

@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>4a1d8279-1473-4263-8cbd-210c5f8cbd2a</rd:DataSourceID>
+      <rd:DataSourceID>d317c43a-1660-489d-86f6-12cefd5699c4</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -304,7 +304,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>MrgLicence</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\kpatel\source\UI_Vital\Vitals\Vitals\MrgLicence.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\kpatel\source\repos\Newmarket4321\Vitals\Vitals\MrgLicence.xsd</rd:SchemaPath>
         <rd:TableName>ReportMarriageLicence</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -351,7 +351,6 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>M_Reg_Issued1</rd:DefaultName>
-                              <Left>0.03528cm</Left>
                               <Height>0.767cm</Height>
                               <Width>9.444cm</Width>
                               <Style>
@@ -383,9 +382,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox2</rd:DefaultName>
-                              <Left>9.51456cm</Left>
+                              <Left>9.524cm</Left>
                               <Height>0.767cm</Height>
-                              <Width>9.444cm</Width>
+                              <Width>9.312cm</Width>
                               <ZIndex>1</ZIndex>
                               <Style>
                                 <Border>
@@ -404,7 +403,7 @@
                                 <Paragraph>
                                   <TextRuns>
                                     <TextRun>
-                                      <Value>=Parameters!MRegPlace.Value</Value>
+                                      <Value>=Parameters!SigninName.Value</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
                                       </Style>
@@ -416,8 +415,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox4</rd:DefaultName>
-                              <Top>0.767cm</Top>
-                              <Height>0.6cm</Height>
+                              <Top>0.75cm</Top>
+                              <Height>0.82cm</Height>
                               <Width>9.444cm</Width>
                               <ZIndex>2</ZIndex>
                               <Style>
@@ -450,9 +449,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox6</rd:DefaultName>
-                              <Top>1.40228cm</Top>
-                              <Left>9.51456cm</Left>
-                              <Height>0.6cm</Height>
+                              <Top>1.665cm</Top>
+                              <Left>9.54cm</Left>
+                              <Height>0.794cm</Height>
                               <Width>9.444cm</Width>
                               <ZIndex>3</ZIndex>
                               <Style>
@@ -484,8 +483,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox7</rd:DefaultName>
-                              <Top>1.40228cm</Top>
-                              <Height>0.6cm</Height>
+                              <Top>1.582cm</Top>
+                              <Height>0.82cm</Height>
                               <Width>9.444cm</Width>
                               <ZIndex>4</ZIndex>
                               <Style>
@@ -517,8 +516,7 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox8</rd:DefaultName>
-                              <Top>3.08967cm</Top>
-                              <Left>0.04472cm</Left>
+                              <Top>3.386cm</Top>
                               <Height>0.899cm</Height>
                               <Width>9.444cm</Width>
                               <ZIndex>5</ZIndex>
@@ -551,8 +549,8 @@
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox8</rd:DefaultName>
-                              <Top>3.08967cm</Top>
-                              <Left>9.73905cm</Left>
+                              <Top>3.386cm</Top>
+                              <Left>9.524cm</Left>
                               <Height>0.899cm</Height>
                               <Width>9.444cm</Width>
                               <ZIndex>6</ZIndex>
@@ -586,8 +584,7 @@ IIf(Fields!M_Reg_Middle_name_M.Value = "", " ", Fields!M_Reg_Middle_name_M.Value
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox8</rd:DefaultName>
-                              <Top>3.98867cm</Top>
-                              <Left>0.11867cm</Left>
+                              <Top>4.153cm</Top>
                               <Height>0.688cm</Height>
                               <Width>9.444cm</Width>
                               <ZIndex>7</ZIndex>
@@ -621,8 +618,8 @@ IIf(Fields!M_Reg_Middle_name_F.Value = "", " ", Fields!M_Reg_Middle_name_F.Value
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox8</rd:DefaultName>
-                              <Top>3.98867cm</Top>
-                              <Left>9.73905cm</Left>
+                              <Top>4.18cm</Top>
+                              <Left>9.524cm</Left>
                               <Height>0.688cm</Height>
                               <Width>9.444cm</Width>
                               <ZIndex>8</ZIndex>
@@ -687,8 +684,8 @@ IIf(Fields!M_Reg_Middle_name_F.Value = "", " ", Fields!M_Reg_Middle_name_F.Value
                               <rd:DefaultName>Textbox12</rd:DefaultName>
                               <Top>4.937cm</Top>
                               <Left>5.143cm</Left>
-                              <Height>0.635cm</Height>
-                              <Width>0.714cm</Width>
+                              <Height>0.608cm</Height>
+                              <Width>0.713cm</Width>
                               <ZIndex>10</ZIndex>
                               <Style>
                                 <Border>
@@ -719,8 +716,8 @@ IIf(Fields!M_Reg_Middle_name_F.Value = "", " ", Fields!M_Reg_Middle_name_F.Value
                               <rd:DefaultName>Textbox12</rd:DefaultName>
                               <Top>4.91cm</Top>
                               <Left>7.286cm</Left>
-                              <Height>0.635cm</Height>
-                              <Width>0.714cm</Width>
+                              <Height>0.608cm</Height>
+                              <Width>0.713cm</Width>
                               <ZIndex>11</ZIndex>
                               <Style>
                                 <Border>
@@ -749,9 +746,9 @@ IIf(Fields!M_Reg_Middle_name_F.Value = "", " ", Fields!M_Reg_Middle_name_F.Value
                                 </Paragraph>
                               </Paragraphs>
                               <rd:DefaultName>Textbox12</rd:DefaultName>
-                              <Top>4.937cm</Top>
+                              <Top>4.952cm</Top>
                               <Left>12.212cm</Left>
-                              <Height>0.635cm</Height>
+                              <Height>0.608cm</Height>
                               <Width>0.714cm</Width>
                               <ZIndex>12</ZIndex>
                               <Style>
@@ -783,7 +780,7 @@ IIf(Fields!M_Reg_Middle_name_F.Value = "", " ", Fields!M_Reg_Middle_name_F.Value
                               <rd:DefaultName>Textbox12</rd:DefaultName>
                               <Top>5.005cm</Top>
                               <Left>14.989cm</Left>
-                              <Height>0.635cm</Height>
+                              <Height>0.608cm</Height>
                               <Width>0.714cm</Width>
                               <ZIndex>13</ZIndex>
                               <Style>
@@ -815,7 +812,7 @@ IIf(Fields!M_Reg_Middle_name_F.Value = "", " ", Fields!M_Reg_Middle_name_F.Value
                               <rd:DefaultName>Textbox12</rd:DefaultName>
                               <Top>5.005cm</Top>
                               <Left>17.026cm</Left>
-                              <Height>0.54cm</Height>
+                              <Height>0.608cm</Height>
                               <Width>0.714cm</Width>
                               <ZIndex>14</ZIndex>
                               <Style>
@@ -1001,8 +998,8 @@ IIf(Fields!M_Reg_Middle_name_F.Value = "", " ", Fields!M_Reg_Middle_name_F.Value
                               <rd:DefaultName>Textbox19</rd:DefaultName>
                               <Top>5.714cm</Top>
                               <Left>16.058cm</Left>
-                              <Height>0.476cm</Height>
-                              <Width>2.831cm</Width>
+                              <Height>0.503cm</Height>
+                              <Width>3.148cm</Width>
                               <ZIndex>20</ZIndex>
                               <Style>
                                 <Border>
@@ -1554,10 +1551,12 @@ IIf(Fields!M_Reg_Middle_name_F.Value = "", " ", Fields!M_Reg_Middle_name_F.Value
                                   <TextRuns>
                                     <TextRun>
                                       <Value>=IIf(Fields!M_Reg_Applicant.Value = "2",
-Fields!M_Reg_Last_Name_F.Value +", "+Fields!M_Reg_First_Name_F.Value +
-IIf(Fields!M_Reg_Middle_name_F.Value = "", "", Fields!M_Reg_Middle_name_F.Value),
-Fields!M_Reg_Last_Name_M.Value +", "+Fields!M_Reg_First_Name_M.Value +
-IIf(Fields!M_Reg_Middle_name_M.Value = "", "", Fields!M_Reg_Middle_name_M.Value)
+Fields!M_Reg_First_Name_F.Value +" " +
+IIf(Fields!M_Reg_Middle_name_F.Value = "", "", Fields!M_Reg_Middle_name_F.Value)+" "+
+Fields!M_Reg_Last_Name_F.Value,
+Fields!M_Reg_First_Name_M.Value +" "+
+IIf(Fields!M_Reg_Middle_name_M.Value = "", "", Fields!M_Reg_Middle_name_M.Value) +" "+
+Fields!M_Reg_Last_Name_M.Value 
 )</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
@@ -1592,8 +1591,9 @@ IIf(Fields!M_Reg_Middle_name_M.Value = "", "", Fields!M_Reg_Middle_name_M.Value)
                                   <TextRuns>
                                     <TextRun>
                                       <Value>=IIf(Fields!M_Reg_Applicant.Value = "3",
-Fields!M_Reg_Last_Name_F.Value +", "+Fields!M_Reg_First_Name_F.Value +
-IIf(Fields!M_Reg_Middle_name_F.Value = "", "", Fields!M_Reg_Middle_name_F.Value),
+Fields!M_Reg_First_Name_F.Value + " "+
+IIf(Fields!M_Reg_Middle_name_F.Value = "", "", Fields!M_Reg_Middle_name_F.Value) +" "+
+Fields!M_Reg_Last_Name_F.Value,
 "")</Value>
                                       <Style>
                                         <FontSize>12pt</FontSize>
@@ -2279,6 +2279,7 @@ Right(Fields!M_Reg_TelePhone_No_F.Value,4)</Value>
                             </Border>
                           </Style>
                         </Rectangle>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -2308,10 +2309,10 @@ Right(Fields!M_Reg_TelePhone_No_F.Value,4)</Value>
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>8.67613in</Height>
+        <Height>22.03737cm</Height>
         <Style />
       </Body>
-      <Width>7.72341in</Width>
+      <Width>7.84008in</Width>
       <Page>
         <PageHeader>
           <Height>0cm</Height>
@@ -2353,7 +2354,7 @@ Right(Fields!M_Reg_TelePhone_No_F.Value,4)</Value>
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="MRegPlace">
+    <ReportParameter Name="SigninName">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -2376,7 +2377,7 @@ Right(Fields!M_Reg_TelePhone_No_F.Value,4)</Value>
         <CellDefinition>
           <ColumnIndex>2</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>MRegPlace</ParameterName>
+          <ParameterName>SigninName</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

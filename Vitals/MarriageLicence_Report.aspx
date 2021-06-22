@@ -35,7 +35,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <asp:Label ID="Label3" runat="server" Text="Please Enter SIGNING Name"></asp:Label>
-                                            <asp:TextBox ID="Mrg_Place" class="form-control" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="SigninName" class="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
                                     <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-info" OnClick="SubmitBtn_Click">
@@ -57,7 +57,6 @@
                                     <SelectParameters>
                                         <asp:Parameter Name="M_Reg_Year" Type="Int32" />
                                         <asp:Parameter Name="M_Reg_No" Type="Int32" />
-                                        <asp:Parameter Name="M_Reg_Place_Of_Marriage" Type="String" />
                                     </SelectParameters>
                                 </asp:ObjectDataSource>
                             </div>

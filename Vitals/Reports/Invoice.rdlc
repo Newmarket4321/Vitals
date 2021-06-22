@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>399ef425-691c-478a-a11e-7f5e55286c54</rd:DataSourceID>
+      <rd:DataSourceID>42919bc3-0312-4e2f-a95b-38b3dc5aa3f9</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -96,7 +96,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>InvoiceReport</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\kpatel\source\UI_Vital\Vitals\Vitals\InvoiceReport.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\kpatel\source\repos\Newmarket4321\Vitals\Vitals\InvoiceReport.xsd</rd:SchemaPath>
         <rd:TableName>ReportInvoice</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1046,7 +1046,7 @@ IIf(Fields!D_Reg_Middle_name.Value= "", "", Fields!D_Reg_Middle_name.Value)</Val
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Parameters!SigninName.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -1212,6 +1212,7 @@ IIf(Fields!D_Reg_Middle_name.Value= "", "", Fields!D_Reg_Middle_name.Value)</Val
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1324,6 +1325,10 @@ IIf(Fields!D_Reg_Middle_name.Value= "", "", Fields!D_Reg_Middle_name.Value)</Val
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="SigninName">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1339,6 +1344,11 @@ IIf(Fields!D_Reg_Middle_name.Value= "", "", Fields!D_Reg_Middle_name.Value)</Val
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>EndDate</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>2</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>SigninName</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

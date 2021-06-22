@@ -177,9 +177,6 @@
     <Content Include="MarriageLicence_Report.aspx" />
     <Content Include="MarriagesApplicationVerification_Report.aspx" />
     <Content Include="MarriagesReport.aspx" />
-    <Content Include="MrgLicence.xsc">
-      <DependentUpon>MrgLicence.xsd</DependentUpon>
-    </Content>
     <Content Include="InvoiceReport.xsc">
       <DependentUpon>InvoiceReport.xsd</DependentUpon>
     </Content>
@@ -191,11 +188,9 @@
     <Content Include="InvoiceReport.xss">
       <DependentUpon>InvoiceReport.xsd</DependentUpon>
     </Content>
-    <None Include="MrgLicence.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MrgLicence.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
+    <Content Include="MrgLicence.xsc">
+      <DependentUpon>MrgLicence.xsd</DependentUpon>
+    </Content>
     <Content Include="MrgLicence.xss">
       <DependentUpon>MrgLicence.xsd</DependentUpon>
     </Content>
@@ -206,6 +201,11 @@
     <Content Include="Report_From17.xsc">
       <DependentUpon>Report_From17.xsd</DependentUpon>
     </Content>
+    <None Include="MrgLicence.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MrgLicence.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Report_From17.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>Report_From17.Designer.cs</LastGenOutput>
@@ -2481,9 +2481,9 @@
       <DependentUpon>MarriagesReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="MrgLicence.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>MrgLicence.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="OutsideDeathReport.aspx.cs">
       <DependentUpon>OutsideDeathReport.aspx</DependentUpon>

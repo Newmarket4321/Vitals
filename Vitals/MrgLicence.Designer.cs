@@ -3876,14 +3876,13 @@ namespace Vitals.MrgLicenceTableAdapters {
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@M_Reg_Year", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@M_Reg_No", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@M_Reg_Place_Of_Marriage", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(MrgLicence.ReportMarriageLicenceDataTable dataTable, global::System.Nullable<int> M_Reg_Year, global::System.Nullable<int> M_Reg_No, string M_Reg_Place_Of_Marriage) {
+        public virtual int Fill(MrgLicence.ReportMarriageLicenceDataTable dataTable, global::System.Nullable<int> M_Reg_Year, global::System.Nullable<int> M_Reg_No) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((M_Reg_Year.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(M_Reg_Year.Value));
@@ -3896,12 +3895,6 @@ namespace Vitals.MrgLicenceTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((M_Reg_Place_Of_Marriage == null)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(M_Reg_Place_Of_Marriage));
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3914,7 +3907,7 @@ namespace Vitals.MrgLicenceTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual MrgLicence.ReportMarriageLicenceDataTable GetData(global::System.Nullable<int> M_Reg_Year, global::System.Nullable<int> M_Reg_No, string M_Reg_Place_Of_Marriage) {
+        public virtual MrgLicence.ReportMarriageLicenceDataTable GetData(global::System.Nullable<int> M_Reg_Year, global::System.Nullable<int> M_Reg_No) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((M_Reg_Year.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(M_Reg_Year.Value));
@@ -3927,12 +3920,6 @@ namespace Vitals.MrgLicenceTableAdapters {
             }
             else {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((M_Reg_Place_Of_Marriage == null)) {
-                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(M_Reg_Place_Of_Marriage));
             }
             MrgLicence.ReportMarriageLicenceDataTable dataTable = new MrgLicence.ReportMarriageLicenceDataTable();
             this.Adapter.Fill(dataTable);
