@@ -156,7 +156,7 @@
                         <div id="dvTab" class="card card-primary card-outline card-outline-tabs">
                             <div class="card-header p-0 border-bottom-0">
                                 <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item">
+                                    <li class="nav-item" onclick="currentclick();">
                                         <a class="nav-link active " href="#tab1" aria-controls="tab1" role="tab"
                                             aria-selected="true" data-toggle="pill">Current</a>
                                     </li>
