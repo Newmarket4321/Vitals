@@ -198,21 +198,21 @@
     <Content Include="Report_InsideDeath.xsc">
       <DependentUpon>Report_InsideDeath.xsd</DependentUpon>
     </Content>
-    <Content Include="Report_From17.xsc">
-      <DependentUpon>Report_From17.xsd</DependentUpon>
-    </Content>
     <None Include="MrgLicence.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>MrgLicence.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Report_From17.xsd">
+    <Content Include="Report_Form17.xsc">
+      <DependentUpon>Report_Form17.xsd</DependentUpon>
+    </Content>
+    <None Include="Report_Form17.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Report_From17.Designer.cs</LastGenOutput>
+      <LastGenOutput>Report_Form17.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Report_From17.xss">
-      <DependentUpon>Report_From17.xsd</DependentUpon>
+    <Content Include="Report_Form17.xss">
+      <DependentUpon>Report_Form17.xsd</DependentUpon>
     </Content>
     <None Include="Report_InsideDeath.xsd">
       <Generator>MSDataSetGenerator</Generator>
@@ -296,14 +296,14 @@
     <Content Include="Content\Toast-Notification-Bootstrap-jQuery-Bootoast\index.html" />
     <Content Include="Content\Toast-Notification-Bootstrap-jQuery-Bootoast\src\bootoast.css" />
     <Content Include="Content\Toast-Notification-Bootstrap-jQuery-Bootoast\src\bootoast.js" />
-    <Content Include="DeathsInquiry.aspx" />
-    <Content Include="Default.aspx" />
-    <Content Include="Doctors.aspx" />
+    <Content Include="Old_UI_webform\DeathsInquiry.aspx" />
+    <Content Include="Old_UI_webform\Default.aspx" />
+    <Content Include="Old_UI_webform\Doctors.aspx" />
     <Content Include="Funeral_Home.aspx" />
-    <Content Include="Get_Doctor.aspx" />
+    <Content Include="Old_UI_webform\Get_Doctor.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
-    <Content Include="Marriages.aspx" />
+    <Content Include="Old_UI_webform\Marriages.aspx" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -2200,7 +2200,7 @@
     <Content Include="template\vendor\jquery\jquery.min.js" />
     <Content Include="template\vendor\jquery\jquery.slim.js" />
     <Content Include="template\vendor\jquery\jquery.slim.min.js" />
-    <Content Include="Deaths.aspx" />
+    <Content Include="Old_UI_webform\Deaths.aspx" />
     <Content Include="Content\colorlib-regform-4\colorlib-regform-4\vendor\font-awesome-4.7\fonts\fontawesome-webfont.eot" />
     <Content Include="Content\colorlib-regform-4\colorlib-regform-4\vendor\font-awesome-4.7\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\colorlib-regform-4\colorlib-regform-4\vendor\font-awesome-4.7\fonts\fontawesome-webfont.woff" />
@@ -2244,11 +2244,12 @@
     <Content Include="Content\bootstrap-notify-3.1.3\bootstrap-notify-3.1.3\package.json" />
     <Content Include="Content\bootstrap-notify-3.1.3\bootstrap-notify-3.1.3\README.md" />
     <Content Include="libman.json" />
+    <Content Include="Vitals_DefaultPage.aspx" />
     <Content Include="Vitals_Doctor_Form.aspx" />
     <Content Include="Vitals_Funeral_Home_Form.aspx" />
     <Content Include="Vitals_Marragies_Form.aspx" />
-    <Content Include="WebForm1.aspx" />
-    <Content Include="WebForm2.aspx" />
+    <Content Include="Old_UI_webform\WebForm1.aspx" />
+    <Content Include="Old_UI_webform\WebForm2.aspx" />
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
@@ -2422,7 +2423,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="VitalControlFile.aspx" />
+    <Content Include="Old_UI_webform\VitalControlFile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -2500,10 +2501,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Marriages.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Report_From17.Designer.cs">
+    <Compile Include="Report_Form17.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Report_From17.xsd</DependentUpon>
+      <DependentUpon>Report_Form17.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report_InsideDeath.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -2530,25 +2531,25 @@
     <Compile Include="Vitals_Death_Form.aspx.designer.cs">
       <DependentUpon>Vitals_Death_Form.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DeathsInquiry.aspx.cs">
+    <Compile Include="Old_UI_webform\DeathsInquiry.aspx.cs">
       <DependentUpon>DeathsInquiry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DeathsInquiry.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\DeathsInquiry.aspx.designer.cs">
       <DependentUpon>DeathsInquiry.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
+    <Compile Include="Old_UI_webform\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Doctors.aspx.cs">
+    <Compile Include="Old_UI_webform\Doctors.aspx.cs">
       <DependentUpon>Doctors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Doctors.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\Doctors.aspx.designer.cs">
       <DependentUpon>Doctors.aspx</DependentUpon>
     </Compile>
     <Compile Include="Funeral_Home.aspx.cs">
@@ -2558,21 +2559,21 @@
     <Compile Include="Funeral_Home.aspx.designer.cs">
       <DependentUpon>Funeral_Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Get_Doctor.aspx.cs">
+    <Compile Include="Old_UI_webform\Get_Doctor.aspx.cs">
       <DependentUpon>Get_Doctor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Get_Doctor.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\Get_Doctor.aspx.designer.cs">
       <DependentUpon>Get_Doctor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Marriages.aspx.cs">
+    <Compile Include="Old_UI_webform\Marriages.aspx.cs">
       <DependentUpon>Marriages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Marriages.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\Marriages.aspx.designer.cs">
       <DependentUpon>Marriages.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Database.cs" />
@@ -2595,18 +2596,18 @@
     <Compile Include="Registartion.aspx.designer.cs">
       <DependentUpon>Registartion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site1.Master.cs">
+    <Compile Include="Old_UI_webform\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site1.Master.designer.cs">
+    <Compile Include="Old_UI_webform\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="VitalControlFile.aspx.cs">
+    <Compile Include="Old_UI_webform\VitalControlFile.aspx.cs">
       <DependentUpon>VitalControlFile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VitalControlFile.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\VitalControlFile.aspx.designer.cs">
       <DependentUpon>VitalControlFile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vitals.Master.cs">
@@ -2616,12 +2617,19 @@
     <Compile Include="Vitals.Master.designer.cs">
       <DependentUpon>Vitals.Master</DependentUpon>
     </Compile>
-    <Compile Include="Deaths.aspx.cs">
+    <Compile Include="Old_UI_webform\Deaths.aspx.cs">
       <DependentUpon>Deaths.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Deaths.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\Deaths.aspx.designer.cs">
       <DependentUpon>Deaths.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vitals_DefaultPage.aspx.cs">
+      <DependentUpon>Vitals_DefaultPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vitals_DefaultPage.aspx.designer.cs">
+      <DependentUpon>Vitals_DefaultPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vitals_Doctor_Form.aspx.cs">
       <DependentUpon>Vitals_Doctor_Form.aspx</DependentUpon>
@@ -2644,18 +2652,18 @@
     <Compile Include="Vitals_Marragies_Form.aspx.designer.cs">
       <DependentUpon>Vitals_Marragies_Form.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
+    <Compile Include="Old_UI_webform\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm2.aspx.cs">
+    <Compile Include="Old_UI_webform\WebForm2.aspx.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm2.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -2671,7 +2679,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Site1.Master" />
+    <Content Include="Old_UI_webform\Site1.Master" />
     <Content Include="template\assets\fonts\Flaticon.woff" />
     <Content Include="template\assets\fonts\flexslider-icon.eot" />
     <Content Include="template\assets\fonts\flexslider-icon.ttf" />

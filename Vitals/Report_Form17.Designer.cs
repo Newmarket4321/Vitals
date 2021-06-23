@@ -20,9 +20,9 @@ namespace Vitals {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Report_From17")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Report_Form17")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Report_From17 : global::System.Data.DataSet {
+    public partial class Report_Form17 : global::System.Data.DataSet {
         
         private ReportForm17DataTable tableReportForm17;
         
@@ -30,7 +30,7 @@ namespace Vitals {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public Report_From17() {
+        public Report_Form17() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Vitals {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected Report_From17(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Report_Form17(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace Vitals {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Report_From17 cln = ((Report_From17)(base.Clone()));
+            Report_Form17 cln = ((Report_Form17)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace Vitals {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Report_From17";
+            this.DataSetName = "Report_Form17";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Report_From17.xsd";
+            this.Namespace = "http://tempuri.org/Report_Form17.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableReportForm17 = new ReportForm17DataTable();
@@ -225,7 +225,7 @@ namespace Vitals {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Report_From17 ds = new Report_From17();
+            Report_Form17 ds = new Report_Form17();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -358,8 +358,6 @@ namespace Vitals {
             private global::System.Data.DataColumn columnF_Reg_PC;
             
             private global::System.Data.DataColumn columnF_Reg_Customer_No;
-            
-            private global::System.Data.DataColumn columnDR_NO;
             
             private global::System.Data.DataColumn columnD_Reg_DR_No;
             
@@ -742,14 +740,6 @@ namespace Vitals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DR_NOColumn {
-                get {
-                    return this.columnDR_NO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn D_Reg_DR_NoColumn {
                 get {
                     return this.columnD_Reg_DR_No;
@@ -929,7 +919,6 @@ namespace Vitals {
                         string F_Reg_Country, 
                         string F_Reg_PC, 
                         string F_Reg_Customer_No, 
-                        int D_Reg_DR_No, 
                         string D_Short_Name, 
                         string D_Reg_Last_Name1, 
                         string D_Reg_First_Name1, 
@@ -985,7 +974,6 @@ namespace Vitals {
                         F_Reg_PC,
                         F_Reg_Customer_No,
                         null,
-                        D_Reg_DR_No,
                         D_Short_Name,
                         D_Reg_Last_Name1,
                         D_Reg_First_Name1,
@@ -1005,10 +993,10 @@ namespace Vitals {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ReportForm17Row FindByF_Reg_Customer_CntDR_NO(long F_Reg_Customer_Cnt, int DR_NO) {
+            public ReportForm17Row FindByF_Reg_Customer_CntD_Reg_DR_No(long F_Reg_Customer_Cnt, int D_Reg_DR_No) {
                 return ((ReportForm17Row)(this.Rows.Find(new object[] {
                             F_Reg_Customer_Cnt,
-                            DR_NO})));
+                            D_Reg_DR_No})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1068,7 +1056,6 @@ namespace Vitals {
                 this.columnF_Reg_Country = base.Columns["F_Reg_Country"];
                 this.columnF_Reg_PC = base.Columns["F_Reg_PC"];
                 this.columnF_Reg_Customer_No = base.Columns["F_Reg_Customer_No"];
-                this.columnDR_NO = base.Columns["DR_NO"];
                 this.columnD_Reg_DR_No = base.Columns["D_Reg_DR_No"];
                 this.columnD_Short_Name = base.Columns["D_Short_Name"];
                 this.columnD_Reg_Last_Name1 = base.Columns["D_Reg_Last_Name1"];
@@ -1167,8 +1154,6 @@ namespace Vitals {
                 base.Columns.Add(this.columnF_Reg_PC);
                 this.columnF_Reg_Customer_No = new global::System.Data.DataColumn("F_Reg_Customer_No", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnF_Reg_Customer_No);
-                this.columnDR_NO = new global::System.Data.DataColumn("DR_NO", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDR_NO);
                 this.columnD_Reg_DR_No = new global::System.Data.DataColumn("D_Reg_DR_No", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnD_Reg_DR_No);
                 this.columnD_Short_Name = new global::System.Data.DataColumn("D_Short_Name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1197,7 +1182,7 @@ namespace Vitals {
                 base.Columns.Add(this.columnR_N);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnF_Reg_Customer_Cnt,
-                                this.columnDR_NO}, true));
+                                this.columnD_Reg_DR_No}, true));
                 this.columnD_Reg_Year.AllowDBNull = false;
                 this.columnD_Reg_type.AllowDBNull = false;
                 this.columnD_Reg_type.MaxLength = 10;
@@ -1239,10 +1224,9 @@ namespace Vitals {
                 this.columnF_Reg_Country.MaxLength = 15;
                 this.columnF_Reg_PC.MaxLength = 7;
                 this.columnF_Reg_Customer_No.MaxLength = 8;
-                this.columnDR_NO.AutoIncrement = true;
-                this.columnDR_NO.AllowDBNull = false;
-                this.columnDR_NO.ReadOnly = true;
+                this.columnD_Reg_DR_No.AutoIncrement = true;
                 this.columnD_Reg_DR_No.AllowDBNull = false;
+                this.columnD_Reg_DR_No.ReadOnly = true;
                 this.columnD_Short_Name.AllowDBNull = false;
                 this.columnD_Short_Name.MaxLength = 6;
                 this.columnD_Reg_Last_Name1.AllowDBNull = false;
@@ -1325,7 +1309,7 @@ namespace Vitals {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Report_From17 ds = new Report_From17();
+                Report_Form17 ds = new Report_Form17();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2005,17 +1989,6 @@ namespace Vitals {
                 }
                 set {
                     this[this.tableReportForm17.F_Reg_Customer_NoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int DR_NO {
-                get {
-                    return ((int)(this[this.tableReportForm17.DR_NOColumn]));
-                }
-                set {
-                    this[this.tableReportForm17.DR_NOColumn] = value;
                 }
             }
             
@@ -2776,7 +2749,7 @@ namespace Vitals {
         }
     }
 }
-namespace Vitals.Report_From17TableAdapters {
+namespace Vitals.Report_Form17TableAdapters {
     
     
     /// <summary>
@@ -2940,7 +2913,6 @@ namespace Vitals.Report_From17TableAdapters {
             tableMapping.ColumnMappings.Add("F_Reg_Country", "F_Reg_Country");
             tableMapping.ColumnMappings.Add("F_Reg_PC", "F_Reg_PC");
             tableMapping.ColumnMappings.Add("F_Reg_Customer_No", "F_Reg_Customer_No");
-            tableMapping.ColumnMappings.Add("DR_NO", "DR_NO");
             tableMapping.ColumnMappings.Add("D_Reg_DR_No", "D_Reg_DR_No");
             tableMapping.ColumnMappings.Add("D_Short_Name", "D_Short_Name");
             tableMapping.ColumnMappings.Add("D_Reg_Last_Name1", "D_Reg_Last_Name1");
@@ -2979,7 +2951,7 @@ namespace Vitals.Report_From17TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Report_From17.ReportForm17DataTable dataTable) {
+        public virtual int Fill(Report_Form17.ReportForm17DataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -2992,9 +2964,9 @@ namespace Vitals.Report_From17TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Report_From17.ReportForm17DataTable GetData() {
+        public virtual Report_Form17.ReportForm17DataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Report_From17.ReportForm17DataTable dataTable = new Report_From17.ReportForm17DataTable();
+            Report_Form17.ReportForm17DataTable dataTable = new Report_Form17.ReportForm17DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3068,7 +3040,7 @@ namespace Vitals.Report_From17TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(Report_From17 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Report_Form17 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -3078,7 +3050,7 @@ namespace Vitals.Report_From17TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(Report_From17 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Report_Form17 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -3088,7 +3060,7 @@ namespace Vitals.Report_From17TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(Report_From17 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Report_Form17 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -3122,7 +3094,7 @@ namespace Vitals.Report_From17TableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(Report_From17 dataSet) {
+        public virtual int UpdateAll(Report_Form17 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

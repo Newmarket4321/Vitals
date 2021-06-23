@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="Report_From17" targetNamespace="http://tempuri.org/Report_From17.xsd" xmlns:mstns="http://tempuri.org/Report_From17.xsd" xmlns="http://tempuri.org/Report_From17.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="Report_Form17" targetNamespace="http://tempuri.org/Report_Form17.xsd" xmlns:mstns="http://tempuri.org/Report_Form17.xsd" xmlns="http://tempuri.org/Report_Form17.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -61,7 +61,6 @@
               <Mapping SourceColumn="F_Reg_Country" DataSetColumn="F_Reg_Country" />
               <Mapping SourceColumn="F_Reg_PC" DataSetColumn="F_Reg_PC" />
               <Mapping SourceColumn="F_Reg_Customer_No" DataSetColumn="F_Reg_Customer_No" />
-              <Mapping SourceColumn="DR_NO" DataSetColumn="DR_NO" />
               <Mapping SourceColumn="D_Reg_DR_No" DataSetColumn="D_Reg_DR_No" />
               <Mapping SourceColumn="D_Short_Name" DataSetColumn="D_Short_Name" />
               <Mapping SourceColumn="D_Reg_Last_Name1" DataSetColumn="D_Reg_Last_Name1" />
@@ -83,7 +82,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="Report_From17" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Report_From17" msprop:Generator_UserDSName="Report_From17">
+  <xs:element name="Report_Form17" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="Report_Form17" msprop:Generator_UserDSName="Report_Form17">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="ReportForm17" msprop:Generator_TableClassName="ReportForm17DataTable" msprop:Generator_TableVarName="tableReportForm17" msprop:Generator_TablePropName="ReportForm17" msprop:Generator_RowDeletingName="ReportForm17RowDeleting" msprop:Generator_RowChangingName="ReportForm17RowChanging" msprop:Generator_RowEvHandlerName="ReportForm17RowChangeEventHandler" msprop:Generator_RowDeletedName="ReportForm17RowDeleted" msprop:Generator_UserTableName="ReportForm17" msprop:Generator_RowChangedName="ReportForm17RowChanged" msprop:Generator_RowEvArgName="ReportForm17RowChangeEvent" msprop:Generator_RowClassName="ReportForm17Row">
@@ -327,8 +326,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="DR_NO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnDR_NO" msprop:Generator_ColumnPropNameInRow="DR_NO" msprop:Generator_ColumnPropNameInTable="DR_NOColumn" msprop:Generator_UserColumnName="DR_NO" type="xs:int" />
-              <xs:element name="D_Reg_DR_No" msprop:Generator_ColumnVarNameInTable="columnD_Reg_DR_No" msprop:Generator_ColumnPropNameInRow="D_Reg_DR_No" msprop:Generator_ColumnPropNameInTable="D_Reg_DR_NoColumn" msprop:Generator_UserColumnName="D_Reg_DR_No" type="xs:int" />
+              <xs:element name="D_Reg_DR_No" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnD_Reg_DR_No" msprop:Generator_ColumnPropNameInRow="D_Reg_DR_No" msprop:Generator_ColumnPropNameInTable="D_Reg_DR_NoColumn" msprop:Generator_UserColumnName="D_Reg_DR_No" type="xs:int" />
               <xs:element name="D_Short_Name" msprop:Generator_ColumnVarNameInTable="columnD_Short_Name" msprop:Generator_ColumnPropNameInRow="D_Short_Name" msprop:Generator_ColumnPropNameInTable="D_Short_NameColumn" msprop:Generator_UserColumnName="D_Short_Name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -421,7 +419,7 @@
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ReportForm17" />
       <xs:field xpath="mstns:F_Reg_Customer_Cnt" />
-      <xs:field xpath="mstns:DR_NO" />
+      <xs:field xpath="mstns:D_Reg_DR_No" />
     </xs:unique>
   </xs:element>
 </xs:schema>

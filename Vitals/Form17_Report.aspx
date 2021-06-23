@@ -32,7 +32,7 @@
                                     </LocalReport>
                                 </rsweb:ReportViewer>
                                 <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
-                                    SelectMethod="GetData" TypeName="Vitals.Report_From17TableAdapters.ReportForm17TableAdapter">
+                                    SelectMethod="GetData" TypeName="Vitals.Report_Form17TableAdapters.ReportForm17TableAdapter">
                                 </asp:ObjectDataSource>
                             </div>
 
