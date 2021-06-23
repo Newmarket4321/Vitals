@@ -299,7 +299,7 @@
     <Content Include="Old_UI_webform\DeathsInquiry.aspx" />
     <Content Include="Old_UI_webform\Default.aspx" />
     <Content Include="Old_UI_webform\Doctors.aspx" />
-    <Content Include="Funeral_Home.aspx" />
+    <Content Include="Old_UI_webform\Funeral_Home.aspx" />
     <Content Include="Old_UI_webform\Get_Doctor.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Images\logo.png" />
@@ -2552,11 +2552,11 @@
     <Compile Include="Old_UI_webform\Doctors.aspx.designer.cs">
       <DependentUpon>Doctors.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Funeral_Home.aspx.cs">
+    <Compile Include="Old_UI_webform\Funeral_Home.aspx.cs">
       <DependentUpon>Funeral_Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Funeral_Home.aspx.designer.cs">
+    <Compile Include="Old_UI_webform\Funeral_Home.aspx.designer.cs">
       <DependentUpon>Funeral_Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Old_UI_webform\Get_Doctor.aspx.cs">

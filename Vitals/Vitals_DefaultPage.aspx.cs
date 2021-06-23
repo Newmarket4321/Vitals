@@ -4,6 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
+using System.Text;
+using System.Data.SqlClient;
+using System.Data;
+using Vitals.Models;
 
 namespace Vitals
 {
@@ -11,7 +16,7 @@ namespace Vitals
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
