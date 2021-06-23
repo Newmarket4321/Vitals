@@ -76,9 +76,13 @@ namespace Vitals
             return ResultsTable;
         }
 
-            protected void SubmitBtn_Click(object sender, EventArgs e)
+        protected void SubmitBtn_Click(object sender, EventArgs e)
         {
-            load();
+            if(Mrgyear.Text !="")
+                load();
+            else
+                ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('Please fill required fields with valid value!','error" + "');", true);
+
 
         }
     }

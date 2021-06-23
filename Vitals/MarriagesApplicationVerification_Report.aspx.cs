@@ -79,7 +79,12 @@ namespace Vitals
 
         protected void SubmitBtn_Click(object sender, EventArgs e)
         {
-            load();
+            if (Mrgyear.Text != "" && MrgNumber.Text != "")
+
+                load();
+            else
+
+                ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('Please fill required fields with valid value!','error" + "');", true);
 
         }
     }

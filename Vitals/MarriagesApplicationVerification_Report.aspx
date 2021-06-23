@@ -8,6 +8,40 @@
     <link href="Style/jquery-ui.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.5.1.js"></script>
     <script src="Scripts/jquery-ui.js"></script>
+     <script>
+         window.onload = function () {
+              if (document.getElementById("<%=Mrgyear.ClientID%>").value == "")
+                document.getElementById("<%=Mrgyear.ClientID%>").style.border = '1px solid red';
+            else
+                document.getElementById("<%=Mrgyear.ClientID%>").style.border = '1px solid #ced4da';
+
+            if (document.getElementById("<%=MrgNumber.ClientID%>").value == "")
+                document.getElementById("<%=MrgNumber.ClientID%>").style.border = '1px solid red';
+            else
+                document.getElementById("<%=MrgNumber.ClientID%>").style.border = '1px solid #ced4da';
+         }
+          $(document).ready(function () {
+            $(function () {
+                $("#<%=Mrgyear.ClientID%>").change(function () {
+                    if (document.getElementById("<%=Mrgyear.ClientID%>").value == "")
+                        document.getElementById("<%=Mrgyear.ClientID%>").style.border = '1px solid red';
+                    else
+                        document.getElementById("<%=Mrgyear.ClientID%>").style.border = '1px solid #ced4da';
+                });
+            });
+         });
+         $(document).ready(function () {
+            $(function () {
+                $("#<%=MrgNumber.ClientID%>").change(function () {
+                    if (document.getElementById("<%=MrgNumber.ClientID%>").value == "")
+                        document.getElementById("<%=MrgNumber.ClientID%>").style.border = '1px solid red';
+                    else
+                        document.getElementById("<%=MrgNumber.ClientID%>").style.border = '1px solid #ced4da';
+                });
+            });
+         });
+        
+     </script>
     <div class="container">
         <div class="container-fluid">
             <div class="row">
@@ -62,4 +96,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function showMyDialog(msg, alertype) {
+            $(function () {
+                toastr[alertype](msg, alertype,
+                    {
+                        positionClass: "toast-top-center",
+                        closeButton: true,
+                        timeOut: 0,
+                        extendedTimeOut: 0,
+
+                    })
+            });
+
+        }
+    </script>
 </asp:Content>

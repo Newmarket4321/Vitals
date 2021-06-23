@@ -11,6 +11,27 @@
     <link href="Style/jquery-ui.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.5.1.js"></script>
     <script src="Scripts/jquery-ui.js"></script>
+    <script>
+        window.onload = function () {
+            if (document.getElementById("<%=Mrgyear.ClientID%>").value == "")
+                document.getElementById("<%=Mrgyear.ClientID%>").style.border = '1px solid red';
+            else
+                document.getElementById("<%=Mrgyear.ClientID%>").style.border = '1px solid #ced4da';
+
+        }
+        $(document).ready(function () {
+            $(function () {
+                $("#<%=Mrgyear.ClientID%>").change(function () {
+                    if (document.getElementById("<%=Mrgyear.ClientID%>").value == "")
+                        document.getElementById("<%=Mrgyear.ClientID%>").style.border = '1px solid red';
+                    else
+                        document.getElementById("<%=Mrgyear.ClientID%>").style.border = '1px solid #ced4da';
+                });
+            });
+        });
+
+
+    </script>
     <div class="container">
         <div class="container-fluid">
             <div class="row">
@@ -28,14 +49,9 @@
                                             <asp:TextBox ID="Mrgyear" class="form-control" runat="server"></asp:TextBox>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-info" OnClick="SubmitBtn_Click">
-                            <i class="fa fa-save"></i>&nbsp;Generate Report</asp:LinkButton>
-
-                                        </div>
-                                    </div>
                                 </div>
+                                <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-info" OnClick="SubmitBtn_Click">
+                            <i class="fa fa-save"></i>&nbsp;Generate Report</asp:LinkButton>
                                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
                                 <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Arial Black"
@@ -47,17 +63,12 @@
                                         </DataSources>
                                     </LocalReport>
                                 </rsweb:ReportViewer>
-                                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" 
+                                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}"
                                     SelectMethod="GetData" TypeName="Vitals.Reports.MarriagesTableAdapters.ReportMarriageTableAdapter">
                                     <SelectParameters>
                                         <asp:Parameter Name="M_Reg_Year" Type="Int32" />
                                     </SelectParameters>
                                 </asp:ObjectDataSource>
-                                <%--  <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="Vitals.Reports.MarriagesTableAdapters.ReportMarriageTableAdapter">
-                                    <SelectParameters>
-                                        <asp:Parameter DefaultValue="2021" Name="M_Reg_Year" Type="Int32" />
-                                    </SelectParameters>
-                                </asp:ObjectDataSource>--%>
                             </div>
 
                         </div>
@@ -66,5 +77,20 @@
             </div>
         </div>
     </div>
+    <script>
 
+        function showMyDialog(msg, alertype) {
+            $(function () {
+                toastr[alertype](msg, alertype,
+                    {
+                        positionClass: "toast-top-center",
+                        closeButton: true,
+                        timeOut: 0,
+                        extendedTimeOut: 0,
+
+                    })
+            });
+
+        }
+    </script>
 </asp:Content>

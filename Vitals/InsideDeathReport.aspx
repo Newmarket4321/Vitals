@@ -8,6 +8,71 @@
     <link href="Style/jquery-ui.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.5.1.js"></script>
     <script src="Scripts/jquery-ui.js"></script>
+     <script>
+         window.onload = function () {
+              if (document.getElementById("<%=Deathyear.ClientID%>").value == "")
+                document.getElementById("<%=Deathyear.ClientID%>").style.border = '1px solid red';
+            else
+                document.getElementById("<%=Deathyear.ClientID%>").style.border = '1px solid #ced4da';
+
+            if (document.getElementById("<%=MonthFrom.ClientID%>").value == "")
+                document.getElementById("<%=MonthFrom.ClientID%>").style.border = '1px solid red';
+            else
+                document.getElementById("<%=MonthFrom.ClientID%>").style.border = '1px solid #ced4da';
+
+            if (document.getElementById("<%=MonthTo.ClientID%>").value == "")
+                document.getElementById("<%=MonthTo.ClientID%>").style.border = '1px solid red';
+            else
+                 document.getElementById("<%=MonthTo.ClientID%>").style.border = '1px solid #ced4da';
+
+             if (document.getElementById("<%=Type.ClientID%>").value == "")
+                document.getElementById("<%=Type.ClientID%>").style.border = '1px solid red';
+            else
+                document.getElementById("<%=Type.ClientID%>").style.border = '1px solid #ced4da';
+
+         }
+          $(document).ready(function () {
+            $(function () {
+                $("#<%=Deathyear.ClientID%>").change(function () {
+                    if (document.getElementById("<%=Deathyear.ClientID%>").value == "")
+                        document.getElementById("<%=Deathyear.ClientID%>").style.border = '1px solid red';
+                    else
+                        document.getElementById("<%=Deathyear.ClientID%>").style.border = '1px solid #ced4da';
+                });
+            });
+         });
+         $(document).ready(function () {
+            $(function () {
+                $("#<%=MonthFrom.ClientID%>").change(function () {
+                    if (document.getElementById("<%=MonthFrom.ClientID%>").value == "")
+                        document.getElementById("<%=MonthFrom.ClientID%>").style.border = '1px solid red';
+                    else
+                        document.getElementById("<%=MonthFrom.ClientID%>").style.border = '1px solid #ced4da';
+                });
+            });
+         });
+          $(document).ready(function () {
+            $(function () {
+                $("#<%=MonthTo.ClientID%>").change(function () {
+                    if (document.getElementById("<%=MonthTo.ClientID%>").value == "")
+                        document.getElementById("<%=MonthTo.ClientID%>").style.border = '1px solid red';
+                    else
+                        document.getElementById("<%=MonthTo.ClientID%>").style.border = '1px solid #ced4da';
+                });
+            });
+         });
+          $(document).ready(function () {
+            $(function () {
+                $("#<%=Type.ClientID%>").change(function () {
+                    if (document.getElementById("<%=Type.ClientID%>").value == "")
+                        document.getElementById("<%=Type.ClientID%>").style.border = '1px solid red';
+                    else
+                        document.getElementById("<%=Type.ClientID%>").style.border = '1px solid #ced4da';
+                });
+            });
+        });
+     </script>
+
     <div class="container">
         <div class="container-fluid">
             <div class="row">
@@ -74,4 +139,20 @@
             </div>
         </div>
     </div>
+      <script>
+      
+        function showMyDialog(msg, alertype) {
+            $(function () {
+                toastr[alertype](msg, alertype,
+                    {
+                        positionClass: "toast-top-center",
+                        closeButton: true,
+                        timeOut: 0,
+                        extendedTimeOut: 0,
+
+                    })
+            });
+
+        }
+    </script>
 </asp:Content>
