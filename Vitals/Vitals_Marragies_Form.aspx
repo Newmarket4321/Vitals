@@ -1468,7 +1468,7 @@
                                     <asp:HiddenField ID="hfTab" runat="server" />
                                 </div>
                                 <div class="card-footer">
-                                    <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-info"><%--OnClick="SubmitBtn_Click"--%>
+                                    <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-info" OnClick="SubmitBtn_Click"><%--OnClick="SubmitBtn_Click"--%>
                                             <i class="fa fa-save"></i>&nbsp;Save
                                     </asp:LinkButton>
                                 </div>

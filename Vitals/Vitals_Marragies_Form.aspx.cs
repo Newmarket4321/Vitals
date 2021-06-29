@@ -430,7 +430,7 @@ namespace Vitals
                 else
                 {
                     var ermsg = "Please fill required fields with valid value!";
-                    ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + ermsg + "','danger" + "');", true);
+                    ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + ermsg + "','error" + "');", true);
 
                 }
             }
@@ -478,7 +478,7 @@ namespace Vitals
                 else
                 {
                     var ermsg = "Please fill required fields with valid value!";
-                    ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + ermsg + "','danger" + "');", true);
+                    ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + ermsg + "','error" + "');", true);
 
                 }
             }
