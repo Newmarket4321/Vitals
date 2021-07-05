@@ -365,6 +365,7 @@ namespace Vitals
                 letter = GridView1.Rows[rowno].Cells[2].Text.ToString();
                 certno = GridView1.Rows[rowno].Cells[3].Text.ToString();
                 SearchApplicants.Text = "";
+                Response.Redirect("Vitals_Marragies_Form.aspx?id=" + letter + "&certno=" + certno + "&year=" + year + "&regno=" + Regno + "&Restore=tab2&Mode=" + Mode);
             }
             else if (e.CommandName == "Edit")
             {
@@ -375,8 +376,8 @@ namespace Vitals
                 letter = GridView1.Rows[rowno].Cells[2].Text.ToString();
                 certno = GridView1.Rows[rowno].Cells[3].Text.ToString();
                 SearchApplicants.Text = "";
+                Response.Redirect("Vitals_Marragies_Form.aspx?id=" + letter + "&certno=" + certno + "&year=" + year + "&regno=" + Regno + "&Restore=tab2&Mode=" + Mode);
             }
-            Response.Redirect("Vitals_Marragies_Form.aspx?id=" + letter + "&certno=" + certno + "&year=" + year + "&regno=" + Regno + "&Restore=tab2&Mode=" + Mode);
         }
 
         protected void SearchApp_Click(object sender, EventArgs e)
@@ -572,5 +573,11 @@ namespace Vitals
             grid.Attributes.Add("style", "display:block");
         }
 
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            this.DataBind();
+            hfTab.Value = "tab2";
+        }
     }
 }

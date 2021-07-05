@@ -7,7 +7,7 @@
     <meta name="selected_nav_tab" content="Deaths" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href="Style/jquery-ui.css" rel="stylesheet" />
-     <script src="Scripts/jquery-3.6.0.js"></script>
+    <script src="Scripts/jquery-3.6.0.js"></script>
     <script src="Scripts/jquery-ui.js"></script>
 
     <script>
@@ -64,7 +64,7 @@
                 });
             });
         });
-
+        
         function currentclick() {
             window.location.href = "Vitals_Death_Form.aspx";
         }
@@ -109,11 +109,12 @@
 
             });
         });
-
+        //jQuery(document).ready(function () {
+        //    $("#Gridview1").tablesorter({ debug: false, widgets: ['zebra'], sortList: [[0, 0]] });
+        //});
 
     </script>
 
-    <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -149,6 +150,8 @@
     </div>
     <!-- Main content -->
     <section class="content">
+
+        <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -214,7 +217,7 @@
                                                         <div class="form-group row">
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
-                                                                    <asp:Label ID="Label5" runat="server" Text="Fisrt Name:"></asp:Label>
+                                                                    <asp:Label ID="Label5" runat="server" Text="First Name:"></asp:Label>
                                                                     <asp:TextBox ID="Fname" runat="server" class="form-control"
                                                                         placeholder="First Name"></asp:TextBox>
 
@@ -377,7 +380,7 @@
                                                                                         <asp:BoundField DataField="F_Reg_Customer_Cnt"
                                                                                             HeaderStyle-CssClass="invisibleColumn"
                                                                                             ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="F_Reg_Short_Name"
+                                                                                        <%--<asp:BoundField DataField="F_Reg_Short_Name"
                                                                                             HeaderText="Short Name" HeaderStyle-CssClass="invisibleColumn"
                                                                                             ItemStyle-CssClass="invisibleColumn" />
                                                                                         <asp:BoundField DataField="F_Reg_Funeral_Home"
@@ -400,33 +403,39 @@
                                                                                             ItemStyle-CssClass="invisibleColumn" />
                                                                                         <asp:BoundField DataField="F_Reg_Unit"
                                                                                             HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
+                                                                                            ItemStyle-CssClass="invisibleColumn" />--%>
                                                                                         <asp:TemplateField HeaderText="Short Name">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>' />
+
+                                                                                                <asp:HiddenField runat="server" ID="Fshortname" Value='<%# Eval("F_Reg_Short_Name") %>' />
+                                                                                                <asp:Label ID="L1" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
                                                                                         <asp:TemplateField HeaderText="Doctor Name">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Funeral_Home")%>' />
+                                                                                                <asp:HiddenField runat="server" ID="FFuneralhome" Value='<%# Eval("F_Reg_Funeral_Home")%>' />
+                                                                                                <asp:Label ID="L2" runat="server" Text='<%# Eval("F_Reg_Funeral_Home")%>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
                                                                                         <asp:TemplateField HeaderText="Street Name">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_House_No") + " "+ Eval("F_Reg_St_Name") %>' />
+                                                                                                <asp:HiddenField runat="server" ID="FHouseno" Value='<%# Eval("F_Reg_House_No") %>' />
+                                                                                                <asp:HiddenField runat="server" ID="Fstreet" Value='<%# Eval("F_Reg_St_Name") %>' />
+                                                                                                <asp:Label ID="L3" runat="server" Text='<%# Eval("F_Reg_House_No") + " "+ Eval("F_Reg_St_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
 
                                                                                         <asp:TemplateField HeaderText="Unit" HeaderStyle-CssClass="invisibleColumn"
                                                                                             ItemStyle-CssClass="invisibleColumn">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Unit") %>' />
+                                                                                                <asp:HiddenField runat="server" ID="Funit" Value='<%# Eval("F_Reg_Unit") %>' />
+                                                                                                <asp:Label ID="L4" runat="server" Text='<%# Eval("F_Reg_Unit") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
                                                                                         <asp:TemplateField HeaderStyle-CssClass="invisibleColumn"
                                                                                             ItemStyle-CssClass="invisibleColumn">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_City")  + ", "+ Eval("F_Reg_Prov")+ " "+ Eval("F_Reg_PC") %>' />
+                                                                                                <asp:Label ID="L5" runat="server" Text='<%# Eval("F_Reg_City")  + ", "+ Eval("F_Reg_Prov")+ " "+ Eval("F_Reg_PC") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
                                                                                     </Columns>
@@ -507,30 +516,30 @@
                                                                                             ItemStyle-CssClass="invisibleColumn" />
                                                                                         <asp:TemplateField HeaderText="Short Name">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Short_Name") %>' />
+                                                                                                <asp:Label ID="L6" runat="server" Text='<%# Eval("D_Short_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
                                                                                         <asp:TemplateField HeaderText="Doctor Name">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Reg_Last_Name") + ", "+ Eval("D_Reg_First_Name") %>' />
+                                                                                                <asp:Label ID="L7" runat="server" Text='<%# Eval("D_Reg_Last_Name") + ", "+ Eval("D_Reg_First_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
                                                                                         <asp:TemplateField HeaderText="Street Name">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Reg_House_No") + " "+ Eval("D_Reg_St_Name") %>' />
+                                                                                                <asp:Label ID="L8" runat="server" Text='<%# Eval("D_Reg_House_No") + " "+ Eval("D_Reg_St_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
 
                                                                                         <asp:TemplateField HeaderText="Unit" HeaderStyle-CssClass="invisibleColumn"
                                                                                             ItemStyle-CssClass="invisibleColumn">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Reg_Unit") %>' />
+                                                                                                <asp:Label ID="L9" runat="server" Text='<%# Eval("D_Reg_Unit") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
                                                                                         <asp:TemplateField HeaderStyle-CssClass="invisibleColumn"
                                                                                             ItemStyle-CssClass="invisibleColumn">
                                                                                             <ItemTemplate>
-                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Reg_City")  + ", "+ Eval("D_Reg_Prov")+ " "+ Eval("D_Reg_PC") %>' />
+                                                                                                <asp:Label ID="L10" runat="server" Text='<%# Eval("D_Reg_City")  + ", "+ Eval("D_Reg_Prov")+ " "+ Eval("D_Reg_PC") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
                                                                                     </Columns>
@@ -655,39 +664,44 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <div id="grid" style="display: block" runat="server">
-                                                                    <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="Horizontal"
-                                                                        BorderColor="LightGray" AutoGenerateColumns="false"
-                                                                        PageIndex="5" AllowPaging="True" AllowCustomPaging="True" CellPadding="3"
-                                                                        CellSpacing="2" Width="100%" OnRowCommand="GridView1_RowCommand"
-                                                                        DataSourceID="SearcDeaths" CssClass="table table-condensed table-hover" Style="font-size: 12pt; font-family: arial;">
-                                                                        <Columns>
-                                                                            <asp:BoundField DataField="D_Reg_No" HeaderText="ID" />
-                                                                            <asp:BoundField DataField="D_Reg_Year" HeaderText="Year" />
-                                                                            <asp:BoundField DataField="D_Reg_type" HeaderText="Type" />
-                                                                            <asp:TemplateField HeaderText=" First Name">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="D_Reg_First_Name" runat="server" Text='<%# Eval("D_Reg_First_Name") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Last Name">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="D_Reg_Last_Name" runat="server" Text='<%# Eval("D_Reg_Last_Name") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Reg Date">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="D_Reg_Date" runat="server" Text='<%# Eval("D_Reg_Date") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-eye'></i> View" CommandName="ViewDetails" 
-                                                                                ControlStyle-CssClass="btn btn-info btn-sm"  />
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-edit'></i> Edit" CommandName="Edit" 
-                                                                                ControlStyle-CssClass="btn btn-info btn-sm" />
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-trash-alt'></i> Delete" CommandName="dlt"  
-                                                                                ControlStyle-CssClass="btn btn-danger btn-sm" />
-                                                                        </Columns>
-
-                                                                    </asp:GridView>
+                                                                    <asp:UpdatePanel runat="server" ID="updatedeaths">
+                                                                        <ContentTemplate>
+                                                                            <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="Horizontal"
+                                                                                BorderColor="LightGray" AutoGenerateColumns="false" AllowPaging="True" PageSize="5" AllowSorting="true"
+                                                                                OnPageIndexChanging="GridView1_PageIndexChanging" CellPadding="3" CellSpacing="2" Width="100%" OnRowCommand="GridView1_RowCommand"
+                                                                                DataSourceID="SearcDeaths" CssClass="table table-condensed table-hover" Style="font-size: 12pt; font-family: arial; overflow: scroll">
+                                                                                <Columns>
+                                                                                    <asp:BoundField DataField="D_Reg_No" HeaderText="ID" />
+                                                                                    <asp:BoundField DataField="D_Reg_Year" HeaderText="Year" />
+                                                                                    <asp:BoundField DataField="D_Reg_type" HeaderText="Type" />
+                                                                                    <asp:TemplateField HeaderText=" First Name">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="D_Reg_First_Name" runat="server" Text='<%# Eval("D_Reg_First_Name") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="Last Name">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="D_Reg_Last_Name" runat="server" Text='<%# Eval("D_Reg_Last_Name") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="Reg Date">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="D_Reg_Date" runat="server" Text='<%# Eval("D_Reg_Date") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-eye'></i> View" CommandName="ViewDetails"
+                                                                                        ControlStyle-CssClass="btn btn-info btn-sm" />
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-edit'></i> Edit" CommandName="Edit"
+                                                                                        ControlStyle-CssClass="btn btn-info btn-sm" />
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-trash-alt'></i> Delete" CommandName="dlt"
+                                                                                        ControlStyle-CssClass="btn btn-danger btn-sm" />
+                                                                                </Columns>
+                                                                                <PagerStyle CssClass="pagination-ys" />
+                                                                                <PagerSettings Mode="NumericFirstLast" FirstPageText="First" LastPageText="Last"
+                                                                                    NextPageText="Next" PreviousPageText="Previous" PageButtonCount="10" Position="Bottom" />
+                                                                            </asp:GridView>
+                                                                        </ContentTemplate>
+                                                                    </asp:UpdatePanel>
 
                                                                 </div>
                                                                 <asp:SqlDataSource ID="SearcDeaths"
@@ -752,7 +766,7 @@
                                                                                         <div class="form-group row">
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
-                                                                                                    <asp:Label ID="Label49" runat="server" Text="Fisrt Name:"></asp:Label>
+                                                                                                    <asp:Label ID="Label49" runat="server" Text="First Name:"></asp:Label>
                                                                                                     <asp:TextBox ID="H_Fname" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
@@ -932,30 +946,30 @@
                                                                                                                             ItemStyle-CssClass="invisibleColumn" />
                                                                                                                         <asp:TemplateField HeaderText="Short Name">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>' />
+                                                                                                                                <asp:Label ID="L11" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
                                                                                                                         <asp:TemplateField HeaderText="Doctor Name">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Funeral_Home")%>' />
+                                                                                                                                <asp:Label ID="L12" runat="server" Text='<%# Eval("F_Reg_Funeral_Home")%>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
                                                                                                                         <asp:TemplateField HeaderText="Street Name">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_House_No") + " "+ Eval("F_Reg_St_Name") %>' />
+                                                                                                                                <asp:Label ID="L13" runat="server" Text='<%# Eval("F_Reg_House_No") + " "+ Eval("F_Reg_St_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
 
                                                                                                                         <asp:TemplateField HeaderText="Unit" HeaderStyle-CssClass="invisibleColumn"
                                                                                                                             ItemStyle-CssClass="invisibleColumn">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Unit") %>' />
+                                                                                                                                <asp:Label ID="L14" runat="server" Text='<%# Eval("F_Reg_Unit") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
                                                                                                                         <asp:TemplateField HeaderStyle-CssClass="invisibleColumn"
                                                                                                                             ItemStyle-CssClass="invisibleColumn">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_City")  + ", "+ Eval("F_Reg_Prov")+ " "+ Eval("F_Reg_PC") %>' />
+                                                                                                                                <asp:Label ID="L15" runat="server" Text='<%# Eval("F_Reg_City")  + ", "+ Eval("F_Reg_Prov")+ " "+ Eval("F_Reg_PC") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
                                                                                                                     </Columns>
@@ -1035,30 +1049,30 @@
                                                                                                                             ItemStyle-CssClass="invisibleColumn" />
                                                                                                                         <asp:TemplateField HeaderText="Short Name">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Short_Name") %>' />
+                                                                                                                                <asp:Label ID="L16" runat="server" Text='<%# Eval("D_Short_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
                                                                                                                         <asp:TemplateField HeaderText="Doctor Name">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Reg_Last_Name") + ", "+ Eval("D_Reg_First_Name") %>' />
+                                                                                                                                <asp:Label ID="L17" runat="server" Text='<%# Eval("D_Reg_Last_Name") + ", "+ Eval("D_Reg_First_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
                                                                                                                         <asp:TemplateField HeaderText="Street Name">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Reg_House_No") + " "+ Eval("D_Reg_St_Name") %>' />
+                                                                                                                                <asp:Label ID="L18" runat="server" Text='<%# Eval("D_Reg_House_No") + " "+ Eval("D_Reg_St_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
 
                                                                                                                         <asp:TemplateField HeaderText="Unit" HeaderStyle-CssClass="invisibleColumn"
                                                                                                                             ItemStyle-CssClass="invisibleColumn">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Reg_Unit") %>' />
+                                                                                                                                <asp:Label ID="L19" runat="server" Text='<%# Eval("D_Reg_Unit") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
                                                                                                                         <asp:TemplateField HeaderStyle-CssClass="invisibleColumn"
                                                                                                                             ItemStyle-CssClass="invisibleColumn">
                                                                                                                             <ItemTemplate>
-                                                                                                                                <asp:Label ID="Label76" runat="server" Text='<%# Eval("D_Reg_City")  + ", "+ Eval("D_Reg_Prov")+ " "+ Eval("D_Reg_PC") %>' />
+                                                                                                                                <asp:Label ID="L20" runat="server" Text='<%# Eval("D_Reg_City")  + ", "+ Eval("D_Reg_Prov")+ " "+ Eval("D_Reg_PC") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
                                                                                                                     </Columns>

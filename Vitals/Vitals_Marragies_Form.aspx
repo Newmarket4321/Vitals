@@ -6,7 +6,7 @@
     <meta name="selected_nav_tab" content="Marragies" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href="Style/jquery-ui.css" rel="stylesheet" />
-   <script src="Scripts/jquery-3.6.0.js"></script>
+    <script src="Scripts/jquery-3.6.0.js"></script>
     <script src="Scripts/jquery-ui.js"></script>
     <script type="text/javascript">
         $(function () {
@@ -166,6 +166,7 @@
     </div>
     <!-- Main content -->
     <section class="content">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -186,7 +187,7 @@
                             <!-- /.card-header -->
                             <asp:Label ID="lblMsg" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label>
 
-                            <div class="card-body" style="padding:11px;">
+                            <div class="card-body" style="padding: 11px;">
                                 <div class="tab-content">
                                     <div id="tab1" class="tab-pane fade show active" role="tabpanel">
                                         <div style="border: thin; border-color: black; color: #005595; font-family: Arial; font-size: 14px;">
@@ -194,7 +195,7 @@
                                                 <div class="card-header">
                                                     <h3 class="card-title">Marraiges</h3>
                                                 </div>
-                                                <div class="card-body" >
+                                                <div class="card-body">
                                                     <div class="form-group row">
                                                         <div class="col-md-4">
                                                             <asp:Label ID="Label1" runat="server" Text="Registration No.:"></asp:Label>
@@ -266,7 +267,7 @@
                                                         <div class="card-header">
                                                             <h3 class="card-title">Applicant</h3>
                                                         </div>
-                                                        <div class="card-body" >
+                                                        <div class="card-body">
                                                             <div class="form-group row">
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
@@ -400,7 +401,7 @@
                                                                 </div>
                                                                 <div class="col-md-5">
                                                                     <div class="form-group">
-                                                                        <asp:Label ID="Label60" runat="server" Text="Death of Birth:"></asp:Label>
+                                                                        <asp:Label ID="Label60" runat="server" Text="Date of Birth:"></asp:Label>
                                                                         <div class='input-group date'>
                                                                             <asp:TextBox ID="JointDOB" class="form-control" ClientIDMode="Static" runat="server" placeholder="yy-mm-dd">
                                                                             </asp:TextBox>
@@ -810,40 +811,45 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <div id="grid" style="display: block" runat="server">
-                                                                    <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="Horizontal"
-                                                                        BorderColor="LightGray" AutoGenerateColumns="false"
-                                                                        PageIndex="5" AllowPaging="True" AllowCustomPaging="True" CellPadding="3"
-                                                                        CellSpacing="2" Width="100%" OnRowCommand="GridView1_RowCommand"
-                                                                        DataSourceID="SearchApplicant" CssClass="table table-condensed table-hover"
-                                                                        Style="font-size: 10pt; font-family: arial;">
-                                                                        <Columns>
-                                                                            <%--"--%>
+                                                                    <asp:UpdatePanel runat="server" ID="updatedeaths">
+                                                                        <ContentTemplate>
+                                                                            <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="Horizontal"
+                                                                                    BorderColor="LightGray" AutoGenerateColumns="false" AllowPaging="True" PageSize="5" AllowSorting="true"
+                                                                                    CellPadding="3" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCommand="GridView1_RowCommand"
+                                                                                    CellSpacing="2" Width="100%" DataSourceID="SearchApplicant" 
+                                                                                    CssClass="table table-condensed table-hover" Style="font-size: 10pt; font-family: arial;">
+                                                                                <Columns>
+                                                                                    <%--"--%>
+                                                                                    <asp:BoundField DataField="M_Reg_Year" HeaderText="Year" />
+                                                                                    <asp:BoundField DataField="M_Reg_No" HeaderText="Registration No." />
+                                                                                    <asp:BoundField DataField="M_Reg_Letter" HeaderText="Cert No" />
+                                                                                    <asp:BoundField DataField="M_Reg_Cert_No" HeaderText="Cert" />
 
-                                                                            <asp:BoundField DataField="M_Reg_Year" HeaderText="Year" />
-                                                                            <asp:BoundField DataField="M_Reg_No" HeaderText="Registration No." />
-                                                                            <asp:BoundField DataField="M_Reg_Letter" HeaderText="Cert No" />
-                                                                            <asp:BoundField DataField="M_Reg_Cert_No" HeaderText="Cert" />
+                                                                                    <asp:TemplateField HeaderText="Applicant Name">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("M_Reg_First_Name_F") %>'></asp:Label>,&nbsp;
+                                                                                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("M_Reg_Last_Name_F") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="Joint Applicant Name">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("M_Reg_First_Name_M") %>'></asp:Label>,&nbsp;
+                                                                                            <asp:Label ID="Label7" runat="server" Text='<%# Eval("M_Reg_Last_Name_M") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-eye'></i> View" CommandName="ViewDetails"
+                                                                                        ControlStyle-CssClass="btn btn-info btn-sm " />
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-edit'></i> Edit"
+                                                                                        ControlStyle-CssClass="btn btn-info btn-sm " CommandName="Edit"></asp:ButtonField>
 
-                                                                            <asp:TemplateField HeaderText="Applicant Name">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("M_Reg_First_Name_F") %>'></asp:Label>,&nbsp;
-                                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("M_Reg_Last_Name_F") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Joint Applicant Name">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("M_Reg_First_Name_M") %>'></asp:Label>,&nbsp;
-                                                                <asp:Label ID="Label7" runat="server" Text='<%# Eval("M_Reg_Last_Name_M") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-eye'></i> View" CommandName="ViewDetails"
-                                                                                ControlStyle-CssClass="btn btn-info btn-sm " />
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-edit'></i> Edit"
-                                                                                ControlStyle-CssClass="btn btn-info btn-sm " CommandName="Edit"></asp:ButtonField>
-                                                                           
-                                                                        </Columns>
+                                                                                </Columns>
+                                                                                <PagerStyle CssClass="pagination-ys" />
+                                                                                <PagerSettings Mode="NumericFirstLast" FirstPageText="First" LastPageText="Last"
+                                                                                    NextPageText="Next" PreviousPageText="Previous" PageButtonCount="10" Position="Bottom" />
+                                                                            </asp:GridView>
+                                                                        </ContentTemplate>
+                                                                    </asp:UpdatePanel>
 
-                                                                    </asp:GridView>
                                                                     <asp:SqlDataSource ID="SearchApplicant"
                                                                         SelectCommand="SearchMarriage" SelectCommandType="StoredProcedure"
                                                                         ConnectionString="<%$ ConnectionStrings:Vitals%>"
@@ -858,78 +864,78 @@
                                                         </div>
                                                     </div>
                                                     <div id="section" runat="server" style="display: none" runat="server">
-                                                            <div style="margin-top: -20px; width: 100%; height: 65%; border: thin; border-color: black; color: #005595; font-family: Arial; font-size: 10pt;">
-                                                                <div class="card card-info">
-                                                                    <div class="card-header">
-                                                                        <h3 class="card-title">Applicant</h3>
-                                                                    </div>
-                                                                    <div class="card-body">
-                                                                        <div class="form-group row">
-                                                                            <div class="col-md-4">
-                                                                                <asp:Label ID="Label27" runat="server" Text="Registration No.:"></asp:Label>
-                                                                                <div class="input-group">
-                                                                                    <asp:TextBox ID="H_RegYear" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
-                                                                                    <asp:TextBox ID="H_Regno" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
-                                                                                </div>
+                                                        <div style="margin-top: -20px; width: 100%; height: 65%; border: thin; border-color: black; color: #005595; font-family: Arial; font-size: 10pt;">
+                                                            <div class="card card-info">
+                                                                <div class="card-header">
+                                                                    <h3 class="card-title">Applicant</h3>
+                                                                </div>
+                                                                <div class="card-body">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-4">
+                                                                            <asp:Label ID="Label27" runat="server" Text="Registration No.:"></asp:Label>
+                                                                            <div class="input-group">
+                                                                                <asp:TextBox ID="H_RegYear" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                                                                                <asp:TextBox ID="H_Regno" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
                                                                             </div>
-                                                                            <div class="col-md-4">
-                                                                                <asp:Label ID="Label37" runat="server" Text="Cert.No:"></asp:Label>
-                                                                                <div class="input-group">
-                                                                                    <asp:TextBox ID="H_Certletter" class="form-control" runat="server" Text="G"></asp:TextBox>
-                                                                                    <asp:TextBox ID="H_CertNo" class="form-control" runat="server"></asp:TextBox>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <asp:Label ID="Label37" runat="server" Text="Cert.No:"></asp:Label>
+                                                                            <div class="input-group">
+                                                                                <asp:TextBox ID="H_Certletter" class="form-control" runat="server" Text="G"></asp:TextBox>
+                                                                                <asp:TextBox ID="H_CertNo" class="form-control" runat="server"></asp:TextBox>
 
-                                                                                </div>
                                                                             </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <asp:Label ID="Label45" runat="server" Text="Date Issued:"></asp:Label>
-                                                                                    <div class='input-group date'>
-                                                                                        <asp:TextBox ID="H_DateIssued" class="form-control" ClientIDMode="Static" ReadOnly="true" runat="server" placeholder="yy-mm-dd">
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <asp:Label ID="Label45" runat="server" Text="Date Issued:"></asp:Label>
+                                                                                <div class='input-group date'>
+                                                                                    <asp:TextBox ID="H_DateIssued" class="form-control" ClientIDMode="Static" ReadOnly="true" runat="server" placeholder="yy-mm-dd">
                                              
-                                                                                        </asp:TextBox>
-                                                                                        <div class="input-group-prepend">
-                                                                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                                                                        </div>
+                                                                                    </asp:TextBox>
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                                                                     </div>
+                                                                                </div>
 
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <asp:Label ID="Label55" runat="server" Text="Proposed Date of Marriage:"></asp:Label>
+                                                                                <div class='input-group date'>
+                                                                                    <asp:TextBox ID="H_MarriageDate" class="form-control" ClientIDMode="Static" ReadOnly="true" runat="server" placeholder="yy-mm-dd">
+                                             
+                                                                                    </asp:TextBox>
+                                                                                    <div class="input-group-prepend">
+                                                                                        <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="form-group row">
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <asp:Label ID="Label55" runat="server" Text="Proposed Date of Marriage:"></asp:Label>
-                                                                                    <div class='input-group date'>
-                                                                                        <asp:TextBox ID="H_MarriageDate" class="form-control" ClientIDMode="Static" ReadOnly="true" runat="server" placeholder="yy-mm-dd">
-                                             
-                                                                                        </asp:TextBox>
-                                                                                        <div class="input-group-prepend">
-                                                                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <asp:Label ID="Label69" runat="server" Text="Proposed place of Marriage (town/city):"></asp:Label>
+                                                                                <asp:TextBox ID="H_CityofMarriage" class="form-control" runat="server"></asp:TextBox>
                                                                             </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <asp:Label ID="Label69" runat="server" Text="Proposed place of Marriage (town/city):"></asp:Label>
-                                                                                    <asp:TextBox ID="H_CityofMarriage" class="form-control" runat="server"></asp:TextBox>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <div class="form-group">
-                                                                                    <asp:Label ID="Label70" runat="server" Text="Applicant(s):"></asp:Label>
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <div class="form-group">
+                                                                                <asp:Label ID="Label70" runat="server" Text="Applicant(s):"></asp:Label>
 
-                                                                                    <asp:DropDownList ID="H_Applicant" runat="server" class="form-control" AutoPostBack="true">
-                                                                                        <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
-                                                                                        <asp:ListItem Text="Applicant" Value="Applicant"></asp:ListItem>
-                                                                                        <asp:ListItem Text="Joint Applicant" Value="Joint Applicant"></asp:ListItem>
-                                                                                        <asp:ListItem Text="Both" Value="Both"></asp:ListItem>
-                                                                                    </asp:DropDownList>
-                                                                                </div>
+                                                                                <asp:DropDownList ID="H_Applicant" runat="server" class="form-control" AutoPostBack="true">
+                                                                                    <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
+                                                                                    <asp:ListItem Text="Applicant" Value="Applicant"></asp:ListItem>
+                                                                                    <asp:ListItem Text="Joint Applicant" Value="Joint Applicant"></asp:ListItem>
+                                                                                    <asp:ListItem Text="Both" Value="Both"></asp:ListItem>
+                                                                                </asp:DropDownList>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                            </div>
                                                             <div class="row">
                                                                 <div class="col-md-6">
                                                                     <div class="card card-info">
@@ -1071,7 +1077,7 @@
                                                                                 </div>
                                                                                 <div class="col-md-5">
                                                                                     <div class="form-group">
-                                                                                        <asp:Label ID="Label108" runat="server" Text="Death of Birth:"></asp:Label>
+                                                                                        <asp:Label ID="Label108" runat="server" Text="Date of Birth:"></asp:Label>
                                                                                         <div class='input-group date'>
                                                                                             <asp:TextBox ID="H_JointDOB" class="form-control" ClientIDMode="Static" ReadOnly="true" runat="server" placeholder="yy-mm-dd">
                                                                                             </asp:TextBox>
@@ -1398,7 +1404,7 @@
                                                                             <div class="form-group row">
                                                                                 <div class="col-md-3">
                                                                                     <div class="form-group">
-                                                                                        <asp:CheckBox ID="H_Same" runat="server" Text="Same" class="icheck-primary d-inline"/>
+                                                                                        <asp:CheckBox ID="H_Same" runat="server" Text="Same" class="icheck-primary d-inline" />
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-3">
@@ -1459,7 +1465,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

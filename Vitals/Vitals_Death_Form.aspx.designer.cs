@@ -13,15 +13,6 @@ namespace Vitals {
     public partial class A_Test_AdminLTE {
         
         /// <summary>
-        /// ScriptManager2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager2;
-        
-        /// <summary>
         /// EditBtn control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace Vitals {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton AddFun;
+        
+        /// <summary>
+        /// ScriptManager2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager2;
         
         /// <summary>
         /// lblMsg control.
@@ -767,6 +767,15 @@ namespace Vitals {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl grid;
+        
+        /// <summary>
+        /// updatedeaths control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel updatedeaths;
         
         /// <summary>
         /// GridView1 control.

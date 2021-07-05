@@ -122,9 +122,10 @@
     </div>
     <!-- Main content -->
     <section class="content">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container-fluid">
             <div class="row">
-             
+
                 <div class="col-md-12">
                     <div class="card">
                         <div id="dvTab" class="card card-primary card-outline card-outline-tabs">
@@ -151,11 +152,11 @@
                                                     <h3 class="card-title">Doctors</h3>
                                                 </div>
                                                 <div class="card-body">
-                                                      
+
                                                     <div class="form-group row">
                                                         <div class="col-md-4">
                                                             <div class="form-group">
-                                                               
+
                                                                 <asp:Label ID="Label10" runat="server" Text="Dr Short Name:"></asp:Label>
                                                                 <asp:TextBox ID="C_Shortname" class="form-control" MaxLength="6" runat="server" placeholder="Short Name"></asp:TextBox>
                                                             </div>
@@ -256,55 +257,63 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <div id="grid" style="display: block" runat="server">
-                                                                    <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="Horizontal"
-                                                                        BorderColor="LightGray" AutoGenerateColumns="false"
-                                                                        PageIndex="5" AllowPaging="True" AllowCustomPaging="True" CellPadding="3"
-                                                                        CellSpacing="2"  OnRowCommand="GridView1_RowCommand"
-                                                                        DataSourceID="SearchDoctor" CssClass="table table-condensed table-hover" Style="font-family: arial;">
-                                                                        <Columns>
+                                                                    <asp:UpdatePanel runat="server" ID="updatedeaths">
+                                                                        <ContentTemplate>
+                                                                            <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="Horizontal"
+                                                                                BorderColor="LightGray" AutoGenerateColumns="false"
+                                                                                AllowPaging="True" PageSize="5" AllowSorting="true" CellPadding="3"
+                                                                                CellSpacing="2" OnRowCommand="GridView1_RowCommand" OnPageIndexChanging="GridView1_PageIndexChanging"
+                                                                                DataSourceID="SearchDoctor" CssClass="table table-condensed table-hover" Style="font-family: arial;">
+                                                                                <Columns>
 
-                                                                            <asp:BoundField DataField="D_Reg_DR_No" HeaderText="ID" />
-                                                                            <asp:TemplateField HeaderText="Dr.Short Name">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("D_Short_Name") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Doctor Name">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("D_Reg_Last_Name") %>'></asp:Label>&nbsp;
+                                                                                    <asp:BoundField DataField="D_Reg_DR_No" HeaderText="ID" />
+                                                                                    <asp:TemplateField HeaderText="Dr.Short Name">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("D_Short_Name") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="Doctor Name">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("D_Reg_Last_Name") %>'></asp:Label>&nbsp;
                                                                                     <asp:Label ID="Label4" runat="server" Text='<%# Eval("D_Reg_First_Name") %>'></asp:Label>&nbsp;
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Street Address">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("D_Reg_St_Name") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="Street Address">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="Label5" runat="server" Text='<%# Eval("D_Reg_St_Name") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
 
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-eye'></i> View" CommandName="ViewDetails" 
-                                                                                ControlStyle-CssClass="btn btn-info btn-sm" />
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-edit'></i> Edit" CommandName="Edit" 
-                                                                                ControlStyle-CssClass="btn btn-info btn-sm"/>
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-trash-alt'></i> Delete" CommandName="dlt" 
-                                                                                ControlStyle-CssClass="btn btn-danger btn-sm" />
-                                                                            
-                                                                        </Columns>
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-eye'></i> View" CommandName="ViewDetails"
+                                                                                        ControlStyle-CssClass="btn btn-info btn-sm" />
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-edit'></i> Edit" CommandName="Edit"
+                                                                                        ControlStyle-CssClass="btn btn-info btn-sm" />
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-trash-alt'></i> Delete" CommandName="dlt"
+                                                                                        ControlStyle-CssClass="btn btn-danger btn-sm" />
 
-                                                                    </asp:GridView>
+                                                                                </Columns>
+                                                                                <PagerStyle CssClass="pagination-ys" />
+                                                                                <PagerSettings Mode="NumericFirstLast" FirstPageText="First" LastPageText="Last"
+                                                                                    NextPageText="Next" PreviousPageText="Previous" PageButtonCount="10" Position="Bottom" />
+                                                                            </asp:GridView>
+                                                                        </ContentTemplate>
+                                                                    </asp:UpdatePanel>
+
                                                                     <asp:SqlDataSource ID="SearchDoctor"
                                                                         SelectCommand="SearchDoctors" SelectCommandType="StoredProcedure"
-                                                                        ConnectionString="<%$ ConnectionStrings:Vitals%>" 
+                                                                        ConnectionString="<%$ ConnectionStrings:Vitals%>"
                                                                         runat="server"><%--DeleteCommand="DeleteDoctors" DeleteCommandType="StoredProcedure"--%>
                                                                         <SelectParameters>
                                                                             <asp:ControlParameter ControlID="SearchDoctors" Name="Searchstr" PropertyName="Text" Type="String"
                                                                                 ConvertEmptyStringToNull="true" />
                                                                         </SelectParameters>
-                                                                       <%-- <DeleteParameters>
+                                                                        <%-- <DeleteParameters>
                                                                             <asp:Parameter Name="D_RegDRNo" />
                                                                         </DeleteParameters>--%>
                                                                     </asp:SqlDataSource>
 
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                     </div>

@@ -265,6 +265,7 @@ namespace Vitals
 
         protected void FuneralGridView_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+           // ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + e.Row.RowType + "','error" + "');", true);
             if (e.Row.RowType != DataControlRowType.DataRow)
                 return;
 
@@ -274,7 +275,7 @@ namespace Vitals
 
             e.Row.Attributes["onmouseout"] =
             "this.style.backgroundColor=this.originalBackgroundColor;";
-
+           
             e.Row.Attributes["onclick"] =
             ClientScript.GetPostBackClientHyperlink(this.FuneralGridView,
              "Select$" + e.Row.RowIndex);
@@ -282,25 +283,25 @@ namespace Vitals
 
         protected void FuneralGridView_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+          
             if (FuneralGridView.SelectedRow != null)
             {
                 SearcFuneralHome.Text = Server.HtmlDecode(
                   FuneralGridView.SelectedRow.Cells[1].Text);
                 FuneralCode.Value = FuneralGridView.SelectedRow.Cells[0].Text;
-                F_Name.Text = FuneralGridView.SelectedRow.Cells[2].Text;
+                F_Name.Text = Fname.Text;
 
-                if (FuneralGridView.SelectedRow.Cells[4].Text == "&nbsp;")
-                    FuneralGridView.SelectedRow.Cells[4].Text = "";
-                F_Street.Text = FuneralGridView.SelectedRow.Cells[4].Text + " " + FuneralGridView.SelectedRow.Cells[3].Text;
+                //if (FuneralGridView.SelectedRow.Cells[4].Text == "&nbsp;")
+                //    FuneralGridView.SelectedRow.Cells[4].Text = "";
+                //F_Street.Text = FuneralGridView.SelectedRow.Cells[4].Text + " " + FuneralGridView.SelectedRow.Cells[3].Text;
 
-                if (FuneralGridView.SelectedRow.Cells[7].Text == "&nbsp;")
-                    FuneralGridView.SelectedRow.Cells[7].Text = "";
+                //if (FuneralGridView.SelectedRow.Cells[7].Text == "&nbsp;")
+                //    FuneralGridView.SelectedRow.Cells[7].Text = "";
 
-                F_CityProv.Text = FuneralGridView.SelectedRow.Cells[5].Text + ", " + FuneralGridView.SelectedRow.Cells[6].Text + " " + FuneralGridView.SelectedRow.Cells[7].Text;
-                if (FuneralGridView.SelectedRow.Cells[8].Text == "&nbsp;")
-                    FuneralGridView.SelectedRow.Cells[8].Text = "";
-                F_Unit.Text = FuneralGridView.SelectedRow.Cells[8].Text;
+                //F_CityProv.Text = FuneralGridView.SelectedRow.Cells[5].Text + ", " + FuneralGridView.SelectedRow.Cells[6].Text + " " + FuneralGridView.SelectedRow.Cells[7].Text;
+                //if (FuneralGridView.SelectedRow.Cells[8].Text == "&nbsp;")
+                //    FuneralGridView.SelectedRow.Cells[8].Text = "";
+               // F_Unit.Text = FuneralGridView.SelectedRow.Cells[8].Text;
             }
             else
                 SearcFuneralHome.Text = "";
@@ -732,6 +733,15 @@ namespace Vitals
             CancelBtn.Visible = true;
 
         }
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            this.DataBind();
+            hfTab.Value = "tab2";
+        }
+
+
 
         //protected void RadioButton2_CheckedChanged(object sender, EventArgs e)
         //{

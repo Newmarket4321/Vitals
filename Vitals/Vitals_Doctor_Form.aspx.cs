@@ -373,6 +373,11 @@ namespace Vitals
             grid.Attributes.Add("style", "display:block");
         }
 
-      
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            this.DataBind();
+            hfTab.Value = "tab2";
+        }
     }
 }

@@ -106,6 +106,7 @@
     </div>
     <!-- Main content -->
     <section class="content">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -224,7 +225,7 @@
                                     <div class="tab-pane fade" id="tab2" role="tabpanel">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div style="margin-top: -20px; width: 100%; border: thin; padding: 15px 5px;  border-color: black; color: #005595; font-family: Arial; font-size: 16px;">
+                                                <div style="margin-top: -20px; width: 100%; border: thin; padding: 15px 5px; border-color: black; color: #005595; font-family: Arial; font-size: 16px;">
 
                                                     <div class="form-group row">
                                                         <div class="col-md-12">
@@ -242,32 +243,36 @@
                                                         <div class="col-md-12">
                                                             <div class="form-group">
                                                                 <div id="grid" style="display: block" runat="server">
-                                                                    <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="Horizontal"
-                                                                        BorderColor="LightGray" AutoGenerateColumns="false"
-                                                                        PageIndex="5" AllowPaging="True" AllowCustomPaging="True" CellPadding="3"
-                                                                        CellSpacing="2" OnRowCommand="GridView1_RowCommand"
-                                                                        DataSourceID="SearcFuneral" CssClass="table table-condensed table-hover" Style="font-family: arial;">
-                                                                        <Columns>
-                                                                            <%----%>
-                                                                            <asp:BoundField DataField="F_Reg_Customer_Cnt" HeaderText="ID" />
-                                                                            <asp:TemplateField HeaderText="Short Name">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="F_Reg_Short_Name" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Funeral Home">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="F_Reg_Funeral_Home" runat="server" Text='<%# Eval("F_Reg_Funeral_Home") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-eye'></i> View" CommandName="ViewDetails"
-                                                                                ControlStyle-CssClass="btn btn-info btn-sm " />
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-edit'></i> Edit"
-                                                                                ControlStyle-CssClass="btn btn-info btn-sm " CommandName="Edit"></asp:ButtonField>
-                                                                            <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-trash-alt'></i> Delete" CommandName="dlt"
-                                                                                ControlStyle-CssClass="btn btn-danger btn-sm " />
-                                                                        </Columns>
-                                                                    </asp:GridView>
+                                                                    <asp:UpdatePanel runat="server" ID="updatedeaths">
+                                                                        <ContentTemplate>
+                                                                            <asp:GridView ID="GridView1" runat="server" BorderStyle="None" GridLines="Horizontal"
+                                                                                BorderColor="LightGray" AutoGenerateColumns="false"
+                                                                                CellPadding="3" AllowPaging="True" PageSize="5" AllowSorting="true" OnPageIndexChanging="GridView1_PageIndexChanging"
+                                                                                CellSpacing="2" OnRowCommand="GridView1_RowCommand"
+                                                                                DataSourceID="SearcFuneral" CssClass="table table-condensed table-hover" Style="font-family: arial;">
+                                                                                <Columns>
+                                                                                    <%----%>
+                                                                                    <asp:BoundField DataField="F_Reg_Customer_Cnt" HeaderText="ID" />
+                                                                                    <asp:TemplateField HeaderText="Short Name">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="F_Reg_Short_Name" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:TemplateField HeaderText="Funeral Home">
+                                                                                        <ItemTemplate>
+                                                                                            <asp:Label ID="F_Reg_Funeral_Home" runat="server" Text='<%# Eval("F_Reg_Funeral_Home") %>'></asp:Label>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-eye'></i> View" CommandName="ViewDetails"
+                                                                                        ControlStyle-CssClass="btn btn-info btn-sm " />
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-edit'></i> Edit"
+                                                                                        ControlStyle-CssClass="btn btn-info btn-sm " CommandName="Edit"></asp:ButtonField>
+                                                                                    <asp:ButtonField ButtonType="Link" Text="<i aria-hidden='true' class='fa fa-trash-alt'></i> Delete" CommandName="dlt"
+                                                                                        ControlStyle-CssClass="btn btn-danger btn-sm " />
+                                                                                </Columns>
+                                                                            </asp:GridView>
+                                                                        </ContentTemplate>
+                                                                    </asp:UpdatePanel>
                                                                 </div>
                                                                 <asp:SqlDataSource ID="SearcFuneral"
                                                                     SelectCommand="SearcFuneralHome" SelectCommandType="StoredProcedure"

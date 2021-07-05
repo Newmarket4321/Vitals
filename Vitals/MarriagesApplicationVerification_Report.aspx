@@ -49,7 +49,7 @@
                     <div style="border: thin; border-color: black; color: #005595; font-family: Arial; font-size: 16px;">
                         <div class="card card-info">
                             <div class="card-header">
-                                <h3 class="card-title">Control File</h3>
+                                <h3 class="card-title">Marriage Application Verification</h3>
                             </div>
                             <div class="card-body">
                                 <div class="form-group row">
