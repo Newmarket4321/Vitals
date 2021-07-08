@@ -82,7 +82,7 @@ namespace Vitals
                 decimal MarriageCPrice1 = decimal.Parse(MarriageLicence1.Text == string.Empty ? "0.00" : MarriageLicence1.Text);
                 decimal MarriageCPrice2 = decimal.Parse(MarriageLicence2.Text == string.Empty ? "0.00" : MarriageLicence2.Text);
 
-                string msg = AddVitalControls(
+                string msg = UpdateVitalControls(
                     lastdeath,
                     year_inside,
                     laastDeathOutside,

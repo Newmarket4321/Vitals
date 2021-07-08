@@ -393,7 +393,7 @@
                                                                             <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>' />
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="Doctor Name">
+                                                                    <asp:TemplateField HeaderText="Funeral Home">
                                                                         <ItemTemplate>
                                                                             <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Funeral_Home")%>' />
                                                                         </ItemTemplate>
@@ -1085,7 +1085,7 @@
                                                                                                         <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>' />
                                                                                                     </ItemTemplate>
                                                                                                 </asp:TemplateField>
-                                                                                                <asp:TemplateField HeaderText="Doctor Name">
+                                                                                                <asp:TemplateField HeaderText="Funeral Home">
                                                                                                     <ItemTemplate>
                                                                                                         <asp:Label ID="Label76" runat="server" Text='<%# Eval("F_Reg_Funeral_Home")%>' />
                                                                                                     </ItemTemplate>

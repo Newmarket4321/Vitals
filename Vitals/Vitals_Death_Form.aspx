@@ -64,7 +64,7 @@
                 });
             });
         });
-        
+
         function currentclick() {
             window.location.href = "Vitals_Death_Form.aspx";
         }
@@ -112,7 +112,13 @@
         //jQuery(document).ready(function () {
         //    $("#Gridview1").tablesorter({ debug: false, widgets: ['zebra'], sortList: [[0, 0]] });
         //});
+        function isNumber(evt) {
+            var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+            if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+                return false;
 
+            return true;
+        }
     </script>
 
     <section class="content-header">
@@ -181,8 +187,9 @@
                                                     <asp:Label ID="Label1" runat="server" Text="Registration No.:"></asp:Label>
                                                     <div class="input-group">
                                                         <asp:TextBox ID="RegYear" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
-                                                        <asp:TextBox ID="RegType" class="form-control" runat="server"></asp:TextBox>
-                                                        <asp:TextBox ID="RegNo" class="form-control" runat="server" placeholder="0"></asp:TextBox>
+                                                        <asp:TextBox ID="RegType" class="form-control" runat="server" MaxLength="1"></asp:TextBox>
+                                                        <asp:TextBox ID="RegNo" class="form-control" runat="server" placeholder="0" MaxLength="18" onkeypress="javascript:return isNumber(event)"></asp:TextBox>
+
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -191,8 +198,8 @@
                                                         &nbsp;
                                                         <asp:DropDownList ID="Billable" runat="server" class="form-control select2">
 
-                                                            <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
-                                                            <asp:ListItem Text="No" Value="No"></asp:ListItem>
+                                                            <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                            <asp:ListItem Text="No" Value="N"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>
                                                 </div>
@@ -219,7 +226,7 @@
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label5" runat="server" Text="First Name:"></asp:Label>
                                                                     <asp:TextBox ID="Fname" runat="server" class="form-control"
-                                                                        placeholder="First Name"></asp:TextBox>
+                                                                        placeholder="First Name" MaxLength="24"></asp:TextBox>
 
 
                                                                 </div>
@@ -228,13 +235,13 @@
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label6" runat="server" Text="Middle Name:"></asp:Label>
                                                                     <asp:TextBox ID="Mname" runat="server" class="form-control"
-                                                                        placeholder="Middle Name"></asp:TextBox>
+                                                                        placeholder="Middle Name" MaxLength="20"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label7" runat="server" Text="Last Name:"></asp:Label>
-                                                                    <asp:TextBox ID="Lname" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                    <asp:TextBox ID="Lname" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -243,11 +250,10 @@
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label8" runat="server" Text="Sex"></asp:Label>
                                                                     &nbsp;
-                                            <asp:DropDownList ID="sex" runat="server" class="form-control">
-                                                <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
-                                                <asp:ListItem runat="server" Value="M">Male</asp:ListItem>
-                                                <asp:ListItem runat="server" Valu="F">Female</asp:ListItem>
-                                            </asp:DropDownList>
+                                                                    <asp:DropDownList ID="sex" runat="server" class="form-control">
+                                                                        <asp:ListItem runat="server" Value="M">Male</asp:ListItem>
+                                                                        <asp:ListItem runat="server" Valu="F">Female</asp:ListItem>
+                                                                    </asp:DropDownList>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
@@ -265,7 +271,7 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label10" runat="server" Text="Municipality:"></asp:Label>
-                                                                    <asp:TextBox ID="Municipality" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="Municipality" class="form-control" runat="server" MaxLength="25"></asp:TextBox>
 
                                                                 </div>
                                                             </div>
@@ -274,16 +280,9 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label11" runat="server" Text="Place of Death:"></asp:Label>
-                                                                    <asp:TextBox ID="PlaceDeath" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="PlaceDeath" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
                                                                 </div>
                                                             </div>
-                                                            <%-- <div class="col-md-8">
-                                            <div class="form-group">
-                                                <asp:Label ID="Label12" runat="server" Text="Cause of Death(Optional):"></asp:Label>
-                                                <asp:TextBox ID="CauseDeath1" class="form-control" runat="server"></asp:TextBox>
-                                                <asp:TextBox ID="CauseDeath2" class="form-control" runat="server"></asp:TextBox>
-                                            </div>
-                                        </div>--%>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -300,24 +299,24 @@
                                                             <div class="col-md-2">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label68" runat="server" Text="House No.:"></asp:Label>
-                                                                    <asp:TextBox ID="HouseNo" class="form-control" MaxLength="35" runat="server" placeholder="House Number"></asp:TextBox>
+                                                                    <asp:TextBox ID="HouseNo" class="form-control" MaxLength="7" runat="server" placeholder="House Number"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-8">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label14" runat="server" Text="Street:"></asp:Label>
-                                                                    <asp:TextBox ID="Street" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="Street" class="form-control" runat="server" MaxLength="35"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label15" runat="server" Text="Form 17 Req?:"></asp:Label>
                                                                     <%--<asp:TextBox ID="Form17" class="form-control" runat="server"></asp:TextBox>--%>
-                                             &nbsp;
-                                <asp:DropDownList ID="printed" runat="server" class="form-control" AutoPostBack="true">
-                                    <asp:ListItem Text="No" Value="No"></asp:ListItem>
-                                    <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
-                                </asp:DropDownList>
+                                                                                            &nbsp;
+                                                                    <asp:DropDownList ID="printed" runat="server" class="form-control" AutoPostBack="true">
+                                                                        <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                                                        <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                                    </asp:DropDownList>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -325,19 +324,19 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label16" runat="server" Text="Unit/Apt:"></asp:Label>
-                                                                    <asp:TextBox ID="Unit" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="Unit" class="form-control" runat="server" MaxLength="6"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label17" runat="server" Text="City:"></asp:Label>
-                                                                    <asp:TextBox ID="City" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="City" class="form-control" runat="server" MaxLength="25"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label18" runat="server" Text="Province:"></asp:Label>
-                                                                    <asp:TextBox ID="Province" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="Province" class="form-control" runat="server" MaxLength="20"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -345,13 +344,13 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label19" runat="server" Text="Country:"></asp:Label>
-                                                                    <asp:TextBox ID="Country" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="Country" class="form-control" runat="server" MaxLength="15"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label20" runat="server" Text="Postal Code:"></asp:Label>
-                                                                    <asp:TextBox ID="Postalcode" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="Postalcode" class="form-control" runat="server" MaxLength="7"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -361,7 +360,6 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label21" runat="server" Text="Funeral Home Code:"></asp:Label>
-                                                                    <%--<asp:DropDownList ID="FuneralCode" runat="server" class="form-control"></asp:DropDownList>--%>
                                                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                                         <ContentTemplate>
                                                                             <!-- all other content goes here -->
@@ -369,71 +367,35 @@
                                                                             <asp:TextBox ID="SearcFuneralHome" runat="server" class="form-control" Width="20%"
                                                                                 AutoPostBack="true" OnTextChanged="SearchEvent" OnPreRender="SearchEvent" />
                                                                             <asp:Panel runat="server" ID="FuneralDropDown"
-                                                                                Style="max-height: 150px; max-width: 50%; overflow: scroll; display: none; visibility: hidden;">
+                                                                                Style="max-height: 150px; max-width: 45%; overflow: scroll; display: none; visibility: hidden;">
                                                                                 <!-- GridView  goes here -->
-
                                                                                 <asp:GridView ID="FuneralGridView" runat="server" Font-Size="Small"
                                                                                     AutoGenerateColumns="false" OnRowDataBound="FuneralGridView_RowDataBound"
-                                                                                    OnSelectedIndexChanged="FuneralGridView_SelectedIndexChanged">
-
+                                                                                    OnSelectedIndexChanged="FuneralGridView_SelectedIndexChanged" AutoGenerateSelectButton="True">
                                                                                     <Columns>
-                                                                                        <asp:BoundField DataField="F_Reg_Customer_Cnt"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <%--<asp:BoundField DataField="F_Reg_Short_Name"
-                                                                                            HeaderText="Short Name" HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="F_Reg_Funeral_Home"
-                                                                                            HeaderText="Funeral Home" HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="F_Reg_St_Name"
-                                                                                            HeaderText="Street Name" HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="F_Reg_House_No"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="F_Reg_City"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="F_Reg_Prov"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="F_Reg_PC"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="F_Reg_Unit"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />--%>
-                                                                                        <asp:TemplateField HeaderText="Short Name">
+                                                                                        <asp:BoundField DataField="F_Reg_Customer_Cnt" />
+                                                                                        <asp:TemplateField>
                                                                                             <ItemTemplate>
-
-                                                                                                <asp:HiddenField runat="server" ID="Fshortname" Value='<%# Eval("F_Reg_Short_Name") %>' />
                                                                                                 <asp:Label ID="L1" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
-                                                                                        <asp:TemplateField HeaderText="Doctor Name">
+                                                                                        <asp:TemplateField>
                                                                                             <ItemTemplate>
-                                                                                                <asp:HiddenField runat="server" ID="FFuneralhome" Value='<%# Eval("F_Reg_Funeral_Home")%>' />
                                                                                                 <asp:Label ID="L2" runat="server" Text='<%# Eval("F_Reg_Funeral_Home")%>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
-                                                                                        <asp:TemplateField HeaderText="Street Name">
+                                                                                        <asp:TemplateField>
                                                                                             <ItemTemplate>
-                                                                                                <asp:HiddenField runat="server" ID="FHouseno" Value='<%# Eval("F_Reg_House_No") %>' />
-                                                                                                <asp:HiddenField runat="server" ID="Fstreet" Value='<%# Eval("F_Reg_St_Name") %>' />
                                                                                                 <asp:Label ID="L3" runat="server" Text='<%# Eval("F_Reg_House_No") + " "+ Eval("F_Reg_St_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
-
-                                                                                        <asp:TemplateField HeaderText="Unit" HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn">
+                                                                                        <asp:TemplateField>
                                                                                             <ItemTemplate>
                                                                                                 <asp:HiddenField runat="server" ID="Funit" Value='<%# Eval("F_Reg_Unit") %>' />
                                                                                                 <asp:Label ID="L4" runat="server" Text='<%# Eval("F_Reg_Unit") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
-                                                                                        <asp:TemplateField HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn">
+                                                                                        <asp:TemplateField>
                                                                                             <ItemTemplate>
                                                                                                 <asp:Label ID="L5" runat="server" Text='<%# Eval("F_Reg_City")  + ", "+ Eval("F_Reg_Prov")+ " "+ Eval("F_Reg_PC") %>' />
                                                                                             </ItemTemplate>
@@ -453,14 +415,32 @@
                                                                                 DropDownControlID="FuneralDropDown"
                                                                                 TargetControlID="SearcFuneralHome" />
                                                                             <br />
-                                                                            <asp:TextBox ID="F_Name" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 20%;"></asp:TextBox>
-                                                                            <asp:TextBox ID="F_Street" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 25%;"></asp:TextBox>
-                                                                            <asp:TextBox ID="F_Unit" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 15%;"></asp:TextBox>
-                                                                            <asp:TextBox ID="F_CityProv" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 30%;"></asp:TextBox>
-
+                                                                            <div class="form-group row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <asp:TextBox ID="F_Name" runat="server" class="form-control"></asp:TextBox>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="form-group">
+                                                                                        <asp:TextBox ID="F_Street" runat="server" class="form-control"></asp:TextBox>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="form-group">
+                                                                                        <asp:TextBox ID="F_Unit" runat="server" class="form-control"></asp:TextBox>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <asp:TextBox ID="F_CityProv" runat="server" class="form-control"></asp:TextBox>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </ContentTemplate>
 
                                                                     </asp:UpdatePanel>
+
                                                                 </div>
                                                             </div>
 
@@ -469,7 +449,6 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label22" runat="server" Text="Doctor:"></asp:Label>
-                                                                    <%--<asp:DropDownList ID="Doctor" runat="server" class="form-control"></asp:DropDownList>--%>
                                                                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                                         <ContentTemplate>
                                                                             <!-- all other content goes here -->
@@ -477,67 +456,34 @@
                                                                             <asp:TextBox ID="SearchDoctor" runat="server" class="form-control" Width="20%"
                                                                                 AutoPostBack="true" OnTextChanged="SearchDoctor_PreRender" OnPreRender="SearchDoctor_PreRender" />
                                                                             <asp:Panel runat="server" ID="DoctorDropdown"
-                                                                                Style="max-height: 150px; max-width: 50%; overflow: scroll; display: none; visibility: hidden;">
+                                                                                Style="max-height: 150px; max-width: 40%; overflow: scroll; display: none; visibility: hidden;">
                                                                                 <!-- GridView  goes here -->
-
-                                                                                <asp:GridView ID="DoctorGrid" runat="server" Font-Size="Small"
-                                                                                    AutoGenerateColumns="false" OnRowDataBound="SearchDoctorGrid_RowDataBound" OnSelectedIndexChanged="SearchDoctorGrid_SelectedIndexChanged">
+                                                                                <asp:GridView ID="DoctorGrid" runat="server" Font-Size="Small" AutoGenerateSelectButton="True" AutoGenerateColumns="false"
+                                                                                    OnRowDataBound="SearchDoctorGrid_RowDataBound" OnSelectedIndexChanged="SearchDoctorGrid_SelectedIndexChanged">
 
                                                                                     <Columns>
-                                                                                        <asp:BoundField DataField="D_Reg_DR_No"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Short_Name"
-                                                                                            HeaderText="Short Name" HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Reg_Last_Name"
-                                                                                            HeaderText="Funeral Home" HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Reg_First_Name"
-                                                                                            HeaderText="Street Name" HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Reg_House_No"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Reg_St_Name"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Reg_City"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Reg_Prov"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Reg_PC"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:BoundField DataField="D_Reg_Unit"
-                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                        <asp:TemplateField HeaderText="Short Name">
+                                                                                        <asp:BoundField DataField="D_Reg_DR_No" />
+                                                                                        <asp:TemplateField>
                                                                                             <ItemTemplate>
                                                                                                 <asp:Label ID="L6" runat="server" Text='<%# Eval("D_Short_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
-                                                                                        <asp:TemplateField HeaderText="Doctor Name">
+                                                                                        <asp:TemplateField >
                                                                                             <ItemTemplate>
                                                                                                 <asp:Label ID="L7" runat="server" Text='<%# Eval("D_Reg_Last_Name") + ", "+ Eval("D_Reg_First_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
-                                                                                        <asp:TemplateField HeaderText="Street Name">
+                                                                                        <asp:TemplateField >
                                                                                             <ItemTemplate>
                                                                                                 <asp:Label ID="L8" runat="server" Text='<%# Eval("D_Reg_House_No") + " "+ Eval("D_Reg_St_Name") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
-
-                                                                                        <asp:TemplateField HeaderText="Unit" HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn">
+                                                                                        <asp:TemplateField >
                                                                                             <ItemTemplate>
                                                                                                 <asp:Label ID="L9" runat="server" Text='<%# Eval("D_Reg_Unit") %>' />
                                                                                             </ItemTemplate>
                                                                                         </asp:TemplateField>
-                                                                                        <asp:TemplateField HeaderStyle-CssClass="invisibleColumn"
-                                                                                            ItemStyle-CssClass="invisibleColumn">
+                                                                                        <asp:TemplateField >
                                                                                             <ItemTemplate>
                                                                                                 <asp:Label ID="L10" runat="server" Text='<%# Eval("D_Reg_City")  + ", "+ Eval("D_Reg_Prov")+ " "+ Eval("D_Reg_PC") %>' />
                                                                                             </ItemTemplate>
@@ -557,11 +503,28 @@
                                                                                 DropDownControlID="DoctorDropdown"
                                                                                 TargetControlID="SearchDoctor" />
                                                                             <br />
-                                                                            <asp:TextBox ID="D_Name" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 20%;"></asp:TextBox>
-                                                                            <asp:TextBox ID="D_Street" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 25%;"></asp:TextBox>
-                                                                            <asp:TextBox ID="D_Unit" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 15%;"></asp:TextBox>
-                                                                            <asp:TextBox ID="D_CityProv" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 30%;"></asp:TextBox>
-
+                                                                            <div class="form-group row">
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <asp:TextBox ID="D_Name" runat="server" class="form-control"></asp:TextBox>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="form-group">
+                                                                                        <asp:TextBox ID="D_Street" runat="server" class="form-control"></asp:TextBox>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-2">
+                                                                                    <div class="form-group">
+                                                                                        <asp:TextBox ID="D_Unit" runat="server" class="form-control"></asp:TextBox>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <div class="form-group">
+                                                                                        <asp:TextBox ID="D_CityProv" runat="server" class="form-control"></asp:TextBox>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </ContentTemplate>
 
                                                                     </asp:UpdatePanel>
@@ -577,7 +540,6 @@
                                             <div class="card card-info">
                                                 <div class="card-header">
                                                     <h3 class="card-title">Address of Place of Death</h3>
-                                                    <%--<asp:Label ID="Label67" runat="server" Text=" Address of Deceased" ForeColor="Black"></asp:Label>--%>
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="content">
@@ -585,7 +547,6 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:CheckBox ID="Same" runat="server" class="icheck-primary d-inline" Text="Address Same" />
-                                                                    <%-- <asp:RadioButton ID="Same" runat="server" Text="Address Same" CssClass="icheck-primary d-inline" ClientIDMode="Static" />--%>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -593,19 +554,19 @@
                                                             <div class="col-md-2">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label43" runat="server" Text="House No.:"></asp:Label>
-                                                                    <asp:TextBox ID="DHouseNo" class="form-control" MaxLength="35" runat="server" placeholder="House Number"></asp:TextBox>
+                                                                    <asp:TextBox ID="DHouseNo" class="form-control" runat="server" MaxLength="7" placeholder="House Number"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label69" runat="server" Text="Street:"></asp:Label>
-                                                                    <asp:TextBox ID="DStreet" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="DStreet" class="form-control" runat="server" MaxLength="35"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label71" runat="server" Text="Unit/Apt:"></asp:Label>
-                                                                    <asp:TextBox ID="DUnit" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="DUnit" class="form-control" runat="server" MaxLength="6"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -614,13 +575,13 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label72" runat="server" Text="City:"></asp:Label>
-                                                                    <asp:TextBox ID="DCity" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="DCity" class="form-control" runat="server" MaxLength="25"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label73" runat="server" Text="Province:"></asp:Label>
-                                                                    <asp:TextBox ID="DProvince" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="DProvince" class="form-control" runat="server" MaxLength="20"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -628,13 +589,13 @@
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label74" runat="server" Text="Country:"></asp:Label>
-                                                                    <asp:TextBox ID="DCountry" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="DCountry" class="form-control" runat="server" MaxLength="15"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="form-group">
                                                                     <asp:Label ID="Label75" runat="server" Text="Postal Code:"></asp:Label>
-                                                                    <asp:TextBox ID="DPostalcode" class="form-control" runat="server"></asp:TextBox>
+                                                                    <asp:TextBox ID="DPostalcode" class="form-control" runat="server" MaxLength="7"></asp:TextBox>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -702,7 +663,6 @@
                                                                             </asp:GridView>
                                                                         </ContentTemplate>
                                                                     </asp:UpdatePanel>
-
                                                                 </div>
                                                                 <asp:SqlDataSource ID="SearcDeaths"
                                                                     SelectCommand="SearchDeath" SelectCommandType="StoredProcedure"
@@ -713,7 +673,6 @@
                                                                             ConvertEmptyStringToNull="true" />
                                                                     </SelectParameters>
                                                                 </asp:SqlDataSource>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -722,7 +681,6 @@
                                                             <div class="form-group">
                                                                 <div id="Section2" style="display: none" runat="server">
                                                                     <div class="row">
-
                                                                         <div class="col-md-12">
                                                                             <asp:Label ID="Label44" runat="server" EnableViewState="False" ForeColor="Red"></asp:Label><br />
 
@@ -731,26 +689,27 @@
                                                                                     <asp:Label ID="Label45" runat="server" Text="Registration No.:"></asp:Label>
                                                                                     <div class="input-group">
                                                                                         <asp:TextBox ID="H_RegYear" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
-                                                                                        <asp:TextBox ID="H_RegType" class="form-control" runat="server"></asp:TextBox>
-                                                                                        <asp:TextBox ID="H_RegNo" class="form-control" runat="server" placeholder="0"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_RegType" class="form-control" runat="server" MaxLength="1"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_RegNo" class="form-control" runat="server" placeholder="0" onkeypress="javascript:return isNumber(event)" MaxLength="18"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-12 col-sm-2">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label46" runat="server" Text="Billable:"></asp:Label>
                                                                                         &nbsp;
-                                                                        <asp:DropDownList ID="H_Billable" runat="server" class="form-control select2" AutoPostBack="true">
+                                                                                        <asp:DropDownList ID="H_Billable" runat="server" class="form-control select2" AutoPostBack="true">
 
-                                                                            <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
-                                                                            <asp:ListItem Text="No" Value="No"></asp:ListItem>
-                                                                        </asp:DropDownList>
+                                                                                            <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                                                            <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                                                                        </asp:DropDownList>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-12 col-sm-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label47" runat="server" Text="Reg Date:"></asp:Label>
                                                                                         <div class='form-group'>
-                                                                                            <asp:TextBox ID="H_RegDate" class="form-control" ClientIDMode="Static" ReadOnly="true" runat="server" placeholder="MM/DD/YYY">
+                                                                                            <asp:TextBox ID="H_RegDate" class="form-control" ClientIDMode="Static" ReadOnly="true" runat="server"
+                                                                                                placeholder="MM/DD/YYY">
                                              
                                                                                             </asp:TextBox>
                                                                                         </div>
@@ -767,19 +726,19 @@
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label49" runat="server" Text="First Name:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_Fname" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_Fname" runat="server" class="form-control" placeholder="First Name" MaxLength="24"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label50" runat="server" Text="Middle Name:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_Mname" runat="server" class="form-control" placeholder="Middle Name"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_Mname" runat="server" class="form-control" placeholder="Middle Name" MaxLength="30"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label51" runat="server" Text="Last Name:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_Lname" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_Lname" runat="server" class="form-control" placeholder="Last Name" MaxLength="20"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -788,18 +747,18 @@
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label52" runat="server" Text="Sex"></asp:Label>
                                                                                                     &nbsp;
-                                                                            <asp:DropDownList ID="H_RegSex" runat="server" class="form-control" AutoPostBack="true">
-                                                                                <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
-                                                                                <asp:ListItem runat="server" Value="M">Male</asp:ListItem>
-                                                                                <asp:ListItem runat="server" Valu="F">Female</asp:ListItem>
-                                                                            </asp:DropDownList>
+                                                                                                    <asp:DropDownList ID="H_RegSex" runat="server" class="form-control" AutoPostBack="true">
+                                                                                                        <asp:ListItem runat="server" Value="M">Male</asp:ListItem>
+                                                                                                        <asp:ListItem runat="server" Valu="F">Female</asp:ListItem>
+                                                                                                    </asp:DropDownList>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label53" runat="server" Text="Date of Death:"></asp:Label>
                                                                                                     <div class="input-group">
-                                                                                                        <asp:TextBox ID="H_DDeath" class="form-control" ClientIDMode="Static" runat="server" placeholder="MM/DD/YYY"></asp:TextBox>
+                                                                                                        <asp:TextBox ID="H_DDeath" class="form-control" ClientIDMode="Static" runat="server"
+                                                                                                            placeholder="MM/DD/YYY"></asp:TextBox>
 
                                                                                                         <div class="input-group-prepend">
                                                                                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -810,7 +769,7 @@
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label54" runat="server" Text="Municipality:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_Municipality" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_Municipality" class="form-control" runat="server" MaxLength="25"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -818,16 +777,9 @@
                                                                                             <div class="col-md-8">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label55" runat="server" Text="Place of Death:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_PlaceDeath" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_PlaceDeath" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <%--<div class="col-md-8">
-                                                                        <div class="form-group">
-                                                                            <asp:Label ID="Label56" runat="server" Text="Cause of Death(Optional):"></asp:Label>
-                                                                            <asp:TextBox ID="H_Cause1" class="form-control" runat="server"></asp:TextBox>
-                                                                            <asp:TextBox ID="H_Cause2" class="form-control" runat="server"></asp:TextBox>
-                                                                        </div>
-                                                                    </div>--%>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -843,24 +795,23 @@
                                                                                             <div class="col-md-2">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label58" runat="server" Text="House No.:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_HouseNo" class="form-control" MaxLength="35" runat="server" placeholder="House Number"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_HouseNo" class="form-control" runat="server" MaxLength="7" placeholder="House Number"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-8">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label59" runat="server" Text="Street:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_Street" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_Street" class="form-control" runat="server" MaxLength="35"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-2">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label60" runat="server" Text="Form 17 Req?:"></asp:Label>
-                                                                                                    <%--<asp:TextBox ID="Form17" class="form-control" runat="server"></asp:TextBox>--%>
-                                                                            &nbsp;
-                                                                            <asp:DropDownList ID="H_Printed" runat="server" class="form-control" AutoPostBack="true">
-                                                                                <asp:ListItem Text="No" Value="No"></asp:ListItem>
-                                                                                <asp:ListItem Text="Yes" Value="Yes"></asp:ListItem>
-                                                                            </asp:DropDownList>
+                                                                                                    &nbsp;
+                                                                                                        <asp:DropDownList ID="H_Printed" runat="server" class="form-control" AutoPostBack="true">
+                                                                                                            <asp:ListItem Text="No" Value="N"></asp:ListItem>
+                                                                                                            <asp:ListItem Text="Yes" Value="Y"></asp:ListItem>
+                                                                                                        </asp:DropDownList>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -868,19 +819,19 @@
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label61" runat="server" Text="Unit/Apt:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_Unit" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_Unit" class="form-control" runat="server" MaxLength="6"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label62" runat="server" Text="City:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_City" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_City" class="form-control" runat="server" MaxLength="25"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label63" runat="server" Text="Province:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_Province" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_Province" class="form-control" runat="server" MaxLength="20"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -888,13 +839,13 @@
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label64" runat="server" Text="Country:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_Country" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_Country" class="form-control" runat="server" MaxLength="15"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label65" runat="server" Text="Postal Code:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_PostalCode" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_PostalCode" class="form-control" runat="server" MaxLength="7"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -910,64 +861,36 @@
                                                                                                             <asp:TextBox ID="H_SearchFuneral" runat="server" class="form-control" Width="20%"
                                                                                                                 AutoPostBack="true" OnTextChanged="H_SearchFuneral_TextChanged" OnPreRender="H_SearchFuneral_TextChanged" />
                                                                                                             <asp:Panel runat="server" ID="H_FuneralDropDown"
-                                                                                                                Style="max-height: 150px; max-width: 50%; overflow: scroll; display: none; visibility: hidden;">
+                                                                                                                Style="max-height: 150px; max-width: 45%; overflow: scroll; display: none; visibility: hidden;">
                                                                                                                 <!-- GridView  goes here -->
 
-                                                                                                                <asp:GridView ID="H_FuneralGrid" runat="server" Font-Size="Small"
+                                                                                                                <asp:GridView ID="H_FuneralGrid" runat="server" Font-Size="Small" AutoGenerateSelectButton="True"
                                                                                                                     AutoGenerateColumns="false" OnRowDataBound="H_FuneralGrid_RowDataBound" OnSelectedIndexChanged="H_FuneralGrid_SelectedIndexChanged">
 
                                                                                                                     <Columns>
-                                                                                                                        <asp:BoundField DataField="F_Reg_Customer_Cnt"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="F_Reg_Short_Name"
-                                                                                                                            HeaderText="Short Name" HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="F_Reg_Funeral_Home"
-                                                                                                                            HeaderText="Funeral Home" HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="F_Reg_St_Name"
-                                                                                                                            HeaderText="Street Name" HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="F_Reg_House_No"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="F_Reg_City"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="F_Reg_Prov"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="F_Reg_PC"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="F_Reg_Unit"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:TemplateField HeaderText="Short Name">
+                                                                                                                        <asp:BoundField DataField="F_Reg_Customer_Cnt" />
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L11" runat="server" Text='<%# Eval("F_Reg_Short_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
-                                                                                                                        <asp:TemplateField HeaderText="Doctor Name">
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L12" runat="server" Text='<%# Eval("F_Reg_Funeral_Home")%>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
-                                                                                                                        <asp:TemplateField HeaderText="Street Name">
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L13" runat="server" Text='<%# Eval("F_Reg_House_No") + " "+ Eval("F_Reg_St_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
 
-                                                                                                                        <asp:TemplateField HeaderText="Unit" HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn">
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L14" runat="server" Text='<%# Eval("F_Reg_Unit") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
-                                                                                                                        <asp:TemplateField HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn">
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L15" runat="server" Text='<%# Eval("F_Reg_City")  + ", "+ Eval("F_Reg_Prov")+ " "+ Eval("F_Reg_PC") %>' />
                                                                                                                             </ItemTemplate>
@@ -987,11 +910,28 @@
                                                                                                                 DropDownControlID="H_FuneralDropDown"
                                                                                                                 TargetControlID="H_SearchFuneral" />
                                                                                                             <br />
-                                                                                                            <asp:TextBox ID="H_F_Name" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 20%;"></asp:TextBox>
-                                                                                                            <asp:TextBox ID="H_F_Street" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 25%;"></asp:TextBox>
-                                                                                                            <asp:TextBox ID="H_F_Unit" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 15%;"></asp:TextBox>
-                                                                                                            <asp:TextBox ID="H_F_CityProv" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 30%;"></asp:TextBox>
-
+                                                                                                            <div class="form-group row">
+                                                                                                                <div class="col-md-4">
+                                                                                                                    <div class="form-group">
+                                                                                                                        <asp:TextBox ID="H_F_Name" runat="server" class="form-control"></asp:TextBox>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-2">
+                                                                                                                    <div class="form-group">
+                                                                                                                        <asp:TextBox ID="H_F_Street" runat="server" class="form-control"></asp:TextBox>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-2">
+                                                                                                                    <div class="form-group">
+                                                                                                                        <asp:TextBox ID="H_F_Unit" runat="server" class="form-control"></asp:TextBox>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-4">
+                                                                                                                    <div class="form-group">
+                                                                                                                        <asp:TextBox ID="H_F_CityProv" runat="server" class="form-control"></asp:TextBox>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
                                                                                                         </ContentTemplate>
 
                                                                                                     </asp:UpdatePanel>
@@ -1010,67 +950,35 @@
                                                                                                             <asp:TextBox ID="H_SearchDoctor" runat="server" class="form-control" Width="20%"
                                                                                                                 AutoPostBack="true" OnTextChanged="SearchDoctor_PreRender" OnPreRender="SearchDoctor_PreRender" />
                                                                                                             <asp:Panel runat="server" ID="H_DoctorDropdown"
-                                                                                                                Style="max-height: 150px; max-width: 50%; overflow: scroll; display: none; visibility: hidden;">
+                                                                                                                Style="max-height: 150px; max-width: 40%; overflow: scroll; display: none; visibility: hidden;">
                                                                                                                 <!-- GridView  goes here -->
-
-                                                                                                                <asp:GridView ID="H_DoctorGrid" runat="server" Font-Size="Small"
+                                                                                                                <asp:GridView ID="H_DoctorGrid" runat="server" Font-Size="Small" AutoGenerateSelectButton="True"
                                                                                                                     AutoGenerateColumns="false" OnRowDataBound="H_DoctorGrid_RowDataBound" OnSelectedIndexChanged="H_DoctorGrid_SelectedIndexChanged">
 
                                                                                                                     <Columns>
-                                                                                                                        <asp:BoundField DataField="D_Reg_DR_No"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Short_Name"
-                                                                                                                            HeaderText="Short Name" HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Reg_Last_Name"
-                                                                                                                            HeaderText="Funeral Home" HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Reg_First_Name"
-                                                                                                                            HeaderText="Street Name" HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Reg_House_No"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Reg_St_Name"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Reg_City"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Reg_Prov"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Reg_PC"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:BoundField DataField="D_Reg_Unit"
-                                                                                                                            HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn" />
-                                                                                                                        <asp:TemplateField HeaderText="Short Name">
+                                                                                                                        <asp:BoundField DataField="D_Reg_DR_No" />
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L16" runat="server" Text='<%# Eval("D_Short_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
-                                                                                                                        <asp:TemplateField HeaderText="Doctor Name">
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L17" runat="server" Text='<%# Eval("D_Reg_Last_Name") + ", "+ Eval("D_Reg_First_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
-                                                                                                                        <asp:TemplateField HeaderText="Street Name">
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L18" runat="server" Text='<%# Eval("D_Reg_House_No") + " "+ Eval("D_Reg_St_Name") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
 
-                                                                                                                        <asp:TemplateField HeaderText="Unit" HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn">
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L19" runat="server" Text='<%# Eval("D_Reg_Unit") %>' />
                                                                                                                             </ItemTemplate>
                                                                                                                         </asp:TemplateField>
-                                                                                                                        <asp:TemplateField HeaderStyle-CssClass="invisibleColumn"
-                                                                                                                            ItemStyle-CssClass="invisibleColumn">
+                                                                                                                        <asp:TemplateField>
                                                                                                                             <ItemTemplate>
                                                                                                                                 <asp:Label ID="L20" runat="server" Text='<%# Eval("D_Reg_City")  + ", "+ Eval("D_Reg_Prov")+ " "+ Eval("D_Reg_PC") %>' />
                                                                                                                             </ItemTemplate>
@@ -1090,11 +998,28 @@
                                                                                                                 DropDownControlID="H_DoctorDropdown"
                                                                                                                 TargetControlID="H_SearchDoctor" />
                                                                                                             <br />
-                                                                                                            <asp:TextBox ID="H_D_Name" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 20%;"></asp:TextBox>
-                                                                                                            <asp:TextBox ID="H_D_Street" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 25%;"></asp:TextBox>
-                                                                                                            <asp:TextBox ID="H_D_Unit" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 15%;"></asp:TextBox>
-                                                                                                            <asp:TextBox ID="H_D_CityProv" runat="server" Style="height: calc(1.5em + .75rem + 2px); padding: .375rem .75rem; font-size: 1rem; font-weight: 400; line-height: 1.5; color: #495057; background-color: #fff; background-clip: padding-box; border: 1px solid #ced4da; border-radius: .25rem; transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; width: 30%;"></asp:TextBox>
-
+                                                                                                            <div class="form-group row">
+                                                                                                                <div class="col-md-4">
+                                                                                                                    <div class="form-group">
+                                                                                                                        <asp:TextBox ID="H_D_Name" runat="server" class="form-control"></asp:TextBox>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-2">
+                                                                                                                    <div class="form-group">
+                                                                                                                        <asp:TextBox ID="H_D_Street" runat="server" class="form-control"></asp:TextBox>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-2">
+                                                                                                                    <div class="form-group">
+                                                                                                                        <asp:TextBox ID="H_D_Unit" runat="server" class="form-control"></asp:TextBox>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div class="col-md-4">
+                                                                                                                    <div class="form-group">
+                                                                                                                        <asp:TextBox ID="H_D_CityProv" runat="server" class="form-control"></asp:TextBox>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
                                                                                                         </ContentTemplate>
 
                                                                                                     </asp:UpdatePanel>
@@ -1117,7 +1042,7 @@
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <%--  <asp:RadioButton ID="RadioButton1" runat="server" Text="Address Same" ClientIDMode="Static" />--%>
-                                                                                                    <asp:CheckBox ID="CheckBox1" runat="server" Text="Address Same" class="icheck-primary d-inline" />
+                                                                                                    <asp:CheckBox ID="H_Same" runat="server" Text="Address Same" class="icheck-primary d-inline" />
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1125,19 +1050,19 @@
                                                                                             <div class="col-md-2">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label78" runat="server" Text="House No.:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_DHouseNo" class="form-control" MaxLength="35" runat="server" placeholder="House Number"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_DHouseNo" class="form-control" runat="server" MaxLength="7" placeholder="House Number"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-6">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label79" runat="server" Text="Street:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_DStreet" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_DStreet" class="form-control" runat="server" MaxLength="35"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label80" runat="server" Text="Unit/Apt:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_DUnit" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_DUnit" class="form-control" runat="server" MaxLength="6"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1146,13 +1071,13 @@
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label81" runat="server" Text="City:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_DCity" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_DCity" class="form-control" runat="server" MaxLength="25"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label82" runat="server" Text="Province:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_DProvince" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_DProvince" class="form-control" runat="server" MaxLength="20"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1160,13 +1085,13 @@
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label83" runat="server" Text="Country:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_DCountry" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_DCountry" class="form-control" runat="server" MaxLength="15"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="col-md-4">
                                                                                                 <div class="form-group">
                                                                                                     <asp:Label ID="Label84" runat="server" Text="Postal Code:"></asp:Label>
-                                                                                                    <asp:TextBox ID="H_DPostalCode" class="form-control" runat="server"></asp:TextBox>
+                                                                                                    <asp:TextBox ID="H_DPostalCode" class="form-control" runat="server" MaxLength="7"></asp:TextBox>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>
@@ -1228,9 +1153,7 @@
 
                     })
             });
-
         }
-
         function Confirm() {
             var confirm_value = document.createElement("INPUT");
             confirm_value.type = "hidden";

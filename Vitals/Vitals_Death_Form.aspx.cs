@@ -25,13 +25,29 @@ namespace Vitals
             RegYear.Text = DateTime.Now.Year.ToString();
             regdate.Text = DateTime.Today.ToShortDateString();
             RegType.Text = "I";
-            //Fname.Attributes.Add("onblur", "ValidatorUpdateDisplay(this.id);");
-            //Mname.Attributes.Add("onblur", "ValidatorUpdateDisplay(this.id);");
-            //Lname.Attributes.Add("onblur", "ValidatorUpdateDisplay(this.id);");
             //if (!IsPostBack)
             //    LoadFuneralhome();
             if (!IsPostBack)
             {
+                SqlCommand cmd;
+                SqlDataReader dr1;
+                //con.Open();
+                // cmd = new SqlCommand("select * from Deaths where D_Reg_Year=@DRegYear", con);
+
+                ////cmd.Parameters.AddWithValue("@D_RegDRNo", Request.QueryString["id"]);
+                //cmd.Parameters.AddWithValue("@DRegYear", DateTime.Now.Year.ToString());
+                // dr1 = cmd.ExecuteReader();
+                //if (dr1.Read())
+                //{
+                //    RegNo.Text = dr1["D_Reg_No"].ToString() + 1;
+                //}
+                //else
+                //{
+
+                //    ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog(Record not found!,error" + "');", true);
+                //}
+                //dr1.Close();
+                //con.Close();
                 Fname.Attributes.Add("onblur", "validate(this.id);");
                 if (Request.QueryString["id"] != null)
                 {
@@ -41,7 +57,7 @@ namespace Vitals
                     try
                     {
                         con.Open();
-                        SqlCommand cmd = new SqlCommand("GetDeaths", con);
+                         cmd = new SqlCommand("GetDeaths", con);
                         cmd.CommandType = CommandType.StoredProcedure;
                         //cmd.Parameters.AddWithValue("@D_RegDRNo", Request.QueryString["id"]);
                         cmd.Parameters.AddWithValue("@D_Reg_Year", Request.QueryString["Year"]);
@@ -50,7 +66,6 @@ namespace Vitals
                         SqlDataReader dr = cmd.ExecuteReader();
                         if (dr.Read())
                         {
-
                             H_RegYear.Text = dr["D_Reg_Year"].ToString();
                             H_RegType.Text = dr["D_Reg_type"].ToString();
                             H_RegNo.Text = dr["D_Reg_No"].ToString();
@@ -77,41 +92,58 @@ namespace Vitals
                             H_Province.Text = dr["D_Reg_Prov"].ToString();
                             H_Country.Text = dr["D_Reg_Country"].ToString();
                             H_PostalCode.Text = dr["D_Reg_PC"].ToString();
-                            H_SearchDoctor.Text = dr["D_Reg_Dr_Code"].ToString();
-                            H_SearchFuneral.Text = dr["D_Reg_Funeral_Code"].ToString();
+                            if (dr["D_Reg_Dr_Code"].ToString() != "0")
+                                H_SearchDoctor.Text = dr["D_Reg_Dr_Code"].ToString();
+                            else
+                                H_SearchDoctor.Text = "";
+                            if (dr["D_Reg_Funeral_Code"].ToString() != "0")
+                                H_SearchFuneral.Text = dr["D_Reg_Funeral_Code"].ToString();
+                            else
+                                H_SearchFuneral.Text = "";
                             H_Printed.SelectedItem.Text = dr["D_Printed"].ToString();
-
+                            H_DR_Code.Value= dr["D_Reg_Dr_Code"].ToString();
+                            H_FuneralCode.Value = dr["D_Reg_Funeral_Code"].ToString();
 
                         }
+                        dr.Close();
                         cmd = new SqlCommand("select * from Funeral where F_Reg_Customer_Cnt=@F_RegCustomerCnt", con);
 
                         //cmd.Parameters.AddWithValue("@D_RegDRNo", Request.QueryString["id"]);
                         cmd.Parameters.AddWithValue("@F_RegCustomerCnt", H_SearchFuneral.Text);
-                        SqlDataReader dr1 = cmd.ExecuteReader();
-                        H_F_Name.Text = dr1["F_Reg_Funeral_Home"].ToString();
-                        //using (SqlDataReader dr1 = cmd.ExecuteReader())
-                        //{
-                        //        if (dr1.Read())
-                        //        {
-                        //            H_F_Name.Text = dr1["F_Reg_Funeral_Home"].ToString();
-                        //            H_F_Street.Text = dr1["F_Reg_St_Name"].ToString() + " " + dr1["F_Reg_House_No"].ToString();
-                        //            H_F_Unit.Text = dr1["F_Reg_Unit"].ToString();
-                        //            H_F_CityProv.Text = dr1["F_Reg_City"].ToString() + ", " + dr1["F_Reg_Prov"].ToString();
-                        //        }
+                         dr1 = cmd.ExecuteReader();
+                            if (dr1.Read())
+                            {
+                                H_SearchFuneral.Text= dr1["F_Reg_Funeral_Home"].ToString();
+                                H_F_Name.Text = dr1["F_Reg_Funeral_Home"].ToString();
+                                H_F_Street.Text = dr1["F_Reg_St_Name"].ToString() + " " + dr1["F_Reg_House_No"].ToString();
+                                H_F_Unit.Text = dr1["F_Reg_Unit"].ToString();
+                                H_F_CityProv.Text = dr1["F_Reg_City"].ToString() + ", " + dr1["F_Reg_Prov"].ToString();
+                            }
+                            else
+                            {
+                            
+                                ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog(Record not found!,error" + "');", true);
+                            }
+                            dr1.Close();
 
-                        //}
-                        //cmd = new SqlCommand("select * from Doctors where D_Reg_DR_No=@D_RegDRNo", con);
-                        //cmd.Parameters.AddWithValue("@D_RegDRNo", H_SearchFuneral.Text);
-                        //using (SqlDataReader dr1 = cmd.ExecuteReader())
-                        //{
-                        //    if (dr1.Read())
-                        //    {
-                        //        H_D_Name.Text = dr1["D_Short_Name"].ToString();
-                        //        H_D_Street.Text = dr1["D_Reg_St_Name"].ToString() + " " + dr1["D_Reg_House_No"].ToString();
-                        //        H_D_Unit.Text = dr1["D_Reg_Unit"].ToString();
-                        //        H_D_CityProv.Text = dr1["D_Reg_City"].ToString() + ", " + dr1["D_Reg_Prov"].ToString();
-                        //    }
-                        //}
+                        cmd = new SqlCommand("select * from Doctors where D_Reg_DR_No=@D_RegDRNo", con);
+                        cmd.Parameters.AddWithValue("@D_RegDRNo", H_SearchDoctor.Text);
+                        dr1 = cmd.ExecuteReader();
+                            if (dr1.Read())
+                            {
+                                H_SearchDoctor.Text= dr1["D_Short_Name"].ToString();
+                                H_D_Name.Text = dr1["D_Short_Name"].ToString();
+                                H_D_Street.Text = dr1["D_Reg_St_Name"].ToString() + " " + dr1["D_Reg_House_No"].ToString();
+                                H_D_Unit.Text = dr1["D_Reg_Unit"].ToString();
+                                H_D_CityProv.Text = dr1["D_Reg_City"].ToString() + ", " + dr1["D_Reg_Prov"].ToString();
+                            }
+                            else
+                            {
+
+                                ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog(Record not found!,error" + "');", true);
+                            }
+                            dr1.Close();
+                        
                     }
                     catch (Exception ex)
                     {
@@ -153,7 +185,16 @@ namespace Vitals
                         H_PostalCode.ReadOnly = true;
                         H_SearchFuneral.ReadOnly = true;
                         H_SearchDoctor.ReadOnly = true;
+                        H_F_Name.ReadOnly = true;
+                        H_F_Street.ReadOnly = true;
+                        H_F_Unit.ReadOnly = true;
+                        H_F_CityProv.ReadOnly = true;
+                        H_D_Name.ReadOnly = true;
+                        H_D_Street.ReadOnly = true;
+                        H_D_Unit.ReadOnly = true;
+                        H_D_CityProv.ReadOnly = true;
                         H_Printed.Enabled = false;
+                        H_Same.Enabled = false;
                         EditBtn.Visible = true;
                         SubmitBtn.Visible = false;
                     }
@@ -187,7 +228,16 @@ namespace Vitals
                         H_PostalCode.ReadOnly = false;
                         H_SearchFuneral.ReadOnly = false;
                         H_SearchDoctor.ReadOnly = false;
+                        H_F_Name.ReadOnly = false;
+                        H_F_Street.ReadOnly = false;
+                        H_F_Unit.ReadOnly = false;
+                        H_F_CityProv.ReadOnly = false;
+                        H_D_Name.ReadOnly = false;
+                        H_D_Street.ReadOnly = false;
+                        H_D_Unit.ReadOnly = false;
+                        H_D_CityProv.ReadOnly = false;
                         H_Printed.Enabled = true;
+                        H_Same.Enabled = true;
                         SubmitBtn.Visible = true;
                         CancelBtn.Visible = true;
                         //Backbtn.Visible = true;
@@ -199,8 +249,7 @@ namespace Vitals
             {
                 if (hfTab.Value == "tab2")
                     SubmitBtn.Visible = true;
-
-
+               
             }
         }
         protected void LoadFuneralhome()
@@ -238,8 +287,6 @@ namespace Vitals
             else
                 Doctorstr = H_SearchDoctor.Text;
             SqlConnection con = new SqlConnection(Database.ConnectionString);
-            // string constr = ConfigurationManager.ConnectionStrings["Vitals"].ConnectionString;
-
             using (SqlCommand cmd = new SqlCommand("SELECT *  FROM Doctors where " + "D_Short_Name like @Search + '%' OR D_Reg_Last_Name like @Search + '%' OR D_Reg_First_Name like @Search + '%'"))
             {
                 cmd.Parameters.AddWithValue("@Search", Doctorstr);
@@ -268,7 +315,9 @@ namespace Vitals
            // ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + e.Row.RowType + "','error" + "');", true);
             if (e.Row.RowType != DataControlRowType.DataRow)
                 return;
-
+            e.Row.Cells[0].Style["display"] = "none";
+            e.Row.Cells[1].Style["display"] = "none";
+           
             e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';"
             + "this.originalBackgroundColor=this.style.backgroundColor;"
             + "this.style.backgroundColor='#bbbbbb';";
@@ -286,22 +335,17 @@ namespace Vitals
           
             if (FuneralGridView.SelectedRow != null)
             {
-                SearcFuneralHome.Text = Server.HtmlDecode(
-                  FuneralGridView.SelectedRow.Cells[1].Text);
-                FuneralCode.Value = FuneralGridView.SelectedRow.Cells[0].Text;
-                F_Name.Text = Fname.Text;
-
-                //if (FuneralGridView.SelectedRow.Cells[4].Text == "&nbsp;")
-                //    FuneralGridView.SelectedRow.Cells[4].Text = "";
-                //F_Street.Text = FuneralGridView.SelectedRow.Cells[4].Text + " " + FuneralGridView.SelectedRow.Cells[3].Text;
-
-                //if (FuneralGridView.SelectedRow.Cells[7].Text == "&nbsp;")
-                //    FuneralGridView.SelectedRow.Cells[7].Text = "";
-
-                //F_CityProv.Text = FuneralGridView.SelectedRow.Cells[5].Text + ", " + FuneralGridView.SelectedRow.Cells[6].Text + " " + FuneralGridView.SelectedRow.Cells[7].Text;
-                //if (FuneralGridView.SelectedRow.Cells[8].Text == "&nbsp;")
-                //    FuneralGridView.SelectedRow.Cells[8].Text = "";
-               // F_Unit.Text = FuneralGridView.SelectedRow.Cells[8].Text;
+                Label Fshortname = (Label)FuneralGridView.SelectedRow.Cells[2].FindControl("L1");
+                SearcFuneralHome.Text = Server.HtmlDecode(Fshortname.Text);
+                FuneralCode.Value = FuneralGridView.SelectedRow.Cells[1].Text;
+                Label FName = (Label)FuneralGridView.SelectedRow.Cells[3].FindControl("L2");
+                F_Name.Text = FName.Text;
+                Label FAddress = (Label)FuneralGridView.SelectedRow.Cells[4].FindControl("L3");
+                F_Street.Text = FAddress.Text;
+                Label unit = (Label)FuneralGridView.SelectedRow.Cells[5].FindControl("L4");
+                F_Unit.Text = unit.Text;
+                Label cityprov = (Label)FuneralGridView.SelectedRow.Cells[6].FindControl("L5");
+                F_CityProv.Text = cityprov.Text;
             }
             else
                 SearcFuneralHome.Text = "";
@@ -312,7 +356,8 @@ namespace Vitals
         {
             if (e.Row.RowType != DataControlRowType.DataRow)
                 return;
-
+            e.Row.Cells[0].Style["display"] = "none";
+            e.Row.Cells[1].Style["display"] = "none";
             e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';"
             + "this.originalBackgroundColor=this.style.backgroundColor;"
             + "this.style.backgroundColor='#bbbbbb';";
@@ -329,26 +374,17 @@ namespace Vitals
         {
             if (H_FuneralGrid.SelectedRow != null)
             {
-                H_SearchFuneral.Text = Server.HtmlDecode(
-                  H_FuneralGrid.SelectedRow.Cells[1].Text);
-
-                H_FuneralCode.Value = H_FuneralGrid.SelectedRow.Cells[0].Text;
-                H_F_Name.Text = H_FuneralGrid.SelectedRow.Cells[2].Text;
-
-                if (H_FuneralGrid.SelectedRow.Cells[4].Text == "&nbsp;")
-                    H_FuneralGrid.SelectedRow.Cells[4].Text = "";
-
-                H_F_Street.Text = H_FuneralGrid.SelectedRow.Cells[4].Text + " " + H_FuneralGrid.SelectedRow.Cells[3].Text;
-
-                if (H_FuneralGrid.SelectedRow.Cells[7].Text == "&nbsp;")
-                    H_FuneralGrid.SelectedRow.Cells[7].Text = "";
-
-                H_F_CityProv.Text = H_FuneralGrid.SelectedRow.Cells[5].Text + ", " + H_FuneralGrid.SelectedRow.Cells[6].Text + " " + H_FuneralGrid.SelectedRow.Cells[7].Text;
-
-                if (H_FuneralGrid.SelectedRow.Cells[8].Text == "&nbsp;")
-                    H_FuneralGrid.SelectedRow.Cells[8].Text = "";
-
-                H_F_Unit.Text = H_FuneralGrid.SelectedRow.Cells[8].Text;
+                Label Fshortname = (Label)H_FuneralGrid.SelectedRow.Cells[2].FindControl("L11");
+                H_SearchFuneral.Text = Server.HtmlDecode(Fshortname.Text);
+                H_FuneralCode.Value = H_FuneralGrid.SelectedRow.Cells[1].Text;
+                Label FName = (Label)H_FuneralGrid.SelectedRow.Cells[3].FindControl("L12");
+                H_F_Name.Text = FName.Text;
+                Label FAddress = (Label)H_FuneralGrid.SelectedRow.Cells[4].FindControl("L13");
+                H_F_Street.Text = FAddress.Text;
+                Label unit = (Label)H_FuneralGrid.SelectedRow.Cells[5].FindControl("L14");
+                H_F_Unit.Text = unit.Text;
+                Label cityprov = (Label)H_FuneralGrid.SelectedRow.Cells[6].FindControl("L15");
+                H_F_CityProv.Text = cityprov.Text;
             }
             else
                 H_SearchFuneral.Text = "";
@@ -364,7 +400,8 @@ namespace Vitals
         {
             if (e.Row.RowType != DataControlRowType.DataRow)
                 return;
-
+            e.Row.Cells[0].Style["display"] = "none";
+            e.Row.Cells[1].Style["display"] = "none";
             e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';"
             + "this.originalBackgroundColor=this.style.backgroundColor;"
             + "this.style.backgroundColor='#bbbbbb';";
@@ -381,28 +418,17 @@ namespace Vitals
         {
             if (H_DoctorGrid.SelectedRow != null)
             {
-                H_SearchDoctor.Text = Server.HtmlDecode(
-                  H_DoctorGrid.SelectedRow.Cells[1].Text);
-
-                H_DR_Code.Value = H_DoctorGrid.SelectedRow.Cells[0].Text;
-
-                H_D_Name.Text = H_DoctorGrid.SelectedRow.Cells[2].Text + ", " + H_DoctorGrid.SelectedRow.Cells[3].Text;
-
-                if (H_DoctorGrid.SelectedRow.Cells[4].Text == "&nbsp;")
-                    H_DoctorGrid.SelectedRow.Cells[4].Text = "";
-
-                H_D_Street.Text = H_DoctorGrid.SelectedRow.Cells[4].Text + " " + H_DoctorGrid.SelectedRow.Cells[5].Text;
-
-                if (H_DoctorGrid.SelectedRow.Cells[8].Text == "&nbsp;")
-                    H_DoctorGrid.SelectedRow.Cells[8].Text = "";
-
-                H_D_CityProv.Text = H_DoctorGrid.SelectedRow.Cells[6].Text + ", " + H_DoctorGrid.SelectedRow.Cells[7].Text + " " + H_DoctorGrid.SelectedRow.Cells[8].Text;
-
-                if (H_DoctorGrid.SelectedRow.Cells[9].Text == "&nbsp;")
-                    H_DoctorGrid.SelectedRow.Cells[9].Text = "";
-
-                H_D_Unit.Text = H_DoctorGrid.SelectedRow.Cells[9].Text;
-
+                Label Dshortname = (Label)H_DoctorGrid.SelectedRow.Cells[2].FindControl("L16");
+                H_SearchDoctor.Text = Server.HtmlDecode(Dshortname.Text);
+                H_DR_Code.Value = H_DoctorGrid.SelectedRow.Cells[1].Text;
+                Label Dname = (Label)H_DoctorGrid.SelectedRow.Cells[3].FindControl("L17");
+                H_D_Name.Text = Dname.Text;
+                Label Dstreet = (Label)H_DoctorGrid.SelectedRow.Cells[4].FindControl("L18");
+                H_D_Street.Text = Dstreet.Text;
+                Label DUnit = (Label)H_DoctorGrid.SelectedRow.Cells[5].FindControl("L19");
+                H_D_Unit.Text = DUnit.Text;
+                Label DCityprov = (Label)H_DoctorGrid.SelectedRow.Cells[6].FindControl("L20");
+                H_D_Street.Text = DCityprov.Text;
             }
             else
                 H_SearchDoctor.Text = "";
@@ -410,12 +436,13 @@ namespace Vitals
         protected void SearchDoctor_PreRender(object sender, EventArgs e)
         {
             LoadDoctor();
-
         }
         protected void SearchDoctorGrid_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType != DataControlRowType.DataRow)
                 return;
+            e.Row.Cells[0].Style["display"] = "none";
+            e.Row.Cells[1].Style["display"] = "none";
 
             e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';"
             + "this.originalBackgroundColor=this.style.backgroundColor;"
@@ -434,24 +461,17 @@ namespace Vitals
 
             if (DoctorGrid.SelectedRow != null)
             {
-                SearchDoctor.Text = Server.HtmlDecode(
-                  DoctorGrid.SelectedRow.Cells[1].Text);
-                DoctorCode.Value = DoctorGrid.SelectedRow.Cells[0].Text;
-                D_Name.Text = DoctorGrid.SelectedRow.Cells[2].Text + ", " + DoctorGrid.SelectedRow.Cells[3].Text;
-
-                if (DoctorGrid.SelectedRow.Cells[4].Text == "&nbsp;")
-                    DoctorGrid.SelectedRow.Cells[4].Text = "";
-                D_Street.Text = DoctorGrid.SelectedRow.Cells[4].Text + " " + DoctorGrid.SelectedRow.Cells[5].Text;
-
-                if (DoctorGrid.SelectedRow.Cells[8].Text == "&nbsp;")
-                    DoctorGrid.SelectedRow.Cells[8].Text = "";
-
-
-                D_CityProv.Text = DoctorGrid.SelectedRow.Cells[6].Text + ", " + DoctorGrid.SelectedRow.Cells[7].Text + " " + DoctorGrid.SelectedRow.Cells[8].Text;
-                if (DoctorGrid.SelectedRow.Cells[9].Text == "&nbsp;")
-                    DoctorGrid.SelectedRow.Cells[9].Text = "";
-                D_Unit.Text = DoctorGrid.SelectedRow.Cells[9].Text;
-
+                Label Dshortname = (Label)DoctorGrid.SelectedRow.Cells[2].FindControl("L6");
+                SearchDoctor.Text = Server.HtmlDecode(Dshortname.Text);
+                DoctorCode.Value = DoctorGrid.SelectedRow.Cells[1].Text;
+                Label Dname = (Label)DoctorGrid.SelectedRow.Cells[3].FindControl("L7");
+                D_Name.Text = Dname.Text;
+                Label Dstreet = (Label)DoctorGrid.SelectedRow.Cells[4].FindControl("L8");
+                D_Street.Text = Dstreet.Text;
+                Label DUnit = (Label)DoctorGrid.SelectedRow.Cells[5].FindControl("L9");
+                D_Unit.Text = DUnit.Text;
+                Label DCityprov = (Label)DoctorGrid.SelectedRow.Cells[6].FindControl("L10");
+                D_CityProv.Text = DCityprov.Text;
             }
             else
                 SearchDoctor.Text = "";
@@ -481,11 +501,17 @@ namespace Vitals
                     int regno = int.Parse(RegNo.Text);
                     DateTime dDeath = Convert.ToDateTime(DDeath.Text);
                     DateTime regDate = Convert.ToDateTime(regdate.Text);
-                    int DrCode = int.Parse(DoctorCode.Value);
-                    int FunCode = int.Parse(FuneralCode.Value);
-                    string msg = AddDeath(regyear, RegType.Text, regno, Billable.Text, Fname.Text, Lname.Text, Mname.Text,
+                    int DrCode = 0;
+                    if (DoctorCode.Value != "")
+                        DrCode = int.Parse(DoctorCode.Value);
+
+                    int FunCode =0;
+                    if (FuneralCode.Value != "")
+                        int.Parse(FuneralCode.Value);
+                   
+                    string msg = AddDeath(regyear, RegType.Text, regno, Billable.SelectedValue, Fname.Text, Lname.Text, Mname.Text,
                         DHouseNo.Text, DStreet.Text, DUnit.Text, DCity.Text, DProvince.Text, DCountry.Text, DPostalcode.Text,
-                        Municipality.Text, sex.Text, dDeath, regDate, PlaceDeath.Text, HouseNo.Text, Street.Text, Unit.Text, City.Text,
+                        Municipality.Text, sex.SelectedValue, dDeath, regDate, PlaceDeath.Text, HouseNo.Text, Street.Text, Unit.Text, City.Text,
                         Province.Text, Country.Text, Postalcode.Text, DrCode, FunCode, printed.Text);
                     if (msg == null)
                     {
@@ -493,34 +519,43 @@ namespace Vitals
                         lblMsg.Text = "Record Has Been Added Successfully!";
                         lblMsg.Visible = false;
                         ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + lblMsg.Text + "','success" + "');", true);
-
+                        RegType.Text = "";
+                        RegNo.Text = ""; 
+                        Billable.SelectedValue = ""; 
+                        Fname.Text = ""; 
+                        Lname.Text = ""; 
+                        Mname.Text = "";
+                        DHouseNo.Text = ""; 
+                        DStreet.Text = ""; 
+                        DUnit.Text = ""; 
+                        DCity.Text = "";
+                        DProvince.Text = "";
+                        DCountry.Text = ""; 
+                        DPostalcode.Text = "";
+                        Municipality.Text = ""; 
+                        sex.SelectedValue = "";
+                        DDeath.Text = "";
+                        regdate.Text = ""; 
+                        PlaceDeath.Text = ""; 
+                        HouseNo.Text = ""; 
+                        Street.Text = ""; 
+                        Unit.Text = ""; 
+                        City.Text = "";
+                        Province.Text = "";
+                        Country.Text = ""; 
+                        Postalcode.Text = "";
+                        DoctorCode.Value = "";
+                        FuneralCode.Value = ""; 
+                        printed.Text = "";
                     }
                     else
                     {
                         ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + msg + "','info" + "');", true);
 
                     }
-                    Response.Redirect("Vitals_Death_Form.aspx?&Restore=tab2");
                 }
                 else
                 {
-                  
-                    //Death dt = new Death();
-                    //dt.D_RegFirsName = Fname.Text.ToString();
-                    //var context = new ValidationContext(dt, serviceProvider: null, items: null);
-                    //var results = new List<ValidationResult>();
-                    //var isValid = Validator.TryValidateObject(dt, context, results, true);
-                    //if (!isValid)
-                    //{
-                    //    foreach (var validationResult in results)
-                    //    {
-                    //        Response.Write(validationResult.ErrorMessage.ToString());
-                    //    }
-
-                    //    return;
-                    //}
-
-                    //ValidatorUpdateDisplay(this.id)
                     var ermsg = "Please fill required fields with valid value!";
                     ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + ermsg + "','error" + "');", true);
                 }
@@ -537,17 +572,14 @@ namespace Vitals
                     int DrCode = 0;
                     if (H_DR_Code.Value != "")
                         DrCode = int.Parse(H_DR_Code.Value);
-                    else
-                        DrCode = int.Parse(H_SearchDoctor.Text);
 
                     int FunCode = 0;
                     if (H_FuneralCode.Value != "")
                         FunCode = int.Parse(H_FuneralCode.Value);
-                    else
-                        FunCode = int.Parse(H_SearchFuneral.Text);
-                    string msg = UpdateDeath(regyear, H_RegType.Text, regno, H_Billable.Text, H_Fname.Text, H_Lname.Text, H_Mname.Text,
+                   
+                    string msg = UpdateDeath(regyear, H_RegType.Text, regno, H_Billable.SelectedValue, H_Fname.Text, H_Lname.Text, H_Mname.Text,
                         H_DHouseNo.Text, H_DStreet.Text, H_DUnit.Text, H_DCity.Text, H_DProvince.Text, H_DCountry.Text, H_DPostalCode.Text,
-                        H_Municipality.Text, H_RegSex.Text, dDeath, regDate, H_PlaceDeath.Text, H_HouseNo.Text, H_Street.Text, H_Unit.Text, H_City.Text,
+                        H_Municipality.Text, H_RegSex.SelectedValue, dDeath, regDate, H_PlaceDeath.Text, H_HouseNo.Text, H_Street.Text, H_Unit.Text, H_City.Text,
                         H_Province.Text, H_Country.Text, H_PostalCode.Text, DrCode, FunCode, printed.Text);
                     if (msg == null)
                     {
@@ -555,6 +587,7 @@ namespace Vitals
                         lblMsg.Text = "Record Has Been Added Successfully!";
                         lblMsg.Visible = false;
                         ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + lblMsg.Text + "','success" + "');", true);
+                        Response.Redirect("Vitals_Death_Form.aspx?&Restore=tab2");
 
                     }
                     else
@@ -570,11 +603,7 @@ namespace Vitals
                     ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('" + lblMsg.Text + "','error" + "');", true);
                 }
 
-                Response.Redirect("Vitals_Death_Form.aspx?&Restore=tab2");
             }
-
-
-
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -689,7 +718,16 @@ namespace Vitals
             H_PostalCode.ReadOnly = true;
             H_SearchFuneral.ReadOnly = true;
             H_SearchDoctor.ReadOnly = true;
+            H_F_Name.ReadOnly = true;
+            H_F_Street.ReadOnly = true;
+            H_F_Unit.ReadOnly = true;
+            H_F_CityProv.ReadOnly = true;
+            H_D_Name.ReadOnly = true;
+            H_D_Street.ReadOnly = true;
+            H_D_Unit.ReadOnly = true;
+            H_D_CityProv.ReadOnly = true;
             H_Printed.Enabled = false;
+            H_Same.Enabled = false;
             EditBtn.Visible = false;
             CancelBtn.Visible = false;
             SubmitBtn.Visible = false;
@@ -727,7 +765,16 @@ namespace Vitals
             H_PostalCode.ReadOnly = false;
             H_SearchFuneral.ReadOnly = false;
             H_SearchDoctor.ReadOnly = false;
+            H_F_Name.ReadOnly = false;
+            H_F_Street.ReadOnly = false;
+            H_F_Unit.ReadOnly = false;
+            H_F_CityProv.ReadOnly = false;
+            H_D_Name.ReadOnly = false;
+            H_D_Street.ReadOnly = false;
+            H_D_Unit.ReadOnly = false;
+            H_D_CityProv.ReadOnly = false;
             H_Printed.Enabled = true;
+            H_Same.Enabled = true;
             EditBtn.Visible = false;
             SubmitBtn.Visible = true;
             CancelBtn.Visible = true;

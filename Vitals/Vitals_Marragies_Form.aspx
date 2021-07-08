@@ -124,6 +124,13 @@
             document.getElementById("<%=Pin2.ClientID%>").value = document.getElementById("<%=Postalcode.ClientID%>").value;
             document.getElementById("<%=Phone2.ClientID%>").value = document.getElementById("<%=Phone.ClientID%>").value;
         }
+         function isNumber(evt) {
+            var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+            if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+                return false;
+
+            return true;
+        }
     </script>
     <section class="content-header">
         <div class="container-fluid">
@@ -201,14 +208,14 @@
                                                             <asp:Label ID="Label1" runat="server" Text="Registration No.:"></asp:Label>
                                                             <div class="input-group">
                                                                 <asp:TextBox ID="RegYear" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
-                                                                <asp:TextBox ID="Regno" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                                                                <asp:TextBox ID="Regno" class="form-control" runat="server" ReadOnly="true" MaxLength="4" onkeypress="javascript:return isNumber(event)"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <asp:Label ID="Label2" runat="server" Text="Cert.No:"></asp:Label>
                                                             <div class="input-group">
-                                                                <asp:TextBox ID="CertLetter" class="form-control" runat="server"></asp:TextBox>
-                                                                <asp:TextBox ID="CertNo" class="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="CertLetter" class="form-control" runat="server" MaxLength="1"></asp:TextBox>
+                                                                <asp:TextBox ID="CertNo" class="form-control" runat="server" MaxLength="6" onkeypress="javascript:return isNumber(event)"></asp:TextBox>
 
                                                             </div>
                                                         </div>
@@ -251,7 +258,6 @@
                                                             <div class="form-group">
                                                                 <asp:Label ID="Label6" runat="server" Text="Applicant(s):"></asp:Label>
                                                                 <asp:DropDownList ID="Applicant" runat="server" class="form-control" AutoPostBack="true">
-                                                                    <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
                                                                     <asp:ListItem Text="Applicant" Value="Applicant"></asp:ListItem>
                                                                     <asp:ListItem Text="Joint Applicant" Value="Joint Applicant"></asp:ListItem>
                                                                     <asp:ListItem Text="Both" Value="Both"></asp:ListItem>
@@ -272,19 +278,19 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label8" runat="server" Text="First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="Fname" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="Fname" runat="server" class="form-control" placeholder="First Name" MaxLength="60"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label9" runat="server" Text="Middle Name:"></asp:Label>
-                                                                        <asp:TextBox ID="Mname" runat="server" class="form-control" placeholder="Middle Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="Mname" runat="server" class="form-control" placeholder="Middle Name" MaxLength="60"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label10" runat="server" Text="Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="Lname" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="Lname" runat="server" class="form-control" placeholder="Last Name" MaxLength="60"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -294,7 +300,6 @@
                                                                         <asp:Label ID="Label11" runat="server" Text="Marital Status:"></asp:Label>
 
                                                                         <asp:DropDownList ID="MaritalStatus" runat="server" class="form-control">
-                                                                            <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
                                                                             <asp:ListItem Text="Single" Value="S"></asp:ListItem>
                                                                             <asp:ListItem Text="Divorced" Value="D"></asp:ListItem>
                                                                             <asp:ListItem Text="Widowed" Value="W"></asp:ListItem>
@@ -317,7 +322,7 @@
                                                                 <div class="col-md-3">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label13" runat="server" Text="Age:"></asp:Label>
-                                                                        <asp:TextBox ID="Age" runat="server" class="form-control" placeholder="Age"></asp:TextBox>
+                                                                        <asp:TextBox ID="Age" runat="server" class="form-control" placeholder="Age" MaxLength="4" onkeypress="javascript:return isNumber(event)"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -325,13 +330,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label14" runat="server" Text="Country of Divorce:"></asp:Label>
-                                                                        <asp:TextBox ID="CountryofDivorce" runat="server" class="form-control" placeholder="Country of Divorce"></asp:TextBox>
+                                                                        <asp:TextBox ID="CountryofDivorce" runat="server" class="form-control" placeholder="Country of Divorce" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label15" runat="server" Text="City of divorce(if in Canada):"></asp:Label>
-                                                                        <asp:TextBox ID="CityGranted" class="form-control" runat="server" placeholder="City Granted In"></asp:TextBox>
+                                                                        <asp:TextBox ID="CityGranted" class="form-control" runat="server" placeholder="City Granted In" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -339,13 +344,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label16" runat="server" Text="Religious denomination:"></asp:Label>
-                                                                        <asp:TextBox ID="Religion" runat="server" class="form-control" placeholder="Religion"></asp:TextBox>
+                                                                        <asp:TextBox ID="Religion" runat="server" class="form-control" placeholder="Religion" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label17" runat="server" Text="Court File No.:"></asp:Label>
-                                                                        <asp:TextBox ID="CourtFileNo" runat="server" class="form-control" placeholder="Court File No"></asp:TextBox>
+                                                                        <asp:TextBox ID="CourtFileNo" runat="server" class="form-control" placeholder="Court File No" MaxLength="20" ></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -353,7 +358,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label18" runat="server" Text="Province of Birth (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="ProvinceofBirth" class="form-control" runat="server" placeholder="Province of Birth"></asp:TextBox>
+                                                                        <asp:TextBox ID="ProvinceofBirth" class="form-control" runat="server" placeholder="Province of Birth" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -370,19 +375,19 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label56" runat="server" Text="First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="JointFirstname" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointFirstname" runat="server" class="form-control" placeholder="First Name" MaxLength="60"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label57" runat="server" Text="Middle Name:"></asp:Label>
-                                                                        <asp:TextBox ID="JointMiddlename" runat="server" class="form-control" placeholder="Middle Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointMiddlename" runat="server" class="form-control" placeholder="Middle Name" MaxLength="60"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label58" runat="server" Text="Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="JointLastname" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointLastname" runat="server" class="form-control" placeholder="Last Name" MaxLength="60"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -392,7 +397,6 @@
                                                                         <asp:Label ID="Label59" runat="server" Text="Marital Status:"></asp:Label>
 
                                                                         <asp:DropDownList ID="JointStatus" runat="server" class="form-control">
-                                                                            <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
                                                                             <asp:ListItem Text="Single" Value="S"></asp:ListItem>
                                                                             <asp:ListItem Text="Divorced" Value="D"></asp:ListItem>
                                                                             <asp:ListItem Text="Widowed" Value="W"></asp:ListItem>
@@ -410,12 +414,11 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label61" runat="server" Text="Age:"></asp:Label>
-                                                                        <asp:TextBox ID="JointAge" runat="server" class="form-control" placeholder="Age"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointAge" runat="server" class="form-control" placeholder="Age" MaxLength="4"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -423,13 +426,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label62" runat="server" Text="Country of Divorce:"></asp:Label>
-                                                                        <asp:TextBox ID="JointCountryDivorce" runat="server" class="form-control" placeholder="Country of Divorce"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointCountryDivorce" runat="server" class="form-control" placeholder="Country of Divorce" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label63" runat="server" Text="City of divorce(if in Canada):"></asp:Label>
-                                                                        <asp:TextBox ID="JointCity" class="form-control" runat="server" placeholder="City Granted In"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointCity" class="form-control" runat="server" placeholder="City Granted In" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -437,13 +440,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label64" runat="server" Text="Religious denomination:"></asp:Label>
-                                                                        <asp:TextBox ID="JointReligion" runat="server" class="form-control" placeholder="Religion"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointReligion" runat="server" class="form-control" placeholder="Religion" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label65" runat="server" Text="Court File No.:"></asp:Label>
-                                                                        <asp:TextBox ID="JointCourtFile" runat="server" class="form-control" placeholder="Court File No"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointCourtFile" runat="server" class="form-control" placeholder="Court File No" MaxLength="20"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -451,7 +454,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label66" runat="server" Text="Province of Birth (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="JointProvinceBirth" class="form-control" runat="server" placeholder="Province of Birth"></asp:TextBox>
+                                                                        <asp:TextBox ID="JointProvinceBirth" class="form-control" runat="server" placeholder="Province of Birth" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -470,13 +473,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label28" runat="server" Text="Parent1 First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P1FName" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P1FName" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label29" runat="server" Text="Parent1 Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P1LName" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P1LName" runat="server" class="form-control" placeholder="Last Name"  MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -484,7 +487,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label30" runat="server" Text="Parent1 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="P1BirthProvince" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                        <asp:TextBox ID="P1BirthProvince" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -492,13 +495,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label31" runat="server" Text="Parent2 First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P2FName" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P2FName" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label32" runat="server" Text="Parent2 Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P2LName" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P2LName" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -506,7 +509,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label33" runat="server" Text="Parent2 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="P2BirthProvince" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                        <asp:TextBox ID="P2BirthProvince" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -514,13 +517,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Lbl34" runat="server" Text="Parent3 First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P3FName" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P3FName" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Lbl35" runat="server" Text="Parent3 Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P3LName" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P3LName" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -528,7 +531,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Lbl36" runat="server" Text="Parent3 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="P3BirthProvince" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                        <asp:TextBox ID="P3BirthProvince" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -536,13 +539,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label34" runat="server" Text="Parent4 First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P4FName" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P4FName" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label35" runat="server" Text="Parent4 Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P4LName" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P4LName" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -550,7 +553,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label36" runat="server" Text="Parent4 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="P4BirthProvince" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                        <asp:TextBox ID="P4BirthProvince" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -567,13 +570,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label46" runat="server" Text="Parent1 First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P1FName1" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P1FName1" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label47" runat="server" Text="Parent1 Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P1LName1" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P1LName1" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -581,7 +584,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label48" runat="server" Text="Parent1 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="P1BirthProvince1" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                        <asp:TextBox ID="P1BirthProvince1" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -589,13 +592,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label49" runat="server" Text="Parent2 First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P2FName2" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P2FName2" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label50" runat="server" Text="Parent2 Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P2LName2" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P2LName2" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -603,7 +606,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label51" runat="server" Text="Parent2 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="P2BirthProvince2" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                        <asp:TextBox ID="P2BirthProvince2" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -611,13 +614,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label52" runat="server" Text="Parent3 First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P3FName3" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P3FName3" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label53" runat="server" Text="Parent3 Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P3LName3" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P3LName3" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -625,7 +628,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label54" runat="server" Text="Parent3 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="P3BirthProvince3" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                        <asp:TextBox ID="P3BirthProvince3" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -633,13 +636,13 @@
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Lbl52" runat="server" Text="Parent4 First Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P4FName4" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P4FName4" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Lbl53" runat="server" Text="Parent4 Last Name:"></asp:Label>
-                                                                        <asp:TextBox ID="P4LName4" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                        <asp:TextBox ID="P4LName4" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -647,7 +650,7 @@
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Lbl54" runat="server" Text="Parent4 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                        <asp:TextBox ID="P4BirthProvince4" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                        <asp:TextBox ID="P4BirthProvince4" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -666,13 +669,13 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label135" runat="server" Text="House No:"></asp:Label>
-                                                                        <asp:TextBox ID="House_No" class="form-control" runat="server" placeholder="House No"></asp:TextBox>
+                                                                        <asp:TextBox ID="House_No" class="form-control" runat="server" placeholder="House No" MaxLength="7"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-8">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label20" runat="server" Text="Street:"></asp:Label>
-                                                                        <asp:TextBox ID="Street" class="form-control" runat="server" placeholder="Street"></asp:TextBox>
+                                                                        <asp:TextBox ID="Street" class="form-control" runat="server" placeholder="Street" MaxLength="35"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -680,13 +683,13 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label21" runat="server" Text="Unit/Apt:"></asp:Label>
-                                                                        <asp:TextBox ID="Apt" class="form-control" runat="server" placeholder="Unit/Apt:"></asp:TextBox>
+                                                                        <asp:TextBox ID="Apt" class="form-control" runat="server" placeholder="Unit/Apt:" MaxLength="6"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label23" runat="server" Text="City:"></asp:Label>
-                                                                        <asp:TextBox ID="City" class="form-control" runat="server" placeholder="City"></asp:TextBox>
+                                                                        <asp:TextBox ID="City" class="form-control" runat="server" placeholder="City" MaxLength="25"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
@@ -701,19 +704,19 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label22" runat="server" Text="Country:"></asp:Label>
-                                                                        <asp:TextBox ID="Country" class="form-control" runat="server" placeholder="Country"></asp:TextBox>
+                                                                        <asp:TextBox ID="Country" class="form-control" runat="server" placeholder="Country" MaxLength="15"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label25" runat="server" Text="Postal Code:"></asp:Label>
-                                                                        <asp:TextBox ID="Postalcode" class="form-control" runat="server" placeholder="Postal Code"></asp:TextBox>
+                                                                        <asp:TextBox ID="Postalcode" class="form-control" runat="server" placeholder="Postal Code" MaxLength="10"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label26" runat="server" Text="Phone:"></asp:Label>
-                                                                        <asp:TextBox ID="Phone" class="form-control" runat="server" placeholder="Phone"></asp:TextBox>
+                                                                        <asp:TextBox ID="Phone" class="form-control" runat="server" placeholder="Phone" MaxLength="10"></asp:TextBox>
                                                                     </div>
                                                                 </div>
 
@@ -736,13 +739,13 @@
                                                                 <div class="col-md-3">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label136" runat="server" Text="House No:"></asp:Label>
-                                                                        <asp:TextBox ID="Joint_House_No" class="form-control" runat="server" placeholder="House No"></asp:TextBox>
+                                                                        <asp:TextBox ID="Joint_House_No" class="form-control" runat="server" placeholder="House No" MaxLength="7"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label38" runat="server" Text="Street:"></asp:Label>
-                                                                        <asp:TextBox ID="Street2" class="form-control" runat="server" placeholder="Street"></asp:TextBox>
+                                                                        <asp:TextBox ID="Street2" class="form-control" runat="server" placeholder="Street" MaxLength="35"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -750,13 +753,13 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label39" runat="server" Text="Unit/Apt:"></asp:Label>
-                                                                        <asp:TextBox ID="Apt2" class="form-control" runat="server" placeholder="Unit/Apt:"></asp:TextBox>
+                                                                        <asp:TextBox ID="Apt2" class="form-control" runat="server" placeholder="Unit/Apt:" MaxLength="6"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label40" runat="server" Text="City:"></asp:Label>
-                                                                        <asp:TextBox ID="City2" class="form-control" runat="server" placeholder="City"></asp:TextBox>
+                                                                        <asp:TextBox ID="City2" class="form-control" runat="server" placeholder="City" MaxLength="2"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
@@ -770,19 +773,19 @@
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label42" runat="server" Text="Country:"></asp:Label>
-                                                                        <asp:TextBox ID="Country2" class="form-control" runat="server" placeholder="Country"></asp:TextBox>
+                                                                        <asp:TextBox ID="Country2" class="form-control" runat="server" placeholder="Country" MaxLength="15"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label43" runat="server" Text="Postal Code:"></asp:Label>
-                                                                        <asp:TextBox ID="Pin2" class="form-control" runat="server" placeholder="Postal Code"></asp:TextBox>
+                                                                        <asp:TextBox ID="Pin2" class="form-control" runat="server" placeholder="Postal Code" MaxLength="10"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <div class="form-group">
                                                                         <asp:Label ID="Label44" runat="server" Text="Phone:"></asp:Label>
-                                                                        <asp:TextBox ID="Phone2" class="form-control" runat="server" placeholder="Phone"></asp:TextBox>
+                                                                        <asp:TextBox ID="Phone2" class="form-control" runat="server" placeholder="Phone" MaxLength="10"></asp:TextBox>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -819,7 +822,6 @@
                                                                                     CellSpacing="2" Width="100%" DataSourceID="SearchApplicant" 
                                                                                     CssClass="table table-condensed table-hover" Style="font-size: 10pt; font-family: arial;">
                                                                                 <Columns>
-                                                                                    <%--"--%>
                                                                                     <asp:BoundField DataField="M_Reg_Year" HeaderText="Year" />
                                                                                     <asp:BoundField DataField="M_Reg_No" HeaderText="Registration No." />
                                                                                     <asp:BoundField DataField="M_Reg_Letter" HeaderText="Cert No" />
@@ -875,14 +877,14 @@
                                                                             <asp:Label ID="Label27" runat="server" Text="Registration No.:"></asp:Label>
                                                                             <div class="input-group">
                                                                                 <asp:TextBox ID="H_RegYear" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
-                                                                                <asp:TextBox ID="H_Regno" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                                                                                <asp:TextBox ID="H_Regno" class="form-control" runat="server" ReadOnly="true" MaxLength="4" onkeypress="javascript:return isNumber(event)"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
                                                                             <asp:Label ID="Label37" runat="server" Text="Cert.No:"></asp:Label>
                                                                             <div class="input-group">
-                                                                                <asp:TextBox ID="H_Certletter" class="form-control" runat="server" Text="G"></asp:TextBox>
-                                                                                <asp:TextBox ID="H_CertNo" class="form-control" runat="server"></asp:TextBox>
+                                                                                <asp:TextBox ID="H_Certletter" class="form-control" runat="server" Text="G" MaxLength="1"></asp:TextBox>
+                                                                                <asp:TextBox ID="H_CertNo" class="form-control" runat="server" MaxLength="6" onkeypress="javascript:return isNumber(event)"></asp:TextBox>
 
                                                                             </div>
                                                                         </div>
@@ -918,7 +920,7 @@
                                                                         <div class="col-md-4">
                                                                             <div class="form-group">
                                                                                 <asp:Label ID="Label69" runat="server" Text="Proposed place of Marriage (town/city):"></asp:Label>
-                                                                                <asp:TextBox ID="H_CityofMarriage" class="form-control" runat="server"></asp:TextBox>
+                                                                                <asp:TextBox ID="H_CityofMarriage" class="form-control" runat="server" MaxLength="50"></asp:TextBox>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-4">
@@ -926,7 +928,6 @@
                                                                                 <asp:Label ID="Label70" runat="server" Text="Applicant(s):"></asp:Label>
 
                                                                                 <asp:DropDownList ID="H_Applicant" runat="server" class="form-control" AutoPostBack="true">
-                                                                                    <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
                                                                                     <asp:ListItem Text="Applicant" Value="Applicant"></asp:ListItem>
                                                                                     <asp:ListItem Text="Joint Applicant" Value="Joint Applicant"></asp:ListItem>
                                                                                     <asp:ListItem Text="Both" Value="Both"></asp:ListItem>
@@ -947,19 +948,19 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label72" runat="server" Text="First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Fname" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Fname" runat="server" class="form-control" placeholder="First Name" MaxLength="60"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label73" runat="server" Text="Middle Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Mname" runat="server" class="form-control" placeholder="Middle Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Mname" runat="server" class="form-control" placeholder="Middle Name" MaxLength="60"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label74" runat="server" Text="Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Lname" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Lname" runat="server" class="form-control" placeholder="Last Name" MaxLength="60"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -969,7 +970,6 @@
                                                                                         <asp:Label ID="Label75" runat="server" Text="Marital Status:"></asp:Label>
 
                                                                                         <asp:DropDownList ID="H_MaritalStatus" runat="server" class="form-control">
-                                                                                            <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
                                                                                             <asp:ListItem Text="Single" Value="S"></asp:ListItem>
                                                                                             <asp:ListItem Text="Divorced" Value="D"></asp:ListItem>
                                                                                             <asp:ListItem Text="Widowed" Value="W"></asp:ListItem>
@@ -1000,13 +1000,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label78" runat="server" Text="Country of Divorce:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_CountryofDivorce" runat="server" class="form-control" placeholder="Country of Divorce"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_CountryofDivorce" runat="server" class="form-control" MaxLength="50" placeholder="Country of Divorce"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label79" runat="server" Text="City of divorce(if in Canada):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_CityGranted" class="form-control" runat="server" placeholder="City Granted In"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_CityGranted" class="form-control" runat="server" placeholder="City Granted In" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1014,13 +1014,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label81" runat="server" Text="Religious denomination:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Religion" runat="server" class="form-control" placeholder="Religion"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Religion" runat="server" class="form-control" placeholder="Religion" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label82" runat="server" Text="Court File No.:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_CourtFileNo" runat="server" class="form-control" placeholder="Court File No"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_CourtFileNo" runat="server" class="form-control" placeholder="Court File No" MaxLength="20"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1028,7 +1028,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label83" runat="server" Text="Province of Birth (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_ProvinceofBirth" class="form-control" runat="server" placeholder="Province of Birth"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_ProvinceofBirth" class="form-control" runat="server" placeholder="Province of Birth" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1046,19 +1046,19 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label104" runat="server" Text="First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointFirstname" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointFirstname" runat="server" class="form-control" placeholder="First Name" MaxLength="60"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label105" runat="server" Text="Middle Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointMiddlename" runat="server" class="form-control" placeholder="Middle Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointMiddlename" runat="server" class="form-control" placeholder="Middle Name" MaxLength="60"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label106" runat="server" Text="Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointLastname" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointLastname" runat="server" class="form-control" placeholder="Last Name" MaxLength="60"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1068,7 +1068,6 @@
                                                                                         <asp:Label ID="Label107" runat="server" Text="Marital Status:"></asp:Label>
 
                                                                                         <asp:DropDownList ID="H_JointStatus" runat="server" class="form-control">
-                                                                                            <asp:ListItem runat="server" Value="--Select--">--Select--</asp:ListItem>
                                                                                             <asp:ListItem Text="Single" Value="S"></asp:ListItem>
                                                                                             <asp:ListItem Text="Divorced" Value="D"></asp:ListItem>
                                                                                             <asp:ListItem Text="Widowed" Value="W"></asp:ListItem>
@@ -1091,7 +1090,7 @@
                                                                                 <div class="col-md-3">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label110" runat="server" Text="Age:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointAge" runat="server" class="form-control" placeholder="Age"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointAge" runat="server" class="form-control" placeholder="Age" MaxLength="4" onkeypress="javascript:return isNumber(event)"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1099,13 +1098,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label111" runat="server" Text="Country of Divorce:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointCountryDivorce" runat="server" class="form-control" placeholder="Country of Divorce"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointCountryDivorce" runat="server" class="form-control" placeholder="Country of Divorce" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label112" runat="server" Text="City of divorce(if in Canada):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointCity" class="form-control" runat="server" placeholder="City Granted In"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointCity" class="form-control" runat="server" placeholder="City Granted In" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1113,13 +1112,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label113" runat="server" Text="Religious denomination:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointReligion" runat="server" class="form-control" placeholder="Religion"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointReligion" runat="server" class="form-control" placeholder="Religion" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label114" runat="server" Text="Court File No.:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointCourtFile" runat="server" class="form-control" placeholder="Court File No"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointCourtFile" runat="server" class="form-control" placeholder="Court File No" MaxLength="20"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1127,7 +1126,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label115" runat="server" Text="Province of Birth (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_JointProvinceBirth" class="form-control" runat="server" placeholder="Province of Birth"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_JointProvinceBirth" class="form-control" runat="server" placeholder="Province of Birth" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1146,13 +1145,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label94" runat="server" Text="Parent1 First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P1FName" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P1FName" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label95" runat="server" Text="Parent1 Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P1LName" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P1LName" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1160,7 +1159,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label96" runat="server" Text="Parent1 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P1BirthProvince" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P1BirthProvince" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1168,13 +1167,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label97" runat="server" Text="Parent2 First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P2FName" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P2FName" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label98" runat="server" Text="Parent2 Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P2LName" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P2LName" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1182,7 +1181,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label99" runat="server" Text="Parent2 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P2BirthProvince" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P2BirthProvince" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1190,13 +1189,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Lbl100" runat="server" Text="Parent3 First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P3FName" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P3FName" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Lbl101" runat="server" Text="Parent3 Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P3LName" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P3LName" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1204,7 +1203,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Lbl102" runat="server" Text="Parent3 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P3BirthProvince" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P3BirthProvince" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1212,13 +1211,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label100" runat="server" Text="Parent4 First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P4FName" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P4FName" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label101" runat="server" Text="Parent4 Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P4LName" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P4LName" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1226,7 +1225,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label102" runat="server" Text="Parent4 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P4BirthProvince" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P4BirthProvince" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1243,13 +1242,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label126" runat="server" Text="Parent1 First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P1FName1" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P1FName1" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label127" runat="server" Text="Parent1 Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P1LName1" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P1LName1" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1257,7 +1256,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label128" runat="server" Text="Parent1 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P1BirthProvince1" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P1BirthProvince1" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1265,13 +1264,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label129" runat="server" Text="Parent2 First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P2FName2" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P2FName2" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label130" runat="server" Text="Parent2 Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P2LName2" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P2LName2" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1279,7 +1278,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label131" runat="server" Text="Parent2 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P2BirthProvince2" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P2BirthProvince2" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1287,13 +1286,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label132" runat="server" Text="Parent3 First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P3FName3" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P3FName3" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label133" runat="server" Text="Parent3 Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P3LName3" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P3LName3" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1301,7 +1300,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label134" runat="server" Text="Parent3 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P3BirthProvince3" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P3BirthProvince3" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1309,13 +1308,13 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Lbl32" runat="server" Text="Parent4 First Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P4FName4" runat="server" class="form-control" placeholder="First Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P4FName4" runat="server" class="form-control" placeholder="First Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Lbl33" runat="server" Text="Parent4 Last Name:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P4LName4" runat="server" class="form-control" placeholder="Last Name"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P4LName4" runat="server" class="form-control" placeholder="Last Name" MaxLength="30"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1323,7 +1322,7 @@
                                                                                 <div class="col-md-12">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Lbl3" runat="server" Text="Parent4 Birth Province (if outside Canada, Country):"></asp:Label>
-                                                                                        <asp:TextBox ID="H_P4BirthProvince4" runat="server" class="form-control" placeholder="Birth Province"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_P4BirthProvince4" runat="server" class="form-control" placeholder="Birth Province" MaxLength="50"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1342,13 +1341,13 @@
                                                                                 <div class="col-md-3">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label137" runat="server" Text="House No:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_House_No" class="form-control" runat="server" placeholder="House No"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_House_No" class="form-control" runat="server" placeholder="House No" MaxLength="7"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-8">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label85" runat="server" Text="Street:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Street" class="form-control" runat="server" placeholder="Street"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Street" class="form-control" runat="server" placeholder="Street" MaxLength="35"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1356,19 +1355,19 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label86" runat="server" Text="Unit/Apt:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Apt" class="form-control" runat="server" placeholder="Unit/Apt:"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Apt" class="form-control" runat="server" placeholder="Unit/Apt:" MaxLength="6"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label87" runat="server" Text="City:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_City" class="form-control" runat="server" placeholder="City"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_City" class="form-control" runat="server" placeholder="City" MaxLength="25"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label89" runat="server" Text="Province:"></asp:Label>
-                                                                                        <asp:DropDownList ID="H_Province1" class="form-control" runat="server"></asp:DropDownList>
+                                                                                        <asp:DropDownList ID="H_Province1" class="form-control" runat="server" MaxLength="20"></asp:DropDownList>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1376,19 +1375,19 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label90" runat="server" Text="Country:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Country" class="form-control" runat="server" placeholder="Country"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Country" class="form-control" runat="server" placeholder="Country" MaxLength="15"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label91" runat="server" Text="Postal Code:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Postalcode" class="form-control" runat="server" placeholder="Postal Code"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Postalcode" class="form-control" runat="server" placeholder="Postal Code" MaxLength="10"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label92" runat="server" Text="Phone:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Phone" class="form-control" runat="server" placeholder="Phone"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Phone" class="form-control" runat="server" placeholder="Phone" MaxLength="10"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1410,13 +1409,13 @@
                                                                                 <div class="col-md-3">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label138" runat="server" Text="House No:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Joint_House_No" class="form-control" runat="server" placeholder="House No"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Joint_House_No" class="form-control" runat="server" placeholder="House No" MaxLength="7"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label118" runat="server" Text="Street:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Street2" class="form-control" runat="server" placeholder="Street"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Street2" class="form-control" runat="server" placeholder="Street" MaxLength="35"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1425,13 +1424,13 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label119" runat="server" Text="Unit/Apt:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Apt2" class="form-control" runat="server" placeholder="Unit/Apt:"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Apt2" class="form-control" runat="server" placeholder="Unit/Apt:" MaxLength="6"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label120" runat="server" Text="City:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_City2" class="form-control" runat="server" placeholder="City"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_City2" class="form-control" runat="server" placeholder="City" MaxLength="25"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
@@ -1445,19 +1444,19 @@
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label122" runat="server" Text="Country:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Country2" class="form-control" runat="server" placeholder="Country"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Country2" class="form-control" runat="server" placeholder="Country" MaxLength="15"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label123" runat="server" Text="Postal Code:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Pin2" class="form-control" runat="server" placeholder="Postal Code"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Pin2" class="form-control" runat="server" placeholder="Postal Code" MaxLength="10"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-4">
                                                                                     <div class="form-group">
                                                                                         <asp:Label ID="Label124" runat="server" Text="Phone:"></asp:Label>
-                                                                                        <asp:TextBox ID="H_Phone2" class="form-control" runat="server" placeholder="Phone"></asp:TextBox>
+                                                                                        <asp:TextBox ID="H_Phone2" class="form-control" runat="server" placeholder="Phone" MaxLength="10"></asp:TextBox>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1474,7 +1473,7 @@
                                     <asp:HiddenField ID="hfTab" runat="server" />
                                 </div>
                                 <div class="card-footer">
-                                    <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-info" OnClick="SubmitBtn_Click"><%--OnClick="SubmitBtn_Click"--%>
+                                    <asp:LinkButton ID="SubmitBtn" runat="server" CssClass="btn btn-info" OnClick="SubmitBtn_Click">
                                             <i class="fa fa-save"></i>&nbsp;Save
                                     </asp:LinkButton>
                                 </div>

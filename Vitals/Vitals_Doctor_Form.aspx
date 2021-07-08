@@ -178,7 +178,7 @@
                                                         <div class="col-md-2">
                                                             <div class="form-group">
                                                                 <asp:Label ID="Label14" runat="server" Text="House No.:"></asp:Label>
-                                                                <asp:TextBox ID="C_HouseNo" class="form-control" MaxLength="35" runat="server" placeholder="House Number"></asp:TextBox>
+                                                                <asp:TextBox ID="C_HouseNo" class="form-control" MaxLength="7" runat="server" placeholder="House Number"></asp:TextBox>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-10">
@@ -302,14 +302,12 @@
                                                                     <asp:SqlDataSource ID="SearchDoctor"
                                                                         SelectCommand="SearchDoctors" SelectCommandType="StoredProcedure"
                                                                         ConnectionString="<%$ ConnectionStrings:Vitals%>"
-                                                                        runat="server"><%--DeleteCommand="DeleteDoctors" DeleteCommandType="StoredProcedure"--%>
+                                                                        runat="server">
                                                                         <SelectParameters>
                                                                             <asp:ControlParameter ControlID="SearchDoctors" Name="Searchstr" PropertyName="Text" Type="String"
                                                                                 ConvertEmptyStringToNull="true" />
                                                                         </SelectParameters>
-                                                                        <%-- <DeleteParameters>
-                                                                            <asp:Parameter Name="D_RegDRNo" />
-                                                                        </DeleteParameters>--%>
+                                                                       
                                                                     </asp:SqlDataSource>
 
                                                                 </div>
@@ -347,7 +345,7 @@
                                                                     <div class="col-md-2">
                                                                         <div class="form-group">
                                                                             <asp:Label ID="Label7" runat="server" Text="House No.:"></asp:Label>
-                                                                            <asp:TextBox ID="HouseNo" class="form-control" MaxLength="35" runat="server" placeholder="House Number"></asp:TextBox>
+                                                                            <asp:TextBox ID="HouseNo" class="form-control" MaxLength="7" runat="server" placeholder="House Number"></asp:TextBox>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-md-10">
