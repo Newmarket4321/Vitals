@@ -22,31 +22,39 @@ namespace Vitals
         public void load()
         {
             DataTable dt = GetSPResult();
-            try
+            if (dt.Rows.Count > 0)
             {
-                ReportViewer1.LocalReport.DataSources.Clear();
-                ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                ReportViewer1.Visible = true;
-                ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\MarriageApplicationVerification.rdlc");
-                // Assign report parameters.
-                Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[2];
+                try
+                {
+                    ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                    ReportViewer1.Visible = true;
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\MarriageApplicationVerification.rdlc");
+                    // Assign report parameters.
+                    Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[2];
 
-                if (Mrgyear.Text.ToString() != "")
-                    parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("MRegYear", Mrgyear.Text.ToString());
-                else
-                    parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("MRegYear", DateTime.Now.Year.ToString());
+                    if (Mrgyear.Text.ToString() != "")
+                        parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("MRegYear", Mrgyear.Text.ToString());
+                    else
+                        parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("MRegYear", DateTime.Now.Year.ToString());
 
-                if (MrgNumber.Text.ToString() != "")
-                    parms[1] = new Microsoft.Reporting.WebForms.ReportParameter("MRegNumber", MrgNumber.Text.ToString());
+                    if (MrgNumber.Text.ToString() != "")
+                        parms[1] = new Microsoft.Reporting.WebForms.ReportParameter("MRegNumber", MrgNumber.Text.ToString());
                
-                ReportViewer1.LocalReport.SetParameters(parms);
+                    ReportViewer1.LocalReport.SetParameters(parms);
 
-                ReportDataSource rds = new ReportDataSource("ApplicationVerification", dt);
-                ReportViewer1.LocalReport.DataSources.Add(rds);
-                ReportViewer1.LocalReport.Refresh();
+                    ReportDataSource rds = new ReportDataSource("ApplicationVerification", dt);
+                    ReportViewer1.LocalReport.DataSources.Add(rds);
+                    ReportViewer1.LocalReport.Refresh();
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
-            catch (Exception ex)
+            else
             {
+                ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('Record not found!!','error" + "');", true);
 
             }
         }

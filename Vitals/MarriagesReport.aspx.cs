@@ -23,31 +23,39 @@ namespace Vitals
         public void load()
         {
             DataTable dt = GetSPResult();
-            try
+            if(dt.Rows.Count > 0)
             {
-                ReportViewer1.LocalReport.DataSources.Clear();
-                ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                ReportViewer1.Visible = true;
-                ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\mrg.rdlc");
-                // Assign report parameters.
-                Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[1];
+                try
+                {
+                    ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                    ReportViewer1.Visible = true;
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\mrg.rdlc");
+                    // Assign report parameters.
+                    Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[1];
 
-                if (Mrgyear.Text.ToString() != "")
-                    parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("M_Reg_Year", Mrgyear.Text.ToString());
-                else
-                    parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("M_Reg_Year", DateTime.Now.Year.ToString());
+                    if (Mrgyear.Text.ToString() != "")
+                        parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("M_Reg_Year", Mrgyear.Text.ToString());
+                    else
+                        parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("M_Reg_Year", DateTime.Now.Year.ToString());
 
-                ReportViewer1.LocalReport.SetParameters(parms);
+                    ReportViewer1.LocalReport.SetParameters(parms);
 
-                //ReportParameter year = new ReportParameter("M_Reg_Year", Mrgyear.Text);
-                //ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { year });
-                ReportDataSource rds = new ReportDataSource("Marriagesreports", dt);
-                ReportViewer1.LocalReport.DataSources.Add(rds);
-                ReportViewer1.LocalReport.Refresh();
+                    //ReportParameter year = new ReportParameter("M_Reg_Year", Mrgyear.Text);
+                    //ReportViewer1.LocalReport.SetParameters(new ReportParameter[] { year });
+                    ReportDataSource rds = new ReportDataSource("Marriagesreports", dt);
+                    ReportViewer1.LocalReport.DataSources.Add(rds);
+                    ReportViewer1.LocalReport.Refresh();
+                }
+                catch (Exception ex)
+                {
+
+                }
+
             }
-            catch (Exception ex)
+            else
             {
-
+                ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('Record not found!!','error" + "');", true);
             }
         }
        

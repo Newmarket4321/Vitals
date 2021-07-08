@@ -43,7 +43,7 @@ namespace Vitals
 
         protected void Unnamed_ServerClick(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Server Side Code is Executed')</script>");
+           // Response.Write("<script>alert('Server Side Code is Executed')</script>");
             SqlConnection con = new SqlConnection(Database.ConnectionString);
             try
             {

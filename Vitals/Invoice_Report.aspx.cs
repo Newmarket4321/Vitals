@@ -22,33 +22,42 @@ namespace Vitals
         public void load()
         {
             DataTable dt = GetSPResult();
-            try
-            {
-                ReportViewer1.LocalReport.DataSources.Clear();
-                ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                ReportViewer1.Visible = true;
-                ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\Invoice.rdlc");
-                // Assign report parameters.
-                Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[3];
+            if (dt.Rows.Count > 0)
+                {
+                try
+                {
+                    ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                    ReportViewer1.Visible = true;
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\Invoice.rdlc");
+                    // Assign report parameters.
+                    Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[3];
 
-                if (StartDate.Text.ToString() != "")
-                    parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("StartDate", StartDate.Text.ToString());
+                    if (StartDate.Text.ToString() != "")
+                        parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("StartDate", StartDate.Text.ToString());
                 
 
-                if (EndDate.Text.ToString() != "")
-                    parms[1] = new Microsoft.Reporting.WebForms.ReportParameter("EndDate", EndDate.Text.ToString());
+                    if (EndDate.Text.ToString() != "")
+                        parms[1] = new Microsoft.Reporting.WebForms.ReportParameter("EndDate", EndDate.Text.ToString());
 
-                if (SigninName.Text.ToString() != "")
-                    parms[2] = new Microsoft.Reporting.WebForms.ReportParameter("SigninName", SigninName.Text.ToString());
+                    if (SigninName.Text.ToString() != "")
+                        parms[2] = new Microsoft.Reporting.WebForms.ReportParameter("SigninName", SigninName.Text.ToString());
 
-                ReportViewer1.LocalReport.SetParameters(parms);
+                    ReportViewer1.LocalReport.SetParameters(parms);
 
-                ReportDataSource rds = new ReportDataSource("Invoice", dt);
-                ReportViewer1.LocalReport.DataSources.Add(rds);
-                ReportViewer1.LocalReport.Refresh();
+                    ReportDataSource rds = new ReportDataSource("Invoice", dt);
+                    ReportViewer1.LocalReport.DataSources.Add(rds);
+                    ReportViewer1.LocalReport.Refresh();
+                }
+                catch (Exception ex)
+                {
+
+                }
+
             }
-            catch (Exception ex)
+            else
             {
+                ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('Record not found!!','error" + "');", true);
 
             }
         }

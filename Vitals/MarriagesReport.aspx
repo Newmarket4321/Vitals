@@ -7,9 +7,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link href="Style/jquery-ui.css" rel="stylesheet" />
-    <script src="Scripts/jquery-3.5.1.js"></script>
+    <script src="Scripts/jquery-3.6.0.js"></script>
     <script src="Scripts/jquery-ui.js"></script>
     <script>
         window.onload = function () {
@@ -80,6 +80,7 @@
     <script>
 
         function showMyDialog(msg, alertype) {
+           
             $(function () {
                 toastr[alertype](msg, alertype,
                     {

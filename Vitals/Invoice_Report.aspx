@@ -74,14 +74,14 @@
                                 <div class="form-group row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <asp:Label ID="Label1" runat="server" Text="Please Enter Start Date MM-DD-YYYY"></asp:Label>
-                                            <asp:TextBox ID="StartDate" class="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="Label1" runat="server" Text="Please Enter Start Date YYYY-MM-DD"></asp:Label>
+                                            <asp:TextBox ID="StartDate" class="form-control" runat="server" TextMode="Date"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <asp:Label ID="Label2" runat="server" Text="Please Enter End Date MM-DD-YYYY"></asp:Label>
-                                            <asp:TextBox ID="EndDate" class="form-control" runat="server"></asp:TextBox>
+                                            <asp:Label ID="Label2" runat="server" Text="Please Enter End Date YYYY-MM-DD"></asp:Label>
+                                            <asp:TextBox ID="EndDate" class="form-control" runat="server" TextMode="Date"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>

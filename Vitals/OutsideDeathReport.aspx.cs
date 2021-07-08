@@ -23,36 +23,44 @@ namespace Vitals
         public void load()
         {
             DataTable dt = GetSPResult();
-            try
+            if (dt.Rows.Count > 0)
             {
-                ReportViewer1.LocalReport.DataSources.Clear();
-                ReportViewer1.ProcessingMode = ProcessingMode.Local;
-                ReportViewer1.Visible = true;
+                try
+                {
+                    ReportViewer1.LocalReport.DataSources.Clear();
+                    ReportViewer1.ProcessingMode = ProcessingMode.Local;
+                    ReportViewer1.Visible = true;
 
-                ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\OutsideDeath.rdlc");
-                // Assign report parameters.
-                Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[4];
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("~\\Reports\\OutsideDeath.rdlc");
+                    // Assign report parameters.
+                    Microsoft.Reporting.WebForms.ReportParameter[] parms = new Microsoft.Reporting.WebForms.ReportParameter[4];
 
-                if (Deathyear.Text.ToString() != "")
-                    parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("Death_Year", Deathyear.Text.ToString());
-                else
-                    parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("Death_Year", DateTime.Now.Year.ToString());
+                    if (Deathyear.Text.ToString() != "")
+                        parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("Death_Year", Deathyear.Text.ToString());
+                    else
+                        parms[0] = new Microsoft.Reporting.WebForms.ReportParameter("Death_Year", DateTime.Now.Year.ToString());
 
-                if (MonthFrom.Text.ToString() != "")
-                    parms[1] = new Microsoft.Reporting.WebForms.ReportParameter("Month_From", MonthFrom.Text.ToString());
-                if (MonthTo.Text.ToString() != "")
-                    parms[2] = new Microsoft.Reporting.WebForms.ReportParameter("Month_To", MonthTo.Text.ToString());
-                if (Type.Text.ToString() != "")
-                    parms[3] = new Microsoft.Reporting.WebForms.ReportParameter("Type", Type.Text.ToString());
-                ReportViewer1.LocalReport.SetParameters(parms);
+                    if (MonthFrom.Text.ToString() != "")
+                        parms[1] = new Microsoft.Reporting.WebForms.ReportParameter("Month_From", MonthFrom.Text.ToString());
+                    if (MonthTo.Text.ToString() != "")
+                        parms[2] = new Microsoft.Reporting.WebForms.ReportParameter("Month_To", MonthTo.Text.ToString());
+                    if (Type.Text.ToString() != "")
+                        parms[3] = new Microsoft.Reporting.WebForms.ReportParameter("Type", Type.Text.ToString());
+                    ReportViewer1.LocalReport.SetParameters(parms);
 
-                ReportDataSource rds = new ReportDataSource("Inside_Death", dt);
-                ReportViewer1.LocalReport.DataSources.Add(rds);
-                ReportViewer1.LocalReport.Refresh();
+                    ReportDataSource rds = new ReportDataSource("Inside_Death", dt);
+                    ReportViewer1.LocalReport.DataSources.Add(rds);
+                    ReportViewer1.LocalReport.Refresh();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(ex.ToString());
+                }
+
             }
-            catch (Exception ex)
+            else
             {
-                Response.Write(ex.ToString());
+                ClientScript.RegisterStartupScript(GetType(), "script", "showMyDialog('Record not found!!','error" + "');", true);
             }
 
         }
